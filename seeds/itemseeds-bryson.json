@@ -1,0 +1,120 @@
+[
+{
+
+    "name": "ASUS ROG Strix GeForce RTX 3090 24GB GDDR6X PCI Express 4.0 SLI Support Video Card ROG-STRIX-RTX3090-O24G-GAMING",
+    "description": "From top to bottom, the ROG Strix GeForce RTX™ 3090 has been radically improved to accommodate the impressive new Ampere chips from NVIDIA and to deliver the next wave of gaming performance innovation to the market. A fresh design and more metal surrounds a grouping of Axial-tech fans. Last gen's uniform fan layout has been usurped by a new rotation scheme and specialized roles for central and auxiliary fans. Below the blades, a larger, more impressive heatsink is ready for the most demanding thermal loads. The PCB has some new tricks up its sleeves, and even the backplate has received some performance-boosting changes. You've been waiting for the latest and greatest in GPU design - and this is it.",
+    "purchase_price": 1700,
+    "buy_price":1450,
+    "rental_price": 50,
+    "image": "/images/rtx3090.jpg"
+
+  },
+  {
+    "name": "GIGABYTE Eagle OC GeForce RTX 3070 8GB GDDR6 PCI Express 4.0 ATX Video Card GV-N3070EAGLE OC-8GD",
+    "description": "Get the ultimate gaming performance with GIGABYTE RTX 3070 Graphics Cards. Powered by NVIDIA's 2nd gen RTX architecture and refined with WINDFORCE cooling technology, the GIGABYTE GeForce RTX 3070 GAMING OC 8G brings stunning visuals, amazingly fast frame rates, and AI acceleration to games and creative applications with its enhanced RT Cores and Tensor Cores.",
+    "purchase_price": 700,
+    "buy_price":500,
+    "rental_price": 15,
+    "image": "/images/rtx3070.jpg"
+
+  },
+  {
+    "name": "HP OMEN - 30L Gaming Desktop - AMD Ryzen 5 5600G - 16GB Memory - NVIDIA® GeForce RTX™ 3060 - 1TB SSD - Shadow Black",
+    "description": "With great power comes this: The OMEN 30L Gaming Desktop PC lives for the thrill of the chase, never leaves a friend behind, and makes a mean midnight snack of action and adventure. Meet your new best friend, packing an AMD Ryzen™ processor and a NVIDIA® GeForce® RTX graphics card. Do how you do: OMEN Gaming Hub’s growing list of customization and optimization features gives you the power to dial-in your game and tailor-make your mark. With OMEN Light Studio, you can tailor make everything with your mark. Your game never looked so good: Sure, it's what's inside that counts, but it's what's outside that gets the looks. With tempered glass front and side panels, a full-metal frame, and complete RGB control, we made this PC for people who know that style points count on the final scoreboard of life.",
+    "purchase_price": 1400,
+    "buy_price":1000,
+    "rental_price": 35,
+    "image": "/images/hpoman.jpg"
+
+  },
+  {
+    "name": "HP OMEN - 30L Gaming Desktop - AMD Ryzen 5 5600G - 16GB Memory - NVIDIA® GeForce RTX™ 3060 - 1TB SSD - Shadow Black",
+    "description": "With great power comes this: The OMEN 30L Gaming Desktop PC lives for the thrill of the chase, never leaves a friend behind, and makes a mean midnight snack of action and adventure. Meet your new best friend, packing an AMD Ryzen™ processor and a NVIDIA® GeForce® RTX graphics card. Do how you do: OMEN Gaming Hub’s growing list of customization and optimization features gives you the power to dial-in your game and tailor-make your mark. With OMEN Light Studio, you can tailor make everything with your mark. Your game never looked so good: Sure, it's what's inside that counts, but it's what's outside that gets the looks. With tempered glass front and side panels, a full-metal frame, and complete RGB control, we made this PC for people who know that style points count on the final scoreboard of life.",
+    "purchase_price": 1400,
+    "buy_price":1200,
+    "rental_price": 35,
+    "image": "/images/hpoman.jpg"
+
+  },
+  {
+    "name": "Skytech Gaming - PRISM II Gaming Desktop PC - Intel Core i9-12900K - 32G Memory - NVIDIA GeForce RTX3090 - 1TB Gen4 NVMe SSD - White",
+    "description": "Play all the latest games on a 4K or ultra-wide monitor with extreme processing power and Nvidia's 2nd gen RTX architecture on Skytech Gaming PRISM II Gaming Desktop Computer. Featured with Intel 12th Gen Core i9-12900K 3.2GHz processor with 16-Cores and a max Boost speed of 5.9GHz along with the 32GB of 5600MHz DDR5 RGB RAM, the Skytech PRISM II will bring responsiveness and run your graphic-heavy PC games and video-editing applications smoothly, while the 1TB NVME Gen 4 SSD provides ample storage space. With 24GB dedicated of ultra-fast GDDR6X memory, the RTX 3090 graphic card offers the ultimate performance, most realistic ray-traced graphics for gamers and creators. The 360mm AIO liquid cooler lower your PC temperture in a more efficient and quiter way than air.",
+    "purchase_price": 4200,
+    "buy_price":3900,
+    "rental_price": 75,
+    "image": "/images/prismii.jpg"
+
+  },
+  {
+    "name": "Meta - Quest 2 Advanced All-In-One Virtual Reality Headset - 128GB",
+    "description": "Step inside new realities with Meta Quest 2, our most advanced VR system yet. Explore new dimensions of gaming, social and entertainment, or revolutionize your fitness regime. With no wires, no limits and no PC or console required, you'll be ready to go within minutes by setting up using the Meta Quest smartphone app, your Facebook account and a wireless internet connection. An incredible multi-sensory experience immerses you in cinematic, 3D positional audio through built-in speakers, while mind-blowing high resolution graphics mean you see every detail of every virtual world, even when you're moving at speed. An integrated 10,000mAh battery giving up to three hours' gameplay or ten hours of entertainment combined with a comfort-driven design lets you explore deeper and further for longer, every time you step into VR. Choose between 128BG and 256GB options to meet the realities of your budget and your VR memory needs. Intuitive Touch controllers transport your movements directly into VR. Explore over 1,000 titles by connecting your VR headset to a gaming-compatible computer with an Meta Quest Link cable (PC and cable sold separately). Share the experience with virtual social spaces, multi-player gaming and virtual stadiums. Let others watch your performance by casting your VR experience to compatible TVs and other screens. There's no end to what you can play, create and discover with Meta Quest 2. Meta Quest packaging will continue to carry the Oculus name and logo during the transition to our new branding.",
+    "purchase_price": 300,
+    "buy_price":175,
+    "rental_price": 10,
+    "image": "/images/quest2.jpg"
+
+  },
+  {
+    "name": "Sony - PlayStation 5 Console",
+    "description": "The PS5 console unleashes new gaming possibilities that you never anticipated. Experience lightning fast loading with an ultra-high speed SSD, deeper immersion with support for haptic feedback, adaptive triggers, and 3D Audio*, and an all-new generation of incredible PlayStation games. *3D audio via built-in TV speakers or analog/USB stereo headphones. Set up and latest system software update required.",
+    "purchase_price": 500,
+    "buy_price":400,
+    "rental_price": 15,
+    "image": "/images/ps5.jpg"
+
+  },
+  {
+    "name": "Microsoft - Xbox Series S 512 GB All-Digital Console (Disc-free Gaming) - White",
+    "description": "Go all-digital with Xbox Series S and enjoy next-gen performance in the smallest Xbox ever, at a great price. Make the most of every gaming minute with Quick Resume, lightning-fast load times, and gameplay of up to 120 FPS—all powered by Xbox Velocity Architecture. Enjoy digital games from four generations of Xbox, with hundreds of optimized titles that look and play better than ever. And when you add Xbox Game Pass Ultimate (membership sold separately or included when you choose Xbox All Access), you get online multiplayer to play with friends and an instant library of 100+ high-quality games, including day one releases from Xbox Game Studios like Halo Infinite, Forza Horizon 5, and Minecraft Dungeons.*",
+    "purchase_price": 300,
+    "buy_price":180,
+    "rental_price": 10,
+    "image": "/images/xboxx.jpg"
+
+  },
+  {
+    "name": "ASUS - ROG 13.4 Touchscreen Gaming Laptop - AMD Ryzen 9 - 16GB Memory - NVIDIA GeForce RTX 3050 Ti V4G Graphics - 1TB SSD - Off black",
+    "description": "ASUS ROG Gaming Laptop. Enjoy everyday gaming with this ASUS notebook PC. The AMD Ryzen 9 processor and 16GB of RAM let you run graphics-heavy games smoothly, while the potent NVIDIA RTX 3050 Ti V4G graphics produce high-quality visuals on the 13.4-inch WUXGA Touchscreen display. This ASUS notebook PC has 1TD SSD that shortens load times and offers ample storage.",
+    "purchase_price": 1200,
+    "buy_price":850,
+    "rental_price": 25,
+    "image": "/images/asusrog.jpg"
+
+  },
+  {
+    "name": "LG - 88 inch Class ZX Series OLED 8K UHD Smart webOS TV",
+    "description": "Impress guests during movies with this 88-inch LG Signature smart OLED TV. The self-lighting pixels produce intense color, infinite contrast and perfect black for quality viewing, while the  Gen 3 AI processor 8K and LG ThinQ AI technology let you give commands via connected- home devices easily. This LG Signature smart OLED TV features NVIDIA G-SYNC technology to reduce screen tearing during intense gaming sessions.",
+    "purchase_price": 30000,
+    "buy_price":25000,
+    "rental_price": 899,
+    "image": "/images/lgzx.jpg"
+
+  },
+  {
+    "name": "Whatsminer M30S++",
+    "description": "The WhatsMiner M30S++ by MicroBT is a SHA256 ASIC miner that was released in 2020. This mining machine has a maximum hashrate of 110 TH/s for a power consumption of 3410 watts, and is a popular choice for Bitcoin miners.",
+    "purchase_price": 7000,
+    "buy_price":6000,
+    "rental_price": 80,
+    "image": "/images/miner.jpg"
+
+  },
+  {
+    "name": "Whatsminer M31S",
+    "description": "The Whatsminer M31S by MicroBT is a SHA256 ASIC miner. This mining machine has a maximum hashrate of 74 TH/s for a power consumption of 3404 watts and is a popular choice for Bitcoin miners.",
+    "purchase_price": 3000,
+    "buy_price":2100,
+    "rental_price": 40,
+    "image": "/images/minersmall.jpg"
+
+  },
+  {
+    "name": "DJI Air 2S Drone Fly More Combo with Smart Controller",
+    "description": "Featuring a 1-inch CMOS sensor, powerful autonomous functions, and a compact body weighing less than 600 g, DJI Air 2S is the ultimate drone for aerial photographers on the move. Take this all-in-one aerial powerhouse along anywhere to experience and record your world in stunning detail.",
+    "purchase_price": 1500,
+    "buy_price":899,
+    "rental_price": 20,
+    "image": "/images/drone.jpg"
+
+  }
+]
