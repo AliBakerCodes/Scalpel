@@ -21,7 +21,7 @@ Item.init (
         },
         rating: {
             type: DataTypes.INTEGER,
-            allowNull: false,
+            allowNull: true,
         },
         purchase_price: {
             type: DataTypes.INTEGER,
@@ -37,7 +37,7 @@ Item.init (
         },
         thumbnail: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
         },
         image: {
             type: DataTypes.STRING,
