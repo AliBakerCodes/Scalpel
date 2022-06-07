@@ -189,7 +189,7 @@ div:hover {
   
 
   @media(max-width: 1615px){
-     #scimg{
+     #scalpel-img{
           height: 100px;
           width: 100px;
           
@@ -202,7 +202,7 @@ div:hover {
 
   @media (max-width: 800px) {
 
-    #cartdiv, .btn-circle.btn-xl, .loginbtn, .sidebar, .scalpalimg{
+    #cartdiv, .btn-circle.btn-xl, .loginbtn, .sidebar, #scalpel-img{
         display: none;
     }
     .mobile{
@@ -222,8 +222,8 @@ div:hover {
     .header-text{
         font-size: 30px;
     }
-    #scimg{
-        height:80px ;
-        width: 70px;
-    }
+    #scalpel-btn{
+      height:80px ;
+      width: 70px;
+  }
    }
