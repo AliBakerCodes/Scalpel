@@ -4,10 +4,10 @@
     "name": "ASUS ROG Strix GeForce RTX 3090 24GB GDDR6X PCI Express 4.0 SLI Support Video Card ROG-STRIX-RTX3090-O24G-GAMING",
     "description": "From top to bottom, the ROG Strix GeForce RTX™ 3090 has been radically improved to accommodate the impressive new Ampere chips from NVIDIA and to deliver the next wave of gaming performance innovation to the market. A fresh design and more metal surrounds a grouping of Axial-tech fans. Last gen's uniform fan layout has been usurped by a new rotation scheme and specialized roles for central and auxiliary fans. Below the blades, a larger, more impressive heatsink is ready for the most demanding thermal loads. The PCB has some new tricks up its sleeves, and even the backplate has received some performance-boosting changes. You've been waiting for the latest and greatest in GPU design - and this is it.",
     "purchase_price": 1700,
-    "buy_price":1450,
     "rental_price": 50,
-    "image": "rtx3090.jpg"
-
+    "buy_price":1450,
+    "image": "rtx3090.jpg",
+    "active": true
   },
   {
     "name": "GIGABYTE Eagle OC GeForce RTX 3070 8GB GDDR6 PCI Express 4.0 ATX Video Card GV-N3070EAGLE OC-8GD",
