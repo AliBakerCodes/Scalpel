@@ -4,9 +4,10 @@
     "name": "ASUS ROG Strix GeForce RTX 3090 24GB GDDR6X PCI Express 4.0 SLI Support Video Card ROG-STRIX-RTX3090-O24G-GAMING",
     "description": "From top to bottom, the ROG Strix GeForce RTX™ 3090 has been radically improved to accommodate the impressive new Ampere chips from NVIDIA and to deliver the next wave of gaming performance innovation to the market. A fresh design and more metal surrounds a grouping of Axial-tech fans. Last gen's uniform fan layout has been usurped by a new rotation scheme and specialized roles for central and auxiliary fans. Below the blades, a larger, more impressive heatsink is ready for the most demanding thermal loads. The PCB has some new tricks up its sleeves, and even the backplate has received some performance-boosting changes. You've been waiting for the latest and greatest in GPU design - and this is it.",
     "purchase_price": 1700,
-    "buy_price":1450,
     "rental_price": 50,
-    "image": "/images/rtx3090.jpg"
+    "buy_price":1450,
+    "image": "rtx3090.jpg",
+    "active": true
 
   },
   {
@@ -15,7 +16,7 @@
     "purchase_price": 700,
     "buy_price":500,
     "rental_price": 15,
-    "image": "/images/rtx3070.jpg"
+    "image": "rtx3070.jpg"
 
   },
   {
@@ -24,7 +25,7 @@
     "purchase_price": 1400,
     "buy_price":1000,
     "rental_price": 35,
-    "image": "/images/hpoman.jpg"
+    "image": "hpoman.jpg"
 
   },
   {
@@ -33,7 +34,7 @@
     "purchase_price": 1400,
     "buy_price":1200,
     "rental_price": 35,
-    "image": "/images/hpoman.jpg"
+    "image": "hpoman.jpg"
 
   },
   {
@@ -42,7 +43,7 @@
     "purchase_price": 4200,
     "buy_price":3900,
     "rental_price": 75,
-    "image": "/images/prismii.jpg"
+    "image": "prismii.jpg"
 
   },
   {
@@ -51,7 +52,7 @@
     "purchase_price": 300,
     "buy_price":175,
     "rental_price": 10,
-    "image": "/images/quest2.jpg"
+    "image": "quest2.jpg"
 
   },
   {
@@ -60,7 +61,7 @@
     "purchase_price": 500,
     "buy_price":400,
     "rental_price": 15,
-    "image": "/images/ps5.jpg"
+    "image": "ps5.jpg"
 
   },
   {
@@ -69,7 +70,7 @@
     "purchase_price": 300,
     "buy_price":180,
     "rental_price": 10,
-    "image": "/images/xboxx.jpg"
+    "image": "xboxx.jpg"
 
   },
   {
@@ -78,7 +79,7 @@
     "purchase_price": 1200,
     "buy_price":850,
     "rental_price": 25,
-    "image": "/images/asusrog.jpg"
+    "image": "asusrog.jpg"
 
   },
   {
@@ -87,7 +88,7 @@
     "purchase_price": 30000,
     "buy_price":25000,
     "rental_price": 899,
-    "image": "/images/lgzx.jpg"
+    "image": "lgzx.jpg"
 
   },
   {
@@ -96,7 +97,7 @@
     "purchase_price": 7000,
     "buy_price":6000,
     "rental_price": 80,
-    "image": "/images/miner.jpg"
+    "image": "miner.jpg"
 
   },
   {
@@ -105,7 +106,7 @@
     "purchase_price": 3000,
     "buy_price":2100,
     "rental_price": 40,
-    "image": "/images/minersmall.jpg"
+    "image": "minersmall.jpg"
 
   },
   {
@@ -114,7 +115,7 @@
     "purchase_price": 1500,
     "buy_price":899,
     "rental_price": 20,
-    "image": "/images/drone.jpg"
+    "image": "drone.jpg"
 
   }
 ]
