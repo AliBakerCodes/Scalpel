@@ -16,8 +16,8 @@
     "purchase_price": 700,
     "buy_price":500,
     "rental_price": 15,
-    "image": "rtx3070.jpg"
-
+    "image": "rtx3070.jpg",
+    "active": true
   },
   {
     "name": "HP OMEN - 30L Gaming Desktop - AMD Ryzen 5 5600G - 16GB Memory - NVIDIA® GeForce RTX™ 3060 - 1TB SSD - Shadow Black",
@@ -25,8 +25,8 @@
     "purchase_price": 1400,
     "buy_price":1000,
     "rental_price": 35,
-    "image": "hpoman.jpg"
-
+    "image": "hpoman.jpg",
+    "active": true
   },
   {
     "name": "HP OMEN - 30L Gaming Desktop - AMD Ryzen 5 5600G - 16GB Memory - NVIDIA® GeForce RTX™ 3060 - 1TB SSD - Shadow Black",
@@ -34,8 +34,8 @@
     "purchase_price": 1400,
     "buy_price":1200,
     "rental_price": 35,
-    "image": "hpoman.jpg"
-
+    "image": "hpoman.jpg",
+    "active": true
   },
   {
     "name": "Skytech Gaming - PRISM II Gaming Desktop PC - Intel Core i9-12900K - 32G Memory - NVIDIA GeForce RTX3090 - 1TB Gen4 NVMe SSD - White",
@@ -43,7 +43,8 @@
     "purchase_price": 4200,
     "buy_price":3900,
     "rental_price": 75,
-    "image": "prismii.jpg"
+    "image": "prismii.jpg",
+    "active": true
 
   },
   {
@@ -52,7 +53,8 @@
     "purchase_price": 300,
     "buy_price":175,
     "rental_price": 10,
-    "image": "quest2.jpg"
+    "image": "quest2.jpg",
+    "active": true
 
   },
   {
@@ -61,7 +63,8 @@
     "purchase_price": 500,
     "buy_price":400,
     "rental_price": 15,
-    "image": "ps5.jpg"
+    "image": "ps5.jpg",
+    "active": true
 
   },
   {
@@ -70,7 +73,8 @@
     "purchase_price": 300,
     "buy_price":180,
     "rental_price": 10,
-    "image": "xboxx.jpg"
+    "image": "xboxx.jpg",
+    "active": true
 
   },
   {
@@ -79,7 +83,8 @@
     "purchase_price": 1200,
     "buy_price":850,
     "rental_price": 25,
-    "image": "asusrog.jpg"
+    "image": "asusrog.jpg",
+    "active": true
 
   },
   {
@@ -88,7 +93,8 @@
     "purchase_price": 30000,
     "buy_price":25000,
     "rental_price": 899,
-    "image": "lgzx.jpg"
+    "image": "lgzx.jpg",
+    "active": true
 
   },
   {
@@ -97,7 +103,8 @@
     "purchase_price": 7000,
     "buy_price":6000,
     "rental_price": 80,
-    "image": "miner.jpg"
+    "image": "miner.jpg",
+    "active": true
 
   },
   {
@@ -106,7 +113,8 @@
     "purchase_price": 3000,
     "buy_price":2100,
     "rental_price": 40,
-    "image": "minersmall.jpg"
+    "image": "minersmall.jpg",
+    "active": true
 
   },
   {
@@ -115,7 +123,128 @@
     "purchase_price": 1500,
     "buy_price":899,
     "rental_price": 20,
-    "image": "drone.jpg"
+    "image": "drone.jpg",
+    "active": true
 
-  }
+  },
+  {
+    "name": "Canon - EOS Rebel T7 DSLR Video Two Lens Kit with EF-S 18-55mm and EF 75-300mm Lenses",
+    "description": "Take stunning pictures with vibrant colors using this EOS Rebel T7 camera. The built-in Wi-Fi makes printing and sharing pictures quick and easy, and the auto-focus system creates crisp images at a moment's notice. This EOS Rebel T7 camera takes Full HD video, allowing experiences to be captured with quality..",
+    "purchase_price": 600,
+    "buy_price":450,
+    "rental_price": 10,
+    "image": "dslr.jpg",
+    "active": true
+
+  },
+  {
+    "name": "Sonance - MAG Series 2.0-Ch. Outdoor Streaming Music System Powered By Sonos® - Paintable White",
+    "description": "Bring the party to your patio with this Sonance two-channel outdoor streaming music system powered by Sonos. Combining a 1 cloth dome tweeter with a 6.5 glass fiber cone woofer, the cabinet speaker delivers accurate audio across the range from deep bass to mid-level and treble with a frequency response between 65Hz - 30kHz. This Sonance outdoor streaming music system is powered by Sonos which allows you to stream your music library, radio stations and online music services using the Sonos app.",
+    "purchase_price": 1500,
+    "buy_price":1300,
+    "rental_price": 20,
+    "image": "sonance.jpg",
+    "active": true
+
+  },
+  {
+    "name": "GIGABYTE - NVIDIA GeForce RTX 3090 VISION 24G GDDR6 PCI Express 4.0 Graphics Card",
+    "description": "Get the ultimate gaming performance with GIGABYTE RTX 3090 VISION OC Graphics Cards. Powered by NVIDIA's 2nd gen RTX architecture and refined with GIGABYTE's WINDFORCE cooling technology, the GIGABYTE GeForce RTX 3090 VISION OC 24G brings stunning visuals, amazingly fast frame rates, and AI acceleration to games and creative applications with its enhanced RT Cores and Tensor Cores, and a staggering 24 GB of G6X memory.",
+    "purchase_price": 2200,
+    "buy_price":1800,
+    "rental_price": 24,
+    "image": "gig3090.jpg",
+    "active": true
+
+  },
+  {
+    "name": "XFX Speedster ZERO AMD Radeon RX 6900 XT EKWB RGB Waterblock Limited Edition RGB Gaming Graphics Card with 16GB GDDR6, AMD RDNA 2 - RX-69XTAWBD9",
+    "description": "Introducing the AMD Radeon™ RX 6000 Series graphics cards, featuring the breakthrough AMD RDNA™ 2 architecture, engineered to deliver powerhouse performance for all gamers. The AMD Radeon™ RX 6900 XT graphics cards power a new generation of competitive and 4K gaming with vivid visuals, and elevated experiences in every game and every frame.",
+    "purchase_price": 1200,
+    "buy_price":799,
+    "rental_price": 15,
+    "image": "amd.jpg",
+    "active": true
+
+  },
+  {
+    "name": "Kaleidescape Compact Terra movie server - 12TB - Black/Silver",
+    "description": "The Kaleidescape Compact Terra is a high-performance movie server that stores reference-quality movies on hard drives to be played back on Kaleidescape's Strato movie players. Compact Terra downloads movies 4x faster than the Strato S, and can download 4K movies in as little as 10 minutes. Movies are downloaded from Kaleidescape's movie store, featuring 12,000 movies, series, and concerts—including over 1,000 4K movies (400 of which are not available on 4K Blu-ray disc). Kaleidescape movies are downloaded in full resolution, not compressed during download or playback to the Strato movie players. Downloaded movies are protected by cloud backup. Compact Terra can support any number of Strato players in a house and streams up to five 4K movies at a time. Compact Terra comes in either 6TB, 12TB, or 18TB capacity, and multiple Terra servers can be combined for maximum storage. Terra incorporates enterprise-class computing to enhance player performance and ensure reliability of large systems. Kaleidescape's proprietary kOS operating system enables Terra to provide the advanced content protection required by Hollywood motion picture studios for their highest-fidelity movies.",
+    "purchase_price": 8000,
+    "buy_price":7000,
+    "rental_price": 30,
+    "image": "kale.jpg",
+    "active": true
+
+  },
+  {
+    "name": "AMD Radeon Pro W6800 100-506157 32GB 256-bit GDDR6 PCI Express 4.0 x16 Workstation Video Card",
+    "description": "Now equipped with the 7nm RDNA 2 architecture, the AMD Radeon Pro W6800 Graphics Card is engineered for 3D graphics rendering, video effects, and VR content production. The Radeon PRO W6800 also introduces real-time raytracing and the AMD Infinity Cache. Packing 3840 stream processors linked to 32GB of GDDR6 VRAM with 512 GB/s memory",
+    "purchase_price": 2200,
+    "buy_price":1900,
+    "rental_price": 15,
+    "image": "amdwork.jpg",
+    "active": true
+
+  },
+  {
+    "name": "Sony - NXCAM 4K Compact HDR Camcorder with 1 Exmor sensor - Black",
+    "description": "The HXR-NX80 introduces the next generation of NXCAM® palm-sized professional camcorder with XAVC S 4K, Fast Hybrid Auto Focus, Instant HDR workflow and Live Streaming via RTMP / RTMPS protocol with a large 1” (1.0-type) Exmor RS sensor.",
+    "purchase_price": 2300,
+    "buy_price":1900,
+    "rental_price": 17,
+    "image": "sonyrec.jpg",
+    "active": true
+
+  },
+  {
+    "name": "ASUS - NVIDIA GeForce RTX 3080 Ti TUF 12GB GDDR6 PCI Express 4.0 Graphics Card - Black",
+    "description": "From top to bottom, the TUF RTX 3080Ti has been designed to push performance boundaries. A fresh design and more metal surrounds a grouping of Axial-tech fans that leverage a new rotation scheme.",
+    "purchase_price": 1900,
+    "buy_price":1500,
+    "rental_price": 13,
+    "image": "3080.jpg",
+    "active": true
+
+  },
+  {
+    "name": "PNY - NVIDIA GeForce RTX 3080 Ti 12GB XLR8 Gaming REVEL EPIC-X RGB Triple Fan Graphics Card",
+    "description": "The GeForce RTX 3080 Ti delivers the ultra performance that gamers crave, powered by Ampere—NVIDIA's 2nd gen RTX architecture. It's built with enhanced RT Cores and Tensor Cores, new streaming multiprocessors, and superfast G6X memory for an amazing gaming experience.",
+    "purchase_price": 1200,
+    "buy_price":899,
+    "rental_price": 13,
+    "image": "pny3080.jpg",
+    "active": true
+
+  },
+  {
+    "name": "CyberPowerPC - Gamer Supreme Gaming Desktop - AMD Ryzen 9 5900X - 32GB Memory - NVIDIA GeForce RTX 3090 - 2TB SSD",
+    "description": "Dominate the leaderboards with this CyberPowerPC Gamer Supreme Liquid Cool gaming desktop. The AMD Ryzen 9 5900X processor and 32GB of RAM let you run several programs at once, and the 2TB SSD offers ample space for storing data. This CyberPowerPC Gamer Supreme Liquid Cool gaming desktop has an NVIDIA GeForce RTX 3090 graphics card that delivers smooth gameplay and photo-realistic graphics.",
+    "purchase_price": 4300,
+    "buy_price":3800,
+    "rental_price": 23,
+    "image": "cyberpower.jpg",
+    "active": true
+
+  },
+  {
+    "name": "Thermaltake - Avalanche i380 Gaming Desktop - Intel Core i9-12900KF - 32GB Memory - NVIDIA GeForce RTX 3080 - 1TB NVMe M.2",
+    "description": "Experience the rush of high speeds and cold air with the Avalanche i380 by LCGS. Utilizing a TT ARGB closed loop liquid cooler paired with TT ARGB fans the Avalanche i380 keeps the Intel Core i9-12900KF frosty for those extended play sessions. Experience the ultimate performance delivered by an NVIDIA GeForce RTX 3080 to push graphics and framerates to the limit. Leave SATA SSD performance behind with Seagate's FireCuda 530 blistering Gen4 M.2 NVMe speeds and 1TB of capacity.",
+    "purchase_price": 3200,
+    "buy_price":2800,
+    "rental_price": 18,
+    "image": "thermaltake.jpg",
+    "active": true
+
+  },
+  {
+    "name": "Razer - Blade 17 - 17.3 Gaming Laptop - UHD 144Hz - Intel Core i9 - NVIDIA GeForce RTX 3080 Ti - 32GB RAM - 1TB SSD - Black",
+    "description": "The new Razer Blade 17 is more powerful than ever, with the latest 12th Gen Intel® Core i9-12900H processor, NVIDIA® GeForce RTX 3080Ti graphics, and 32GB DDR5 (4800MHz) RAM powering the fast and fluid 4K UHD 144Hz display, while still compact in design to empower Pros on the go.",
+    "purchase_price": 4300,
+    "buy_price":3800,
+    "rental_price": 23,
+    "image": "razorblade.jpg",
+    "active": true
+
+  },
 ]
