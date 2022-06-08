@@ -1,0 +1,278 @@
+[
+  {
+    "name":"DJ Khaled x Jordan 3 Grateful",
+    "description": "This Air Jordan 3 Retro is known as the Grateful edition. Made in collaboration with DJ Khaled, they were made to commemorate the release of the Jordan Brand ambassador's Grateful album. They come in a university red, black and cement grey colorway. Sporting a red-based leather upper with white and black accents and elephant print detailing in its usual places.",
+    "purchase_price": 5000,
+    "rental_price":500,
+    "buy_price":6500,
+    "image":"01-Air-Jordan-Grafteful.png",
+    "is_rented":true,
+    "return_date":"06/07/2022",
+    "active": true
+  },
+  {
+    "name":"Jordan 1 Retro High University Blue",
+    "description": "Style: 308268-111, Color:Muslin",
+    "purchase_price": 60,
+    "rental_price":150,
+    "buy_price":11000,
+    "image":"02-Jordan-1-Retro-High.png",
+    "is_rented":true,
+    "return_date":"06/07/2022",
+    "active": true
+  },
+  {
+    "name":"Adidas Yeezy Boost 350 V2- Black Red",
+    "description": "The adidas Yeezy 350 V2 Black Red features familiar style cues that made the silhouette popular today. The upper consists of black Primeknit material for breathability. A black ribbed midsole encases an entire BOOST cushioning system for added comfort. Lastly, signature “SPLY-350” is knitted along the lateral side of each pair.",
+    "purchase_price": 220,
+    "rental_price":70,
+    "buy_price":600,
+    "image":"03-Adidas-Yeezy-Boost-350-V2.png",
+    "is_rented":true,
+    "return_date":"06/07/2022",
+    "active": true
+  },
+  {
+    "name":"Jordan 4 Retro Off-White",
+    "description": "Jordan Brand and Virgil Abloh teamed up once again to release the third silhouette in their collaborative history with the women's Jordan 4 Retro Off-White Sail (W), now available on StockX. After teasing the release of the Off-White 4 with samples in his MCA exhibit and presenting them in his Off-White FW2020 Women’s Show, Virgil Abloh finally delivered what might be the most anticipated release of 2020. The Air Jordan 4 Sail features full-grain leather uppers with hits of mesh and translucent materials on the toebox and heel of the shoe. From there, hits of light blue on the tongue’s Jumpman and the outsole’s Nike Swoosh provide contrast to the sail colored sneaker. These women's sneakers released in July of 2020 and retailed for $200 USD.",
+    "purchase_price": 200,
+    "rental_price":200,
+    "buy_price":1500,
+    "image":"04-Jordan-4-Retro-Off-White",
+    "is_rented":true,
+    "return_date":"06/07/2022",
+    "active": true
+  },
+  {
+    "name":"Nike Air Max 1 Travis Scott Catus Jack Saturn Gold",
+    "description": "In collaboration with Travis Scott's record label Cactus Jack, the Nike Air Max 1 Travis Scott Cactus Jack Saturn Gold pays homage to outdoor exploration and the Nike ACG Pocket Knife hiking shoe. It boasts a light yellow layered mesh upper with matching Durabuck overlays and reversed Swoosh logos. A drawstring Gillie lacing system nods to common features on trail runners. At the base, a yellowed sole with a cloudy Air unit adds the finishing touch.",
+    "purchase_price": 150,
+    "rental_price":150,
+    "buy_price":375,
+    "image":"05-Nike-Air-Max-1-Travis-Scott.png",
+    "is_rented":true,
+    "return_date":"06/07/2022",
+    "active": true
+  },
+  {
+    "name":"Adidas Yeezy Boost 350 Oxford Tan",
+    "description": "Style: AQ2661, Color: Light Stone/Oxford Tan",
+    "purchase_price": 200,
+    "rental_price":50,
+    "buy_price":1000,
+    "image":"06-Adidas-Yeezy-Boost-350-Oxford-Tan.png",
+    "is_rented":true,
+    "return_date":"06/07/2022",
+    "active": true
+  },
+  {
+    "name":"Louis Vuitton Dons-Kanye Patchwork",
+    "description": "Before the Yeezy, Kanye West was known as the Louis Vuitton Don. Not only was Kanye known to wear some of the brand’s most iconic pieces, but he also designed several shoes for the design house.",
+    "purchase_price": 960,
+    "rental_price":60,
+    "buy_price":6000,
+    "image":"07-Louis-Vuitton-Dons-Kanye.png",
+    "is_rented":true,
+    "return_date":"06/07/2022",
+    "active": true
+  },
+  {
+    "name":"Balenciaga x Adidas Triple S - White Black",
+    "description": "Balenciaga",
+    "purchase_price": 1000,
+    "rental_price":120,
+    "buy_price":1500,
+    "image":"08-Balenciaga-Adidas-Triple-S.png",
+    "is_rented":true,
+    "return_date":"06/07/2022",
+    "active": true
+  },
+  {
+    "name":"Jordan 1 Retro- Chicago",
+    "description": "The shoe that started it all. In 1984, Nike unveiled the Nike Air Jordan and captivated the world. The design merged sports and fashion worlds with its luxe appeal, and now is a street classic. In 2015, Jordan Brand reissued the Chicago colorway in its original form with the Jordan 1 Retro Chicago (2015).",
+    "purchase_price": 80,
+    "rental_price": 250,
+    "buy_price": 3500,
+    "image":"09-Jordan-1-Retro-Chicago.png",
+    "is_rented":true,
+    "return_date":"06/07/2022",
+    "active": true
+  },
+  {
+    "name":"Nike Air Yeezy-2 Pure Platinum",
+    "description": "The snakeskin texture on the side panels and prominent ridges on the molded rubber heel serve to elevate the design, but the Air Tech Challenge II midsole keeps the shoe grounded in the heritage of the Swoosh.",
+    "purchase_price": 250,
+    "rental_price":300,
+    "buy_price":7050,
+    "image":"10-Nike-Air-Yeezy-2-Pure-Platinum.png",
+    "is_rented":true,
+    "return_date":"06/07/2022",
+    "active": true
+  },
+  {
+    "name":"Nike Air Presto Off-White",
+    "description": "Nike and Virgil Abloh re-issue The Ten: Nike Air Presto x Off-White in striking monochrome.",
+    "purchase_price": 160,
+    "rental_price":240,
+    "buy_price":3000,
+    "image":"11-Nike-Air-Presto-Off-White.png",
+    "is_rented":true,
+    "return_date":"06/07/2022",
+    "active": true
+  },
+  {
+    "name":"Nike SB Dunk Low Travis Scott",
+    "description": "Travis Scott teamed up with Nike SB to release his first official skate shoe, the Nike SB Dunk Low Travis Scott (Regular Box), now available on StockX. This design follows a similar design aesthetic as seen on the Air Force 1 Low Travis Scott Cactus Jack, featuring an array of materials and prints. Unlike previous Travis Scott releases, these were not available on SNKRS and only available at select Nike SB stockists",
+    "purchase_price": 150,
+    "rental_price":180,
+    "buy_price":2000,
+    "image":"12-Nike-SB-Dunk-Low-Travis-Scott.png",
+    "is_rented":true,
+    "return_date":"06/07/2022",
+    "active": true
+  },
+  {
+    "name":"Nike Air Max 1- Paris Bespoke",
+    "description": "",
+    "purchase_price": 300,
+    "rental_price":190,
+    "buy_price":3900,
+    "image":"13-Nike-Air-Max-1-Paris-Bespoke.png",
+    "is_rented":true,
+    "return_date":"06/07/2022",
+    "active": true
+  },
+  {
+    "name":"Nike Kobe Aston Martin Pack",
+    "description": "The style’s upper is constructed with a mix of materials including gray suedes and a snakeskin-embossed leather, while accents include a pink Swoosh, lavender liner and a gum rubber outsole.",
+    "purchase_price": 300,
+    "rental_price":210,
+    "buy_price":2800,
+    "image":"14-Nike-Kobe-Aston-Martin-Pack.png",
+    "is_rented":true,
+    "return_date":"06/07/2022",
+    "active": true
+  },
+  {
+    "name":"Nike Air Yeezy 1 - Zen Grey",
+    "description": "",
+    "purchase_price": 250,
+    "rental_price":190,
+    "buy_price":3000,
+    "image":"15-Nike-Air-Yeezy-Zen-Grey.png",
+    "is_rented":true,
+    "return_date":"06/07/2022",
+    "active": true
+  },
+  {
+    "name":"Nike Dunk SB Low- Supreme Black Cement",
+    "description": "Although Supreme may be known today for their over-the-top and hyped collaborations, the SB Dunk collab with Nike SB was the first time the brand officially worked on a shoe and at the time, Nike SB Dunks were under the radar of most sneakerheads because they were made to skate in. The limited production of the Supreme x Nike Dunk SB Low Black Cement and the fact that many were worn and skated, keeps the Supreme Dunks out of the price range for many collectors.",
+    "purchase_price": 65,
+    "rental_price":500,
+    "buy_price":5600,
+    "image":"16-Nike-Dunk-SB-Low-Supreme-Black-Cement.png",
+    "is_rented":true,
+    "return_date":"06/07/2022",
+    "active": true 
+  },
+  {
+    "name":"Nike SB Blazer- Supreme White",
+    "description": "This Sail model features a quilted leather upper with a brown python snakeskin Swoosh, a gold Swoosh on the tongue, Sail laces with gold aglets, and a Gucci-inspired stripe on the heel. The hype for the shoe lead to campouts when released.",
+    "purchase_price": 180,
+    "rental_price":100,
+    "buy_price":2600,
+    "image":"17-Nike-SB-Blazer-Supreme-White.png",
+    "is_rented":true,
+    "return_date":"06/07/2022",
+    "active": true
+  },
+  {
+    "name":"Dior and Shawn- B27 Low",
+    "description": "",
+    "purchase_price": 1400,
+    "rental_price":200,
+    "buy_price":1300,
+    "image":"18-Dior-And-Shawn-B27-Low.png",
+    "is_rented":true,
+    "return_date":"06/07/2022",
+    "active": true
+  },
+  {
+    "name":"Adidas Forum Low- Bad Bunny",
+    "description": "",
+    "purchase_price": 160,
+    "rental_price":70,
+    "buy_price":850,
+    "image":"19-Adidas-Forum-Low-Bad-Bunny.png",
+    "is_rented":true,
+    "return_date":"06/07/2022",
+    "active": true
+  },
+  {
+    "name":"Louis Vuitton Sport- Supreme White Monograme",
+    "description": "",
+    "purchase_price": 900,
+    "rental_price":50,
+    "buy_price":1000,
+    "image":"20-Louis-Vuitton-Sport-Supreme-White-Monogram.png",
+    "is_rented":true,
+    "return_date":"06/07/2022",
+    "active": true
+  },
+  {
+    "name":"Balenciaga Triple S- Gucci Monogram",
+    "description": "",
+    "purchase_price": 1290,
+    "rental_price":300,
+    "buy_price":1500,
+    "image":"21-Balenciaga-Triple-S-Gucci-Monogram.png",
+    "is_rented":true,
+    "return_date":"06/07/2022",
+    "active": true 
+  },
+  {
+    "name":"Jordan 14 Retro OVO God's Plan",
+    "description": "",
+    "purchase_price": 5000,
+    "rental_price":400,
+    "buy_price":5000,
+    "image":"22-Jordan-14-Retro-OVO.png",
+    "is_rented":true,
+    "return_date":"06/07/2022",
+    "active": true
+  },
+  {
+    "name":"Jordan 1 Retro High- Trophy Room",
+    "description": "Jordan Brand and Orlando-based retailer Trophy Room linked up once again to create one of the most anticipated releases of 2021, the Jordan 1 High Trophy Room. The design pays homage to Michael Jordan’s first All-Star appearance at the 1985 NBA All-Star Game in Indianapolis, which coincided with the release of the Air Jordan 1.",
+    "purchase_price": 190,
+    "rental_price":250,
+    "buy_price":2500,
+    "image":"23-Jordan-1-Retro-High-Trphy-Room.png",
+    "is_rented":true,
+    "return_date":"06/07/2022",
+    "active": true
+  },
+  {
+    "name":"Jordan 1 Retro High- Hyper Crimson",
+    "description": "Get hype like never before with these new Jordan 1 Retro High Neutral Grey Hyper Crimson. This AJ1 comes with a black upper plus grey and red accents, grey Nike “Swoosh”, white midsole, and grey sole.",
+    "purchase_price": 160,
+    "rental_price":311,
+    "buy_price":340,
+    "image":"24-Jordan-1-Retro-High-Hyper-Crimson.png",
+    "is_rented":true,
+    "return_date":"06/07/2022",
+    "active": true
+  },
+  {
+    "name":"Adidas Yeezy Boost 350 V2- Bone",
+    "description": "The adidas Yeezy Boost 350 V2 Bone features a triple white Primeknit upper with mesh side stripes and canvas heel tabs. At the base, a semi-translucent sole with Boost technology completes the design.",
+    "purchase_price": 230,
+    "rental_price":50,
+    "buy_price":260,
+    "image":"25-Adidas-Yeezy-Boost-350-V2-Bone.png",
+    "is_rented":true,
+    "return_date":"06/07/2022",
+    "active": true
+  }
+  
+]
