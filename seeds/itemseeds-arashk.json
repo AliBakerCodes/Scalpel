@@ -2,201 +2,201 @@
 {
     "name": "DEWALT 20 in. 60-Volt Flexvolt Electric Cordless Chainsaw with 12 Ah Battery and Charger",
     "description": "20 inch cordless chainsaw with brushless motor for pro-grade power, Auto-oiling battery chainsaw for longetivity of use, Onboard wrench for quick chain adjustment",
-    "purchase_price": 479,
+    "purchase_price": 400,
     "rental_price": 35,
-    "buy_price": 400,
+    "buy_price": 479,
     "image": "/images/a001.png"
 },
 {
     "name": "8 In. 5 Speed Bench Drill Press",
     "description": "Bench mount drill press has 5 speeds and a built-in swivel lamp",
-    "purchase_price": 90,
+    "purchase_price": 75,
     "rental_price": 10,
-    "buy_price": 75,
+    "buy_price": 90,
     "image": "/images/a002.png"
 },
 {
     "name": "Eastwood Versa Cut 60 Amp Plasma Cutter",
     "description": "Carve custom body panels and more out of steel plates with this heavy-duty Eastwood plasma cutter. The Eastwood Versa-Cut 60 is our most powerful metal-cutting solution",
-    "purchase_price": 840,
+    "purchase_price": 750,
     "rental_price": 45,
-    "buy_price": 750,
+    "buy_price": 840,
     "image": "/images/a003.png"
 },
 {
     "name": "Milwaukee M12 12-Volt 23-Gauge Lithium-Ion Cordless Pin Nailer",
     "description": "Most compact cordless pin nailer, Consistent and clean pin nail holes, Power to sink pin nails in hardwoods",
-    "purchase_price": 199,
+    "purchase_price": 175,
     "rental_price": 20,
-    "buy_price": 175,
+    "buy_price": 199,
     "image": "/images/a004.png"
 },
 {
     "name": "Eastwood CONTOUR SCT - Surface Conditioning Tool",
     "description": "Its fully adjustable RPM and powerful 9 amp double-motor allows it to tackle even the most demanding materials and surfaces",
-    "purchase_price": 200,
+    "purchase_price": 185,
     "rental_price": 22,
-    "buy_price": 185,
+    "buy_price": 200,
     "image": "/images/a005.png"
 },
 {
     "name": "DeWalt DW735x 13'' 2-Speed Planer includes Knives, Table and Stand",
     "description": "Its fully adjustable RPM and powerful 9 amp double-motor allows it to tackle even the most demanding materials and surfaces",
-    "purchase_price": 898,
+    "purchase_price": 750,
     "rental_price": 55,
-    "buy_price": 750,
+    "buy_price": 898,
     "image": "/images/a006.png"
 },
 {
     "name": "ADMIRAL 12 In. Dual-Bevel Sliding Compound Miter Saw With LED & Laser Guide",
     "description": "Make precision cuts with the laser guide and LED work light on this 12 in. dual bevel sliding compound miter saw",
-    "purchase_price": 240,
+    "purchase_price": 200,
     "rental_price": 26,
-    "buy_price": 200,
+    "buy_price": 240,
     "image": "/images/a007.png"
 },
 {
     "name": "DEWALT  10-in Carbide-Tipped Blade 15-Amp Portable Table Saw",
     "description": "The DWE7491RS 10-in jobsite table saw 32-1/2-in rip capacity, and a rolling stand has a 15 Amp motor and 32-1/2-in rip capacity to allow cutting of large and hardwood materials",
-    "purchase_price": 649,
+    "purchase_price": 600,
     "rental_price": 48,
-    "buy_price": 600,
+    "buy_price": 649,
     "image": "/images/a008.png"
 },
 {
     "name": "DELTA  Contractor saws 10-in Carbide-tipped Blade 15-Amp Corded Table Saw",
     "description": "This 10-in contractor table saw provides the function and flexibility you need on the job. The 15 amp motor generates enough power to rip thick stock or challenging dado, while the cast-iron tabletop offers a sturdy and roomy workspace",
-    "purchase_price": 679,
+    "purchase_price": 600,
     "rental_price": 50,
-    "buy_price": 600,
+    "buy_price": 679,
     "image": "/images/a009.png"
 },
 {
     "name": "Metabo HPT  10-in Carbide-Tipped Blade 15-Amp Table Saw",
     "description": "The new 10 In. jobsite table with fold and roll stand features a 15 Amp motor with 4,500RPM’s to powerfully and easily rip through tough hardwoods",
-    "purchase_price": 449,
+    "purchase_price": 400,
     "rental_price": 40,
-    "buy_price": 400,
+    "buy_price": 449,
     "image": "/images/a010.png"
 },
 {
     "name": "Evolution EVOSAW380: Metal Cutting Chop Saw With 14 In. Mild Steel Blade",
     "description": "The incredible EVOSAW380 chop saw slices through mild steel with ease. No heat and virtually no sparks, producing a smooth, burr-free, instantly workable finish",
-    "purchase_price": 340,
+    "purchase_price": 300,
     "rental_price": 35,
-    "buy_price": 300,
+    "buy_price": 340,
     "image": "/images/a011.png"
 },
 {
     "name": "Evolution Universal Chop Saw Stand With Telescopic Arms And Folding Legs",
     "description": "Working with long, heavy steel tubes? Now you can take your chop saw anywhere with the sturdy and robust chop saw stand for versatile, portable cutting which can support up to 496 lb",
-    "purchase_price": 170,
+    "purchase_price": 130,
     "rental_price": 10,
-    "buy_price": 130,
+    "buy_price": 170,
     "image": "/images/a012.png"
 },
 {
     "name": "HERCULES 15 Amp 66 Lb. 1-1/8 In. Hex Breaker Hammer With Maximum Vibration Control",
     "description": "Tackle the toughest jobs with the HERCULES Force Hex Breaker Hammer - up to 58 Joules of striking power",
-    "purchase_price": 600,
+    "purchase_price": 560,
     "rental_price": 45,
-    "buy_price": 560,
+    "buy_price": 600,
     "image": "/images/a013.png"
 },
 {
     "name": "BAUER 12.5 Amp 23 Lb. SDS Max-Type Demolition Hammer",
     "description": "Power through masonry, concrete and mortar with this demolition hammer",
-    "purchase_price": 340,
+    "purchase_price": 300,
     "rental_price": 15,
-    "buy_price": 300,
+    "buy_price": 340,
     "image": "/images/a014.png"
 },
 {
     "name": "Jet IBG-8VS 8 in. Variable Speed Ind Grinder",
     "description": "The heavy-duty 1-horsepower 8 in. Variable Speed Industrial Bench Grinder is engineered with a full casted body",
-    "purchase_price": 695,
+    "purchase_price": 620,
     "rental_price": 40,
-    "buy_price": 620,
+    "buy_price": 695,
     "image": "/images/a015.png"
 },
 {
     "name": "Jet Variable Speed Combination 8 in. Industrial Grinder and 4 in. x 36 in. Belt Sander 1HP 115-Volt, IBGB-436VS",
     "description": "The Variable Speed IBGB-436VS Combination 8 in. Grinder and Belt Sander is engineered with industrial strength construction, sealed bearings and a powerful enclosed 1 horsepower motor meant for heavy usage",
-    "purchase_price": 1039,
+    "purchase_price": 900,
     "rental_price": 60,
-    "buy_price": 900,
+    "buy_price": 1039,
     "image": "/images/a016.png"
 },
 {
     "name": "Bosch 12 Amp 2-1/4 HP Variable Speed Plunge and Fixed Base Corded Router Kit with Bonus 15 Amp Corded Benchtop Router Table",
     "description": "The Bosch 1617EVSPK 2.25 HP Plunge and Fixed-Base Router Kit is a versatile kit for a broad range of applications, including precise bit plunging, edge forming, slot cutting, laminate trimming and dovetail cutting",
-    "purchase_price": 458,
+    "purchase_price": 400,
     "rental_price": 35,
-    "buy_price": 400,
+    "buy_price": 458,
     "image": "/images/a017.png"
 },
 {
     "name": "Husky 127 in. W x 24.5 in. D Professional Duty 20-Drawer Mobile Workbench Tool Storage Combo with 2-End Lockers and Top Locker",
     "description": "The Husky Professional Duty collection is designed to meet the demands of professional mechanics and enthusiasts and is backed by a Limited Lifetime Warranty",
-    "purchase_price": 8690,
+    "purchase_price": 8500,
     "rental_price": 250,
-    "buy_price": 8500,
+    "buy_price": 8690,
     "image": "/images/a018.png"
 },
 {
     "name": "Ingersoll Rand Type 30 Reciprocating 80 Gal. 7.5 HP Electric 230-Volt, Single Phase Air Compressor",
     "description": "Ingersoll Rand utilizes over 140 years of experience to bring you the best quality in compressed air. The Ingersoll Rand 80-Gal",
-    "purchase_price": 3180,
+    "purchase_price": 3000,
     "rental_price": 115,
-    "buy_price": 3000,
+    "buy_price": 3180,
     "image": "/images/a019.png"
 },
 {
     "name": "Campbell Hausfeld 2-Stage 60 Gal. Stationary Electric Air Compressor",
     "description": "The Campbell Hausfeld, 60 Gal. 2-stage, 3.7 HP electric air compressor (XC602100) features a cast iron, oil lubricated 2 stage pump for up to 5,000-hours of increased longevity and reduced noise",
-    "purchase_price": 1208,
+    "purchase_price": 1000,
     "rental_price": 60,
-    "buy_price": 1000,
+    "buy_price": 1208,
     "image": "/images/a020.png"
 },
 {
     "name": "Industrial Air 4 Gal. Portable Pontoon Air Compressor with 5 HP Honda Gas Engine",
     "description": "Industrial Air Contractor 4 Gal. compressor is a low maintenance oil free, direct drive operation powered by a 5 HP Honda OHC/OHV premium residential gas engine with overhead Cam/Overhead Valve (OHC/OHV) that provides easy starting, smoother engine performance, lower fuel consumption and lower emissions, air throttle cylinder and separate pilot and check valves",
-    "purchase_price": 1045,
+    "purchase_price": 950,
     "rental_price": 30,
-    "buy_price": 950,
+    "buy_price": 1045,
     "image": "/images/a021.png"
 },
 {
     "name": "Maxair Wheelbarrow Premium Industrial 10-Gal. 5.5 HP Gas Honda Air Compressor",
     "description": "The Maxair Premium Industrial 5.5 HP Gas (Honda) Electric Start, 10-Gal. Wheelbarrow Style has a High flow cast iron (V) style pump that generated 12.5 CFM at 100 PSI and max 170 PSI",
-    "purchase_price": 1810,
+    "purchase_price": 950,
     "rental_price": 60,
-    "buy_price": 950,
+    "buy_price": 1810,
     "image": "/images/a022.png"
 },
 {
     "name": "Campbell Hausfeld 10 Gal. 175 PSI Stationary Gas Engine Compressor and 5000-Watt Generator (2-in-1 Air Compressor/Generator Combo Unit)",
     "description": "The Campbell Hausfeld 2-in-1 air compressor/generator (GR2100) is ideal for jobsites and work trucks, delivering 14 CFM of airflow at 90 PSI to drive a wide variety of air tools, plus providing up to 5,000-Watt of AC power to operate 120-Volt and 240-Volt electrical tools, lights and more",
-    "purchase_price": 5563,
+    "purchase_price": 5000,
     "rental_price": 150,
-    "buy_price": 5000,
+    "buy_price": 5563,
     "image": "/images/a023.png"
 },
 {
     "name": "RIDGID 4.5 Gal. Portable Electric Quiet Air Compressor",
     "description": "RIDGID introduces the 4.5 Gal. Portable Electric Quiet Compressor. Coming in at 77 db, this unit is up to 75% quieter than leading competitor units, making it awesome for jobsites and keeping the crew working all day",
-    "purchase_price": 349,
+    "purchase_price": 300,
     "rental_price": 15,
-    "buy_price": 300,
+    "buy_price": 349,
     "image": "/images/a024.png"
 },
 {
     "name": "RIDGID 4.5 Gal. Portable Electric Quiet Air Compressor with 21-Degree 3-1/2 in. Round Head Framing Nailer",
     "description": "STRONGStart Technology allows this unit to reliably start in any power condition. This unit is also up to 61% more compact than leading competitor units allowing for easier transport and storage, without sacrificing any power, all while having a powerful 200 PSI",
-    "purchase_price": 532,
+    "purchase_price": 500,
     "rental_price": 25,
-    "buy_price": 500,
+    "buy_price": 532,
     "image": "/images/a025.png"
 }
 ]

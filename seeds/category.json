@@ -1,0 +1,26 @@
+[
+    {
+        "id":1,
+        "name": "Shoes",
+        "description": "The rarest Shoes for your Style",
+        "is_digital": false
+    },
+    {
+        "id":2,
+        "name": "Electronics",
+        "description": "Locate those hard to find consoles",
+        "is_digital": false
+    },
+    {
+        "id":3,
+        "name": "Tools",
+        "description": "Specialty tools for all your needs",
+        "is_digital": false
+    },
+    {
+        "id":4,
+        "name": "Digital",
+        "description": "Concert Tickets, rare digital items and more",
+        "is_digital": false
+    }
+]
