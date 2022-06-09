@@ -76,6 +76,14 @@ Rental.belongsTo(User, {
   onDelete: 'CASCADE'
 });
 
+Item.belongsTo(Category, {
+  foreignKey: "item_id"
+})
+
+Category.hasMany(Item), {
+  foreignKey: "item_id"
+}
+
 
 
 module.exports = { User, Category, Address, Item, OrderDetail, OrderHeader, Payment, Rental, Review};

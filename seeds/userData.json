@@ -1,22 +1,51 @@
 [
   {
-    "name": "Sal",
+    "first_name": "Sal",
+    "last_name": "Barker",
     "email": "sal@hotmail.com",
     "password": "password12345",
     "is_admin": true,
+    "phone":"6788231111",
+    "birth_date":"10/19/1970",
     "active": true
   },
   {
-    "name": "Lernantino",
+    "first_name": "Lernantino",
+    "last_name": "Barker",
     "email": "lernantino@gmail.com",
     "password": "password12345",
+    "phone":"6788231111",
+    "birth_date":"10/19/1970",
     "is_admin": false,
     "active": true
   },
   {
-    "name": "Amiko",
+    "first_name": "Amiko",
+    "last_name": "Yanagi",
     "email": "amiko2k20@aol.com",
     "password": "password12345",
+    "phone":"6788231111",
+    "birth_date":"9/19/1987",
+    "is_admin": false,
+    "active": true
+  },
+  {
+    "first_name": "Rico",
+    "last_name": "Suave",
+    "email": "ricoSuave0@gmail.com",
+    "password": "password12345",
+    "phone":"6788231111",
+    "birth_date":"12/19/1972",
+    "is_admin": false,
+    "active": true
+  },
+  {
+    "first_name": "Jon",
+    "last_name": "Sanchez",
+    "email": "jsanchez03@gmail.com",
+    "password": "password12345",
+    "phone":"6788231111",
+    "birth_date":"11/19/1971",
     "is_admin": false,
     "active": true
   }
