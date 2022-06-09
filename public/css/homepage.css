@@ -158,7 +158,13 @@ div:hover {
 .mobile{
   display: none;
 }
-
+.img-carousel{
+  height: 280px;
+  
+  }
+  .test{
+ border: solid 5px red;
+  }
 
 
 @media(max-width: 1615px){
@@ -201,6 +207,3 @@ div:hover {
   }
  }
 
-.img-carousel{
-height: 280px;
-}
