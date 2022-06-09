@@ -1,0 +1,204 @@
+
+  .col{
+    overflow-x: hidden;    
+  }
+  .head {
+   height: 20vh;
+   background-color:white ;
+   text-align: center;
+   align-items: center;
+   display: flex;
+   border: solid gray 2px;
+  
+  }
+  .header-text{
+  font-size:60px;
+  }
+  #scalpel-img, #scalpel-btn{
+    height: 10vh;
+    width: 5vw;
+    margin-left: 2vw;
+  }
+  .btn-circle.btn-xl {
+    width: 80px;
+    height: 80px;
+    padding: 13px 18px;
+    border-radius: 60px;
+    font-size: 15px;
+    text-align: center;
+    margin-right: 2vw;
+  }
+  .loginbtn{
+    height: 30%;
+    width: 80%;
+    margin-right: 2vw;
+    margin-top: 5%;
+  }
+  #titlenote{
+    display: block;
+    font-size: 20px;
+    font-weight: normal;
+  }
+  .sidebar{
+  border-left: solid gray 3px;
+  padding:10px ;
+  border-right: solid gray 3px;
+  border-bottom: solid gray 3px;
+  height: 100vh;
+  }
+  .nav-item{
+    margin: 10px;
+  }
+  .dropdown{
+  margin-left: .2vw;
+  }
+  .dropdown-toggle{
+  width: 14vw;
+  }
+  .dropdown-menu{
+    width: 14vw;
+  }
+  
+  
+  .abouthead{
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    justify-content: center;
+  }
+  
+  .aboutbody {
+    height: 35vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-image:   linear-gradient(to right, #C9C9C9 100%, #C9C9C9 100%),
+                        linear-gradient(to bottom, #C9C9C9 100%, #C9C9C9 100%),
+                        linear-gradient(to right, #C9C9C9 100%, #C9C9C9 100%),
+                        linear-gradient(to bottom, #C9C9C9 100%, #C9C9C9 100%);
+    background-size:    100% 3px,
+                        3px 100%,
+                        100% 3px,
+                        3px 100%;
+    background-position:    0 0,
+                            100% 0,
+                            100% 100%,
+                            0 100%;
+    animation: bg 1.25s cubic-bezier(0.19, 1, 0.22, 1) 1;
+    animation-play-state: paused;
+  }
+  
+  
+  #cartbtn{
+    margin-right: 15px;
+    outline: none;
+    border: none;
+    background-color: white;
+    color: gray;
+  }
+  
+  
+  .featured-items{
+  text-align: center;
+  font-size: 40px;
+  }
+  
+  
+  @media (max-width: 800px) {
+    .aboutbody {
+        height: 80vh;
+        width: 100%;
+        font-size: 15px;
+    }
+  }
+  
+  
+  /* border style */
+  
+  @keyframes bg {
+    0% {
+        background-size:    0 3px,
+                            3px 0,
+                            0 3px,
+                            3px 0;
+    }
+    25% {
+        background-size:    100% 3px,
+                            3px 0,
+                            0 3px,
+                            3px 0;
+    }
+    50% {
+        background-size:    100% 3px,
+                            3px 100%,
+                            0 3px,
+                            3px 0;
+    }
+    75% {
+        background-size:    100% 3px,
+                            3px 100%,
+                            100% 3px,
+                            3px 0;
+    }
+    100% {
+        background-size:    100% 3px,
+                            3px 100%,
+                            100% 3px,
+                            3px 100%;
+    }
+  }
+  
+  
+  
+  div:hover {
+    animation-play-state: running;
+  }
+  /* mobile views */
+  .mobile{
+    display: none;
+  }
+  
+  
+  
+  @media(max-width: 1615px){
+    #scalpel-img{
+          height: 100px;
+          width: 100px;
+          
+      }
+      .aboutbody{
+        text-align: center;
+        border: none;
+      }
+  }
+  
+  @media (max-width: 800px) {
+  
+    #cartdiv, .btn-circle.btn-xl, .loginbtn, .sidebar, .scalpal-img{
+        display: none;
+    }
+    .mobile{
+        display:flex;
+        margin-right: 15px;
+    }
+    .aboutbody{
+        text-align: center;
+        border: none;
+        margin: 5px;
+        width: 90%;
+        font-size: 20px;
+    }
+    .abouthead{
+      height: 0%;
+    }
+    .header-text{
+        font-size: 30px;
+    }
+    #scalpel-btn{
+        height:80px ;
+        width: 70px;
+    }
+   }
+  
+  .img-carousel{
+  height: 280px;
+  }
