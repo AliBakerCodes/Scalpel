@@ -67,6 +67,12 @@ width: 14vw;
   font-size: 40px;
   font-weight: bold;
   justify-content: center;
+  color: red;
+}
+.aboutinfo{
+  font-size: 30px;
+  
+  
 }
 
 .aboutbody {
@@ -87,6 +93,7 @@ width: 14vw;
                           0 100%;
   animation: bg 1.25s cubic-bezier(0.19, 1, 0.22, 1) 1;
   animation-play-state: paused;
+  
 }
 
 
