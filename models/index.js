@@ -86,11 +86,11 @@ Rental.belongsTo(User, {
 });
 
 Item.belongsTo(Category, {
-  foreignKey: "item_id"
+  foreignKey: "category_id"
 })
 
 Category.hasMany(Item), {
-  foreignKey: "item_id"
+  foreignKey: "category_id"
 }
 
 
