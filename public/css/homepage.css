@@ -44,6 +44,7 @@ font-size:60px;
 .sidebar{
 border-left: solid gray 3px;
 padding:10px ;
+margin-left: -5;
 border-right: solid gray 3px;
 border-bottom: solid gray 3px;
 height: 100vh;
