@@ -13,11 +13,11 @@ User.hasMany(Item, {
   onDelete: 'CASCADE'
 });
 
-User.hasMany(Address{
+User.hasMany(Address, {
   foreignKey: 'user_id'
 });
 
-Address.belongsTo(User {
+Address.belongsTo(User, {
   foreignKey: 'user_id'
 });
 
@@ -40,6 +40,15 @@ OrderHeader.belongsTo(User,{
   foreignKey: 'user_id',
   onDelete: 'CASCADE'
 });
+
+OrderHeader.hasOne(Payment, {
+  foreignKey: 'orderheader_id',
+  onDelete: 'CASCADE'
+});
+
+Payment.hasMany(OrderHeader, {
+  foreignKey: 'orderheader_id',
+})
 
 OrderHeader.hasMany(OrderDetail, {
   foreignKey: 'orderheader_id',
