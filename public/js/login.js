@@ -25,14 +25,22 @@ const loginFormHandler = async (event) => {
 const signupFormHandler = async (event) => {
   event.preventDefault();
 
-  const name = document.querySelector('#name-signup').value.trim();
+  const firstName = document.querySelector('#firstname-signup').value.trim();
+  const lastName = document.querySelector('#lastname-signup').value.trim();
   const email = document.querySelector('#email-signup').value.trim();
   const password = document.querySelector('#password-signup').value.trim();
+  const address1 = document.querySelector('#address1-signup').value.trim();
+  const address2 = document.querySelector('#address2-signup').value.trim();
+  const city = document.querySelector('#city-signup').value.trim();
+  const state = document.querySelector('#state-signup').value.trim();
+  const zip = document.querySelector('#zip-signup').value.trim();
+  const birthdate = document.querySelector('#birthdate-signup').value.trim();
 
-  if (name && email && password) {
+
+  if (firstName && lastName && email && password && address1 && address2 && city && state && zip && birthdate) {
     const response = await fetch('/api/users', {
       method: 'POST',
-      body: JSON.stringify({ name, email, password }),
+      body: JSON.stringify({ firstName, lastName, email, password, address1, address2, city, state, zip, birthdate }),
       headers: { 'Content-Type': 'application/json' },
     });
 
