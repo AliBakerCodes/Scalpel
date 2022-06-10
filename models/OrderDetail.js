@@ -12,7 +12,7 @@ OrderDetail.init (
           autoIncrement: true,
         },
         qty: {
-          type: DataTypes.Integer,
+          type: DataTypes.INTEGER,
           allowNull: false,
         },
         is_rental: {

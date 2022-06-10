@@ -21,6 +21,6 @@
         "id":4,
         "name": "Digital",
         "description": "Concert Tickets, rare digital items and more",
-        "is_digital": false
+        "is_digital": true
     }
 ]
