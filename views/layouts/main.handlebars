@@ -21,48 +21,43 @@
   </head>
 
 <body>
-
-    <nav class="head">
-  
-      <img id="scalpel-img" class="scalpal-img"src="./images/scalpal.jpg" />
-      <div class="dropdown mobile">
-        <button class="btn dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <img id="scalpel-btn"src="./images/scalpal.jpg"/>
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-          <button class="dropdown-item" type="button">Action</button>
-          <button class="dropdown-item" type="button">Another action</button>
-          <button class="dropdown-item" type="button">Something else here</button>
-        </div>
+  <div class="container">
+    <div class="row">
+      <div class="col col-lg-12 col-md-12 col-sm-12">
+        <nav class="head">
+          <img id="scalpel-img" class="scalpal-img"src="./images/scalpal.jpg" />
+          <div class="dropdown mobile">
+            <button class="btn dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <img id="scalpel-btn"src="./images/scalpal.jpg"/>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+              <button class="dropdown-item" type="button">Action</button>
+              <button class="dropdown-item" type="button">Another action</button>
+              <button class="dropdown-item" type="button">Something else here</button>
+            </div>
+          </div>
+          <div class="container-fluid">
+            <span class="navbar-brand mb-0 h1 header-text"
+              >scalpel<span id="titlenote"
+                >Rent or buy hard to find items</span
+              ></span
+            >
+          </div>
+          <div id="cartdiv">
+            <button type="button" id="cartbtn" class="fa-solid fa-cart-shopping fa-3x btn btn-secondary" ></button>
+          </div>
+          {{#if logged_in}}
+          <div>
+            <a href='/profile' id="profile-btn" class="btn btn-secondary btn-circle btn-xl">Profile</a>
+            <a href="/logout" id="logout-btn" class="btn btn-secondary loginbtn">Log out</a>
+          </div>
+          {{else}}
+            <div>
+            <a href="/login" id="login-btn" class="btn btn-secondary loginbtn">Log In</a>
+          </div>
+          {{/if}}
+        </nav>
       </div>
-      <div class="container-fluid">
-        <span class="navbar-brand mb-0 h1 header-text"
-          >scalpel<span id="titlenote"
-            >Rent or buy hard to find items</span
-          ></span
-        >
-      </div>
-      
-      
-
- <div id="cartdiv">
-      <button type="button" id="cartbtn" class="fa-solid fa-cart-shopping fa-3x btn btn-secondary" ></button>
-      </div>
-      {{#if logged_in}}
-      <div>
-        <button type="button" id="profile-btn"class="btn btn-secondary btn-circle btn-xl">
-          Profile
-        </button>
-  <button type="button" id="login-btn" class="btn btn-secondary loginbtn">Log In</button>
-      </div>
-        {{else}}
-         <div>
-        <a type="button" id="login-btn" href="/login" class="btn btn-secondary loginbtn">Log In</a>
-      </div>
-      {{/if}}
-    
-    </nav>
-
 
 
 
