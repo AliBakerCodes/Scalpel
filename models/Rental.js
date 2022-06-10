@@ -19,6 +19,10 @@ Rental.init (
             type: DataTypes.DATEONLY,
             allowNull: false,
           },
+        rented_to_user_id: {
+          type: DataTypes.INTEGER,
+          allowNull: true
+        }
     },
     {
         sequelize,

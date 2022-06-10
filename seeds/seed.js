@@ -11,10 +11,12 @@ const { User,
 
 const userData = require('./userData.json');
 const itemData1 = require('./itemData-daeun.json');
-const itemData2 = require('./itemData-bryson.json');
-const itemData3 = require('./itemData-arashk.json');
+const itemData2 = require('./itemseeds-bryson.json');
+const itemData3 = require('./itemseeds-arashk.json');
 const addresses = require('./address.json');
 const category = require('./category.json');
+const reviews = require('./review.json');
+const rentals = require('./rentals.json')
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
@@ -35,7 +37,7 @@ const seedDatabase = async () => {
       user_id: users[Math.floor(Math.random() * users.length)].id,
       category_id:1,
     });
-  }
+  };
 
   for (const item of itemData2) {
     await Item.create({
@@ -43,7 +45,7 @@ const seedDatabase = async () => {
       user_id: users[Math.floor(Math.random() * users.length)].id,
       category_id:2,
     });
-  }
+  };
 
   for (const item of itemData3) {
     await Item.create({
@@ -51,14 +53,41 @@ const seedDatabase = async () => {
       user_id: users[Math.floor(Math.random() * users.length)].id,
       category_id: 3
     });
-  }
+  };
 
   for (const address of addresses) {
     await Address.create({
       ...address,
       user_id: users[Math.floor(Math.random() * users.length)].id,
     });
-  }
+  };
+
+  const items = await Item.findAll();
+  const rentItems = await Item.findAll({
+      include: [
+        {
+          model: User,
+        }
+      ]
+    });
+
+    for (const rental of rentals) {
+      await Rental.create({
+        ...rental,
+        user_id: users[Math.floor(Math.random() * users.length)].id,
+        rented_to_user_id: users[Math.floor(Math.random() * users.length)].id,
+      });
+    };
+
+  for (const review of reviews) {
+    await Review.create({
+      ...review,
+      user_id: users[Math.floor(Math.random() * users.length)].id,
+      item_id: items[Math.floor(Math.random() * users.length)].id
+    });
+  };
+
+
 
   process.exit(0);
 };

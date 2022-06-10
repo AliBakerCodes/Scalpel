@@ -31,14 +31,15 @@ Payment.init (
         },
         card_name: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
         },
         type: {
             type: DataTypes.STRING,
             allowNull: true,
         },
     },
-    {   hooks: {
+    {   
+      hooks: {
         beforeCreate: async (newPaymentData) => {
           newPaymentData.card_name = await bcrypt.hash(newPaymentData.card_name, 10);
           return newPaymentData;
@@ -47,14 +48,15 @@ Payment.init (
           updatedPaymentData.card_name = await bcrypt.hash(updatedPaymentData.card_name, 10);
           return updatedPaymentData;
         },
-        
+        },
         sequelize,
         timestamps: true,
         freezeTableName: true,
         underscored: true,
         modelName: 'payment',
+        
     }
-}
+
 )
 
 module.exports = Payment;

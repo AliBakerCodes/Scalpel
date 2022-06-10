@@ -12,7 +12,7 @@ Review.init (
           autoIncrement: true,
         },
         body: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT('long'),
             allowNull: false,
         },
         rating: {

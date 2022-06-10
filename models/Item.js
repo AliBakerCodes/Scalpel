@@ -16,7 +16,7 @@ Item.init (
           allowNull: false,
         },
         description: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT('long'),
             allowNull: false,
         },
         rating: {
@@ -44,15 +44,15 @@ Item.init (
             allowNull: false,
         },
         is_rented: {
-            type: DataTypes.boolean,
-            allowNull: false,
+            type: DataTypes.BOOLEAN,
+            allowNull: true,
         },
         return_date: {
-            type: DataTypes.boolean,
+            type: DataTypes.DATEONLY,
             allowNull: true,
         },
         active: {
-            type: DataTypes.boolean,
+            type: DataTypes.BOOLEAN,
             allowNull: false,
         },
     },
