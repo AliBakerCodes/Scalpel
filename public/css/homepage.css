@@ -67,7 +67,6 @@ width: 14vw;
   font-size: 40px;
   font-weight: bold;
   justify-content: center;
-  color: red;
 }
 .aboutinfo{
   font-size: 30px;
@@ -169,8 +168,10 @@ div:hover {
   height: 280px;
   
   }
-  .test{
+  .item-border{
  border: solid 5px red;
+ color:black;
+ text-decoration: inherit
   }
 
 
