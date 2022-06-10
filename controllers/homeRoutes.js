@@ -26,12 +26,32 @@ router.get('/', async (req, res) => {
       ],
     });
 
+    const categoryData = await Category.findAll({
+      include: [
+        {
+          model: Item,
+          include: [{
+            model: User,
+            attributes: { exclude: ['password'] },
+          }]
+        },
+      ],
+    });
+    const categories = categoryData.map((category) => category.get({ plain: true }));
+
     // Serialize data so the template can read it
-    const items = itemData.map((items) => items.get({ plain: true }));
+    const tempItems = itemData.map((items) => items.get({ plain: true }));
+    // console.log(tempItems)
+    let items=[];
+    for (let i=0; i<8; i++){
+      
+      items[i] = tempItems[Math.floor(Math.random() * tempItems.length)];
+      console.log('Pushing')
+    };
     console.log('Items', items)
-    // Pass serialized data and session flag into template
     res.render('homepage', { 
-      items, 
+      items,
+      categories, 
       logged_in: req.session.logged_in 
     });
   } catch (err) {
