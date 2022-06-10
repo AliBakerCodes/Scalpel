@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Order History</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container-fluid my-5  d-flex  justify-content-center">
+        <div class="card card-1 w-75">
+            <div class="card-header bg-white">
+                <div class="media flex-sm-row flex-column-reverse justify-content-between  ">
+                    <div class="col my-auto"> <h3 class="mb-0">Order History</h3></div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row justify-content-between mb-3">
+                    <div class="col-auto"> <h6 class="color-1 mb-0 change-color">Receipt</h6> </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col">
+                        <div class="card card-2">
+                            <div class="card-body">
+                                <div class="media">
+                                    <div class="sq align-self-center "> <a id="historyItemPage" href="/profile"><img id="historyImg" class="img-fluid  my-auto align-self-center mr-2 mr-md-4 pl-0 p-0 m-0" src="/public/images/rtx3070.jpg" width="135" height="135" /></div></a>
+                                    <div class="media-body my-auto text-right">
+                                        <div class="row  my-auto flex-column flex-md-row">
+                                            <div id="historyItem" class="col my-auto"> <h6 class="mb-0">RTX 3070</h6>  </div>
+                                            <div class="col-auto my-auto"> <small>Purchase Type:</small></div>
+                                            <div id="historyPurchaseType" class="col my-auto"> <small>Rental</small></div>
+                                            <div id="historyQuantity" class="col my-auto"> <small>Qty : 1</small></div>
+                                            <div id="historyPrice" class="col my-auto"><h6 class="mb-0">$100</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr class="my-3 ">
+                                <div class="row">
+                                    <div class="col-md-3 mb-3"> <small>Order Details<span><i class=" ml-2 fa fa-refresh"  aria-hidden="true"></i></span></small></div>
+                                    <div  class="col-md-3 mb-3"> <small id="historyOrderedBy">Ordered By: John Smith<span><i class=" ml-2 fa fa-refresh"  aria-hidden="true"></i></span></small></div>
+                                    <div class="col-md-3 mb-3"> <small id="historyOrderedByAddress">Delivered To: 5521 Oak Wood Drive Woodstock GA<span><i class=" ml-2 fa fa-refresh"  aria-hidden="true"></i></span></small></div>
+                                    <div class="col-md-3 mb-3"> <small id="historyOrderPlaced">Order Placed: 10/12/2022<span><i class=" ml-2 fa fa-refresh"  aria-hidden="true"></i></span></small></div>
+                                    <button id="historyViewOrder" type="button" class="btn btn-primary">View Order</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col">
+                        <div class="card card-2">
+                            <div class="card-body">
+                                <div class="media">
+                                    <div class="sq align-self-center "> <a id="historyItemPage" href="/profile"><img id="historyImg" class="img-fluid  my-auto align-self-center mr-2 mr-md-4 pl-0 p-0 m-0" src="/public/images/rtx3070.jpg" width="135" height="135" /></div></a>
+                                    <div class="media-body my-auto text-right">
+                                        <div class="row  my-auto flex-column flex-md-row">
+                                            <div id="historyItem" class="col my-auto"> <h6 class="mb-0">RTX 3070</h6>  </div>
+                                            <div class="col-auto my-auto"> <small>Purchase Type:</small></div>
+                                            <div id="historyPurchaseType" class="col my-auto"> <small>Rental</small></div>
+                                            <div id="historyQuantity" class="col my-auto"> <small>Qty : 1</small></div>
+                                            <div id="historyPrice" class="col my-auto"><h6 class="mb-0">$100</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr class="my-3 ">
+                                <div class="row">
+                                    <div class="col-md-3 mb-3"> <small>Order Details<span><i class=" ml-2 fa fa-refresh"  aria-hidden="true"></i></span></small></div>
+                                    <div  class="col-md-3 mb-3"> <small id="historyOrderedBy">Ordered By: John Smith<span><i class=" ml-2 fa fa-refresh"  aria-hidden="true"></i></span></small></div>
+                                    <div class="col-md-3 mb-3"> <small id="historyOrderedByAddress">Delivered To: 5521 Oak Wood Drive Woodstock GA<span><i class=" ml-2 fa fa-refresh"  aria-hidden="true"></i></span></small></div>
+                                    <div class="col-md-3 mb-3"> <small id="historyOrderPlaced">Order Placed: 10/12/2022<span><i class=" ml-2 fa fa-refresh"  aria-hidden="true"></i></span></small></div>
+                                    <button id="historyViewOrder" type="button" class="btn btn-primary">View Order</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
