@@ -1,0 +1,98 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 pt-5 text-center">
+            <div>
+                <img src="/images/{{item.image}}" class="img-responsive" style="width:100%" alt="{{item.name}}">
+            </div>
+            <br>
+            <div>
+                <p>Rental Price : ${{item.rental_price}}</p>
+                <p>Rental Period: Per Day</p>
+                <p>Buy Price: ${{item.buy_price}}</p>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary">Rent Now</button>
+                <button type="submit" class="btn btn-primary">Buy Now</button>
+            </div>
+
+        </div>
+    
+       
+        <div class="col-md-8 align-self-center pt-5">
+            <div class="row justify-content-center ">
+                <h3 style="letter-spacing: 1px;">{{item.name}}</h3>
+                <p>rate: <span class="stars" data-rating="{{item.rating}}" data-num-stars="5" ></span></p>
+            </div>
+            <br>
+            <div class="jumbotron" style="background: transparent;">
+                <p>
+                {{item.description}}
+                </p>
+            </div>
+            
+        </div>
+    </div>
+</div>
+<br>
+<div class="container">
+    <h4>Reviews</h4>
+    <div class="row">
+        <div class="card col-md-3">
+            <div class="card-body">
+            <p>User name:</p>
+            <p>Rate: <span class="stars" data-rating="4.5" data-num-stars="5" ></span></p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+        </div>
+        <div class="card col-md-3">
+            <div class="card-body ">
+                <p>User name:</p>
+                <p>Rate:</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+        </div>
+        <div class="card col-md-3">
+            <div class="card-body ">
+                <p>User name:</p>
+                <p>Rate:</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+        </div>
+        <div class="card col-md-3">
+            <div class="card-body">
+                <p>User name:</p>
+                <p>Rate:</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+        </div>
+    </div>
+</div>
+
+<hr>
+<h4 class="row justify-content-center"> Related Items</h4>
+
+<br>
+
+<div class="row">
+    <div class="col-12 m-auto">
+        <div class="owl-carousel owl-theme">
+            {{#each items as |item|}}
+            <a class="link-style" href="/item/{{item.id}}">
+                <div class="item mb-4 item-border" >
+                    <div class="card border-0 shadow" style="height:370px">
+                        <img src="./images/{{item.image}}" alt="" class="card-img-top img-carousel item-image" width="369" height="200">
+                        <div class="card-body">
+                            <div class="card-title text-center">
+                                <h4 id="carouselitem-name" class="item-name">{{item.name}}</h4>
+                                <h5 id="carouselitem-price" class="item-price">{{item.rental_price}}/Per Day</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            {{/each}}
+        </div>
+    </div>
+</div>
+     
+<script src="./js/item-detail.js"></script>
