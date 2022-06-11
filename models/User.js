@@ -51,10 +51,12 @@ User.init(
     is_admin: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
+      defaultValue: false,
     },
     active: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
+      defaultValue: true,
     },
   },
   {
@@ -64,7 +66,10 @@ User.init(
         return newUserData;
       },
       beforeUpdate: async (updatedUserData) => {
-        updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
+        updatedUserData.password = await bcrypt.hash(
+          updatedUserData.password,
+          10
+        );
         return updatedUserData;
       },
     },
