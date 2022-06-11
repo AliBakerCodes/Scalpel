@@ -105,6 +105,20 @@ width: 14vw;
   color: gray;
 }
 
+.link-style{
+  text-decoration: none;
+}
+.item-name{
+  max-height: 25px;
+  overflow: hidden;
+}
+.item-price{
+  margin: 5px;
+  padding: 5px;
+}
+.item-image{
+
+}
 
 .featured-items{
 text-align: center;
