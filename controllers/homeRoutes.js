@@ -92,20 +92,21 @@ router.get('/item/:id', async (req, res) => {
     });
     
     const categories = categoryData.get({ plain: true });
-      console.log(categories)
-   
-    let categoryItems=[];
+      
+   const categoryItems=categories.items;
+
+    let categoryItem=[];
     for (let i=0; i<8; i++){
       
-      categoryItems[i] = categories[Math.floor(Math.random() * categories.length)];
+      categoryItem[i] = categoryItems[Math.floor(Math.random() * categoryItems.length)];
       console.log('Pushing')
     };
-
+    console.log('here',categoryItems);
     
 
     res.render('item-detail', { 
       item,
-      categoryItems,
+      categoryItem,
       logged_in: req.session.logged_in 
     });
   } catch (err) {
