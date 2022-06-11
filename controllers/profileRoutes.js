@@ -10,48 +10,31 @@ const { User,
   Review} = require('../models');
 const withAuth = require('../utils/auth');
 
-router.get('/', async (req, res) => {
+router.get('/payments', withAuth, async (req, res) => {
   try {
-    console.log('It got here')
-    // Get all projects and JOIN with user data
-    const itemData = await Item.findAll({
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
+      // include: [{ model: Project }],
+    });
+    
+    const paymentData = await Payment.findAll({
       include: [
         {
-          model: Category,
-        },
-        {
-          model: User,
-          attributes: { exclude: ['password'] },
-        },
+          model: Address,
+        }
       ],
-    });
-
-    const categoryData = await Category.findAll({
-      include: [
-        {
-          model: Item,
-          include: [{
-            model: User,
-            attributes: { exclude: ['password'] },
-          }]
-        },
-      ],
-    });
-    const categories = categoryData.map((category) => category.get({ plain: true }));
-
-    // Serialize data so the template can read it
-    const tempItems = itemData.map((items) => items.get({ plain: true }));
-    // console.log(tempItems)
-    let items=[];
-    for (let i=0; i<8; i++){
+      where:
+      {
+        user_id: req.session.user_id
+      }
       
-      items[i] = tempItems[Math.floor(Math.random() * tempItems.length)];
-      console.log('Pushing')
-    };
-    console.log('Items', items)
-    res.render('homepage', { 
-      items,
-      categories, 
+    });
+    console.log(paymentData)
+    const payments = paymentData.map((category) => category.get({ plain: true }));
+    console.log(payments);
+    res.render('profile', { 
+      ...payments,
+      profilePartial: 'payments-view',
       logged_in: req.session.logged_in 
     });
   } catch (err) {
