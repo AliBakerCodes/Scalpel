@@ -10,40 +10,40 @@ const Review = require('./Review');
 
 User.hasMany(Item, {
   foreignKey: 'user_id',
-  onDelete: 'CASCADE'
+  onDelete: 'CASCADE',
 });
 
 User.hasMany(Address, {
-  foreignKey: 'user_id'
+  foreignKey: 'user_id',
 });
 
 Address.belongsTo(User, {
-  foreignKey: 'user_id'
+  foreignKey: 'user_id',
 });
 
 Payment.hasOne(Address, {
-  foreignKey: 'adddress_id',
-  onDelete: 'CASCADE'
-})
+  foreignKey: 'address_id',
+  onDelete: 'CASCADE',
+});
 
 Item.belongsTo(User, {
   foreignKey: 'user_id',
-  onDelete: 'CASCADE'
+  onDelete: 'CASCADE',
 });
 
 Item.hasOne(User, {
   foreignKey: 'user_id',
-  onDelete: 'CASCADE'
+  onDelete: 'CASCADE',
 });
 
 User.hasMany(OrderHeader, {
   foreignKey: 'user_id',
-  onDelete: 'CASCADE'
+  onDelete: 'CASCADE',
 });
 
-OrderHeader.belongsTo(User,{
+OrderHeader.belongsTo(User, {
   foreignKey: 'user_id',
-  onDelete: 'CASCADE'
+  onDelete: 'CASCADE',
 });
 
 // OrderHeader.hasOne(Payment, {
@@ -53,51 +53,60 @@ OrderHeader.belongsTo(User,{
 
 Payment.hasMany(OrderHeader, {
   foreignKey: 'orderheader_id',
-})
+});
 
 OrderHeader.hasMany(OrderDetail, {
   foreignKey: 'id',
-  onDelete: 'CASCADE'
+  onDelete: 'CASCADE',
 });
 
 OrderDetail.belongsTo(OrderHeader, {
   foreignKey: 'orderheader_id',
-  onDelete: 'CASCADE'
+  onDelete: 'CASCADE',
 });
 
 User.hasMany(Payment, {
   foreignKey: 'user_id',
-  onDelete: 'CASCADE'
+  onDelete: 'CASCADE',
 });
 
 Payment.belongsTo(User, {
   foreignKey: 'user_id',
-  onDelete: 'CASCADE'
+  onDelete: 'CASCADE',
 });
 
-Item.hasMany(Review,{
+Item.hasMany(Review, {
   foreignKey: 'item_id',
-  onDelete: 'CASCADE'
+  onDelete: 'CASCADE',
 });
 
 User.hasMany(Rental, {
   foreignKey: 'user_id',
-  onDelete: 'CASCADE'
+  onDelete: 'CASCADE',
 });
 
 Rental.belongsTo(User, {
   foreignKey: 'user_id',
-  onDelete: 'CASCADE'
+  onDelete: 'CASCADE',
 });
 
 Item.belongsTo(Category, {
-  foreignKey: "category_id"
-})
+  foreignKey: 'category_id',
+});
 
-Category.hasMany(Item), {
-  foreignKey: "category_id"
-}
+Category.hasMany(Item),
+  {
+    foreignKey: 'category_id',
+  };
 
-
-
-module.exports = { User, Category, Address, Item, OrderDetail, OrderHeader, Payment, Rental, Review};
+module.exports = {
+  User,
+  Category,
+  Address,
+  Item,
+  OrderDetail,
+  OrderHeader,
+  Payment,
+  Rental,
+  Review,
+};
