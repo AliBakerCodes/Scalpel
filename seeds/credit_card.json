@@ -1,10 +1,592 @@
-[{"card_num":"201940397268826","exp_date":"2023-11","CVC":110,"type":"diners-club-enroute"},
-{"card_num":"6762441674260154","exp_date":"2023-04","CVC":340,"type":"maestro"},
-{"card_num":"3536393695382479","exp_date":"2023-04","CVC":924,"type":"jcb"},
-{"card_num":"5100141653666198","exp_date":"2023-06","CVC":454,"type":"mastercard"},
-{"card_num":"4405782482169741","exp_date":"2023-12","CVC":917,"type":"visa-electron"},
-{"card_num":"5038905332131190009","exp_date":"2023-12","CVC":360,"type":"maestro"},
-{"card_num":"201643402691327","exp_date":"2024-04","CVC":308,"type":"diners-club-enroute"},
-{"card_num":"630428260444472748","exp_date":"2023-11","CVC":267,"type":"maestro"},
-{"card_num":"5602253331210710100","exp_date":"2024-01","CVC":340,"type":"china-unionpay"},
-{"card_num":"5602216173569024","exp_date":"2023-10","CVC":305,"type":"bankcard"}]
+
+mockaroo
+4
+0
+0
+0
+0
+0
+My Schemas
+/
+credit_card
+
+credit_card
+Field Name
+Type
+Options
+card_num
+​
+visa
+​
+All Countries
+​
+blank:
+0
+%
+
+​
+exp_date
+​
+04/01/2023
+​
+to
+06/09/2024
+​
+format:
+%Y-%m
+​
+blank:
+0
+%
+
+​
+CVC
+​
+min:
+100
+​
+max:
+999
+​
+decimals:
+0
+​
+blank:
+0
+%
+
+​
+type
+​
+visa
+​
+us
+​
+blank:
+0
+%
+
+​
+# Rows:
+50
+​
+Format:
+json
+​
+array
+include null values
+Hint: Use "." in column names to generate nested json objects, brackets to generate arrays. More information...
+Append Dataset:
+choose a dataset...
+​
+Generate data using cURL with the following command:
+curl "https://api.mockaroo.com/api/65a2a510?count=10&key=5ae51d20" > "credit_card.json"
+Public URL:
+https://www.mockaroo.com/65a2a510
+© 2022 Mockaroo, LLC.   |  Terms of Use   |  EULA   |  Privacy
+Mockaroo - Random Data Generator and API Mocking Tool | JSON / CSV / SQL / Excel
+Preview
+[{
+  "card_num": "4017958065128011",
+  "exp_date": "2023-06",
+  "CVC": 879,
+  "type": "visa"
+}, {
+  "card_num": "4041372612136776",
+  "exp_date": "2023-12",
+  "CVC": 381,
+  "type": "visa"
+}, {
+  "card_num": "4041373639718182",
+  "exp_date": "2023-12",
+  "CVC": 219,
+  "type": "visa"
+}, {
+  "card_num": "4041373928704",
+  "exp_date": "2024-03",
+  "CVC": 971,
+  "type": "visa"
+}, {
+  "card_num": "4017953792918",
+  "exp_date": "2024-04",
+  "CVC": 955,
+  "type": "visa"
+}, {
+  "card_num": "4017954674723813",
+  "exp_date": "2023-07",
+  "CVC": 636,
+  "type": "visa"
+}, {
+  "card_num": "4017955209267",
+  "exp_date": "2023-12",
+  "CVC": 907,
+  "type": "visa"
+}, {
+  "card_num": "4041598485542910",
+  "exp_date": "2024-04",
+  "CVC": 412,
+  "type": "visa"
+}, {
+  "card_num": "4041593406549",
+  "exp_date": "2024-01",
+  "CVC": 768,
+  "type": "visa"
+}, {
+  "card_num": "4017951493964",
+  "exp_date": "2023-10",
+  "CVC": 509,
+  "type": "visa"
+}, {
+  "card_num": "4017952097392",
+  "exp_date": "2024-01",
+  "CVC": 376,
+  "type": "visa"
+}, {
+  "card_num": "4041593846628730",
+  "exp_date": "2023-11",
+  "CVC": 463,
+  "type": "visa"
+}, {
+  "card_num": "4017957589922",
+  "exp_date": "2024-02",
+  "CVC": 857,
+  "type": "visa"
+}, {
+  "card_num": "4017953055000569",
+  "exp_date": "2024-05",
+  "CVC": 362,
+  "type": "visa"
+}, {
+  "card_num": "4041374818893002",
+  "exp_date": "2023-08",
+  "CVC": 638,
+  "type": "visa"
+}, {
+  "card_num": "4041597476175",
+  "exp_date": "2023-10",
+  "CVC": 933,
+  "type": "visa"
+}, {
+  "card_num": "4041599102964354",
+  "exp_date": "2023-09",
+  "CVC": 682,
+  "type": "visa"
+}, {
+  "card_num": "4017955335851125",
+  "exp_date": "2024-05",
+  "CVC": 712,
+  "type": "visa"
+}, {
+  "card_num": "4041376241105",
+  "exp_date": "2023-11",
+  "CVC": 113,
+  "type": "visa"
+}, {
+  "card_num": "4041599164274",
+  "exp_date": "2024-05",
+  "CVC": 219,
+  "type": "visa"
+}, {
+  "card_num": "4041375479249301",
+  "exp_date": "2023-04",
+  "CVC": 396,
+  "type": "visa"
+}, {
+  "card_num": "4041591546528",
+  "exp_date": "2023-10",
+  "CVC": 181,
+  "type": "visa"
+}, {
+  "card_num": "4041590617889541",
+  "exp_date": "2023-06",
+  "CVC": 391,
+  "type": "visa"
+}, {
+  "card_num": "4041598672780",
+  "exp_date": "2024-05",
+  "CVC": 105,
+  "type": "visa"
+}, {
+  "card_num": "4041593012956238",
+  "exp_date": "2024-05",
+  "CVC": 966,
+  "type": "visa"
+}, {
+  "card_num": "4041373021762699",
+  "exp_date": "2023-10",
+  "CVC": 373,
+  "type": "visa"
+}, {
+  "card_num": "4041374781573",
+  "exp_date": "2023-12",
+  "CVC": 295,
+  "type": "visa"
+}, {
+  "card_num": "4017954221685",
+  "exp_date": "2023-04",
+  "CVC": 225,
+  "type": "visa"
+}, {
+  "card_num": "4211618437235803",
+  "exp_date": "2023-04",
+  "CVC": 729,
+  "type": "visa"
+}, {
+  "card_num": "4017951443495160",
+  "exp_date": "2023-05",
+  "CVC": 578,
+  "type": "visa"
+}, {
+  "card_num": "4017954027998781",
+  "exp_date": "2023-11",
+  "CVC": 344,
+  "type": "visa"
+}, {
+  "card_num": "4510102477910",
+  "exp_date": "2023-09",
+  "CVC": 309,
+  "type": "visa"
+}, {
+  "card_num": "4522307018654",
+  "exp_date": "2023-10",
+  "CVC": 664,
+  "type": "visa"
+}, {
+  "card_num": "4375202599198836",
+  "exp_date": "2023-08",
+  "CVC": 915,
+  "type": "visa"
+}, {
+  "card_num": "4232882761541823",
+  "exp_date": "2023-10",
+  "CVC": 481,
+  "type": "visa"
+}, {
+  "card_num": "4697993693912715",
+  "exp_date": "2023-08",
+  "CVC": 381,
+  "type": "visa"
+}, {
+  "card_num": "4041374211852",
+  "exp_date": "2024-02",
+  "CVC": 120,
+  "type": "visa"
+}, {
+  "card_num": "4017953679679772",
+  "exp_date": "2023-10",
+  "CVC": 365,
+  "type": "visa"
+}, {
+  "card_num": "4041373361948635",
+  "exp_date": "2023-06",
+  "CVC": 615,
+  "type": "visa"
+}, {
+  "card_num": "4041376925336189",
+  "exp_date": "2023-10",
+  "CVC": 177,
+  "type": "visa"
+}, {
+  "card_num": "4017958617116324",
+  "exp_date": "2024-04",
+  "CVC": 572,
+  "type": "visa"
+}, {
+  "card_num": "4017959939646",
+  "exp_date": "2024-02",
+  "CVC": 655,
+  "type": "visa"
+}, {
+  "card_num": "4017959409962",
+  "exp_date": "2024-05",
+  "CVC": 835,
+  "type": "visa"
+}, {
+  "card_num": "4017956948593302",
+  "exp_date": "2024-05",
+  "CVC": 773,
+  "type": "visa"
+}, {
+  "card_num": "4041590065850",
+  "exp_date": "2024-02",
+  "CVC": 963,
+  "type": "visa"
+}, {
+  "card_num": "4605901802636282",
+  "exp_date": "2023-04",
+  "CVC": 690,
+  "type": "visa"
+}, {
+  "card_num": "4041379879846096",
+  "exp_date": "2024-02",
+  "CVC": 971,
+  "type": "visa"
+}, {
+  "card_num": "4041373853243099",
+  "exp_date": "2023-11",
+  "CVC": 653,
+  "type": "visa"
+}, {
+  "card_num": "4041598238574",
+  "exp_date": "2023-04",
+  "CVC": 103,
+  "type": "visa"
+}, {
+  "card_num": "4041370071372668",
+  "exp_date": "2023-08",
+  "CVC": 417,
+  "type": "visa"
+},
+{
+  "card_num": "5100177381372501",
+  "exp_date": "2023-08",
+  "CVC": 964,
+  "type": "mastercard"
+}, {
+  "card_num": "5100911456516356",
+  "exp_date": "2024-01",
+  "CVC": 487,
+  "type": "mastercard"
+}, {
+  "card_num": "5108756141542503",
+  "exp_date": "2024-05",
+  "CVC": 998,
+  "type": "mastercard"
+}, {
+  "card_num": "5010123754142500",
+  "exp_date": "2023-05",
+  "CVC": 146,
+  "type": "mastercard"
+}, {
+  "card_num": "5100177934757091",
+  "exp_date": "2024-03",
+  "CVC": 706,
+  "type": "mastercard"
+}, {
+  "card_num": "5010128870846850",
+  "exp_date": "2024-03",
+  "CVC": 711,
+  "type": "mastercard"
+}, {
+  "card_num": "5563567495133304",
+  "exp_date": "2023-09",
+  "CVC": 923,
+  "type": "mastercard"
+}, {
+  "card_num": "5048371309016440",
+  "exp_date": "2023-10",
+  "CVC": 856,
+  "type": "mastercard"
+}, {
+  "card_num": "5100172998057785",
+  "exp_date": "2023-09",
+  "CVC": 103,
+  "type": "mastercard"
+}, {
+  "card_num": "5385058434203503",
+  "exp_date": "2023-11",
+  "CVC": 826,
+  "type": "mastercard"
+}, {
+  "card_num": "5100132264307397",
+  "exp_date": "2024-04",
+  "CVC": 228,
+  "type": "mastercard"
+}, {
+  "card_num": "5106889531576203",
+  "exp_date": "2023-08",
+  "CVC": 415,
+  "type": "mastercard"
+}, {
+  "card_num": "5100132244154315",
+  "exp_date": "2023-06",
+  "CVC": 760,
+  "type": "mastercard"
+}, {
+  "card_num": "5506743392827039",
+  "exp_date": "2023-04",
+  "CVC": 305,
+  "type": "mastercard"
+}, {
+  "card_num": "5172354573586643",
+  "exp_date": "2023-06",
+  "CVC": 703,
+  "type": "mastercard"
+}, {
+  "card_num": "5256812765565716",
+  "exp_date": "2023-12",
+  "CVC": 963,
+  "type": "mastercard"
+}, {
+  "card_num": "5100135470041106",
+  "exp_date": "2023-12",
+  "CVC": 426,
+  "type": "mastercard"
+}, {
+  "card_num": "5002358200644580",
+  "exp_date": "2024-04",
+  "CVC": 806,
+  "type": "mastercard"
+}, {
+  "card_num": "5108758793546360",
+  "exp_date": "2023-08",
+  "CVC": 502,
+  "type": "mastercard"
+}, {
+  "card_num": "5100170415222032",
+  "exp_date": "2023-07",
+  "CVC": 855,
+  "type": "mastercard"
+}, {
+  "card_num": "5102134315180524",
+  "exp_date": "2024-03",
+  "CVC": 895,
+  "type": "mastercard"
+}, {
+  "card_num": "5100175354686014",
+  "exp_date": "2024-01",
+  "CVC": 231,
+  "type": "mastercard"
+}, {
+  "card_num": "5100179625123310",
+  "exp_date": "2023-05",
+  "CVC": 282,
+  "type": "mastercard"
+}, {
+  "card_num": "5153187942809111",
+  "exp_date": "2023-08",
+  "CVC": 307,
+  "type": "mastercard"
+}, {
+  "card_num": "5449827926706668",
+  "exp_date": "2023-11",
+  "CVC": 225,
+  "type": "mastercard"
+}, {
+  "card_num": "5347348136979303",
+  "exp_date": "2023-06",
+  "CVC": 233,
+  "type": "mastercard"
+}, {
+  "card_num": "5100173717802535",
+  "exp_date": "2023-08",
+  "CVC": 746,
+  "type": "mastercard"
+}, {
+  "card_num": "5007665164376628",
+  "exp_date": "2023-07",
+  "CVC": 670,
+  "type": "mastercard"
+}, {
+  "card_num": "5589530444193118",
+  "exp_date": "2024-03",
+  "CVC": 730,
+  "type": "mastercard"
+}, {
+  "card_num": "5416762231689623",
+  "exp_date": "2023-09",
+  "CVC": 423,
+  "type": "mastercard"
+}, {
+  "card_num": "5100133545085182",
+  "exp_date": "2023-10",
+  "CVC": 407,
+  "type": "mastercard"
+}, {
+  "card_num": "5168892644630532",
+  "exp_date": "2023-05",
+  "CVC": 798,
+  "type": "mastercard"
+}, {
+  "card_num": "5010120394310042",
+  "exp_date": "2023-11",
+  "CVC": 691,
+  "type": "mastercard"
+}, {
+  "card_num": "5100172135179377",
+  "exp_date": "2023-08",
+  "CVC": 496,
+  "type": "mastercard"
+}, {
+  "card_num": "5561005383456182",
+  "exp_date": "2024-04",
+  "CVC": 419,
+  "type": "mastercard"
+}, {
+  "card_num": "5100177046475301",
+  "exp_date": "2023-06",
+  "CVC": 859,
+  "type": "mastercard"
+}, {
+  "card_num": "5100130127870403",
+  "exp_date": "2023-09",
+  "CVC": 252,
+  "type": "mastercard"
+}, {
+  "card_num": "5171534466216744",
+  "exp_date": "2023-09",
+  "CVC": 188,
+  "type": "mastercard"
+}, {
+  "card_num": "5100138340511589",
+  "exp_date": "2023-09",
+  "CVC": 550,
+  "type": "mastercard"
+}, {
+  "card_num": "5351713102069053",
+  "exp_date": "2023-12",
+  "CVC": 955,
+  "type": "mastercard"
+}, {
+  "card_num": "5587267982081270",
+  "exp_date": "2023-09",
+  "CVC": 238,
+  "type": "mastercard"
+}, {
+  "card_num": "5048377150107774",
+  "exp_date": "2023-09",
+  "CVC": 545,
+  "type": "mastercard"
+}, {
+  "card_num": "5108758631858159",
+  "exp_date": "2023-12",
+  "CVC": 128,
+  "type": "mastercard"
+}, {
+  "card_num": "5100136903005098",
+  "exp_date": "2023-06",
+  "CVC": 223,
+  "type": "mastercard"
+}, {
+  "card_num": "5010123720128609",
+  "exp_date": "2023-06",
+  "CVC": 391,
+  "type": "mastercard"
+}, {
+  "card_num": "5379406395793392",
+  "exp_date": "2023-04",
+  "CVC": 396,
+  "type": "mastercard"
+}, {
+  "card_num": "5100179714142528",
+  "exp_date": "2024-03",
+  "CVC": 641,
+  "type": "mastercard"
+}, {
+  "card_num": "5495528329186440",
+  "exp_date": "2023-07",
+  "CVC": 990,
+  "type": "mastercard"
+}, {
+  "card_num": "5007662175833838",
+  "exp_date": "2024-05",
+  "CVC": 326,
+  "type": "mastercard"
+}, {
+  "card_num": "5218552675185075",
+  "exp_date": "2023-08",
+  "CVC": 305,
+  "type": "mastercard"
+}]
+
+​

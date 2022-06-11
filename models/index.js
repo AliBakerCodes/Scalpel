@@ -42,7 +42,7 @@ OrderHeader.belongsTo(User,{
 });
 
 OrderHeader.hasOne(Payment, {
-  foreignKey: 'orderheader_id',
+  foreignKey: 'payment_id',
   onDelete: 'CASCADE'
 });
 
@@ -51,7 +51,7 @@ Payment.hasMany(OrderHeader, {
 })
 
 OrderHeader.hasMany(OrderDetail, {
-  foreignKey: 'orderheader_id',
+  foreignKey: 'id',
   onDelete: 'CASCADE'
 });
 

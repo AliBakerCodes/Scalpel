@@ -1,0 +1,131 @@
+<section style="background-color: #eee">
+      <div class="container py-5 col-9 col-lg-9 col-md-9 col-sm-12">
+        <div class="row d-flex justify-content-center">
+          <div class="col-md-12 col-lg-10 col-xl-8">
+            <div class="card">
+              <div class="card-body p-md-5">
+                <div>
+                  <h4>Payment Methods</h4>
+                  <p class="text-muted pb-2">
+                    Please add your payment method to start enjoying all the
+                    features Scalpel has to offer!
+                  </p>
+                </div>
+                <h4 class="mt-5">Payment details</h4>
+                <div
+                  class="mt-4 d-flex justify-content-between align-items-center"
+                >
+                {{#each cards as |card|}}
+                  <div class="d-flex flex-row align-items-center">
+                    <img
+                      src="./images/cardimage.png"
+                      class="rounded"
+                      width="70"
+                    />
+                    <div class="d-flex flex-column ms-3">
+                      <span id="cardName" class="h5 mb-1">card.name</span>
+                      <span id="cardNumber" class="small text-muted"
+                        >XXX XXXX XXXX {{card.last4}}</span
+                      >
+                    </div>
+                  </div>
+                  <button id="deleteCard" type="button" class="btn btn-danger">
+                    delete
+                  </button>
+                </div>
+                {{/each}}
+                <h6 class="mt-4 mb-3 text-primary text-uppercase">
+                  ADD PAYMENT METHOD
+                </h6>
+                <div class="card">
+                  <div class="card-header p-0">
+                    <h2 class="mb-0">
+                      <div
+                        class="btn-light btn-block text-left p-3 rounded-0"
+                        data-target="#collapseOne"
+                        aria-expanded="true"
+                        aria-controls="collapseOne"
+                      >
+                        <div
+                          class="d-flex align-items-center justify-content-between"
+                        >
+                          <span>Credit card</span>
+                          <div class="icons">
+                            <img
+                              src="./images/mastercard.png"
+                              width="30"
+                            />
+                            <img src="./images/visa.png" width="30" />
+                            <img src="./images/stripe.png" width="30" />
+                          </div>
+                        </div>
+                      </div>
+                    </h2>
+                  </div>
+                  <div>
+                    <div class="card-body payment-card-body">
+                      <span class="font-weight-normal card-text"
+                        >Card Number</span
+                      >
+                      <div class="input">
+                        <i class="fa fa-credit-card"></i>
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="0000 0000 0000 0000"
+                          id="newCardNumber"
+                        />
+                      </div>
+                      <div class="row mt-3 mb-3">
+                        <div class="col-md-6">
+                          <span class="font-weight-normal card-text"
+                            >Expiry Date</span
+                          >
+                          <div class="input">
+                            <i class="fa fa-calendar"></i>
+                            <input
+                              type="text"
+                              class="form-control"
+                              placeholder="MM/YY"
+                              id="newCardExpiry"
+                            />
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <span class="font-weight-normal card-text"
+                            >CVC/CVV</span
+                          >
+                          <div class="input">
+                            <i class="fa fa-lock"></i>
+                            <input
+                              type="text"
+                              class="form-control"
+                              placeholder="000"
+                              id="newCardCVC"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <span class="text-muted certificate-text"
+                        ><i class="fa fa-lock"></i> Your transaction is secured
+                        with ssl certificate</span
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div class="mt-3">
+                  <button
+                    id="addPaymentMethod"
+                    class="btn btn-primary btn-block btn-lg"
+                  >
+                    Add Payment Method
+                    <i class="fas fa-long-arrow-alt-right"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="/js/paymenets.js"></script>
