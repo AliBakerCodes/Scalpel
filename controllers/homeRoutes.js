@@ -25,7 +25,7 @@ router.get('/', async (req, res) => {
         },
       ],
     });
-
+   
     const categoryData = await Category.findAll({
       include: [
         {
@@ -59,27 +59,61 @@ router.get('/', async (req, res) => {
   }
 });
 
+
+
+//get a single item
 router.get('/item/:id', async (req, res) => {
   try {
-    const projectData = await Project.findByPk(req.params.id, {
+    const itemData = await Item.findByPk(req.params.id, {
       include: [
         {
-          model: User,
-          attributes: ['name'],
+          model: Category
         },
-      ],
+        {
+          model: User,
+          attributes: { exclude: ['password'] },
+        },
+        {
+          model: Review
+        }
+      ]
     });
+    
+    // Serialize data so the template can read it
+    const item = itemData.get({ plain: true });
 
-    const project = projectData.get({ plain: true });
-
-    res.render('project', {
-      ...project,
-      logged_in: req.session.logged_in
+    res.render('item-detail', { 
+      item,
+      logged_in: req.session.logged_in 
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
+// //get a single category
+// router.get('/category/:id', async (req, res) => {
+//   try {
+//     const categoryData = await Category.findByPk(req.params.id,{
+//       include: [
+//         {
+//           model: Item,
+         
+//         }
+      
+//       ],
+//     });
+//     const categories =  categoryData.get({ plain: true });
+
+
+//     console.log('category', categories)
+//     res.render('category', {
+//       categories,
+//       logged_in: req.session.logged_in 
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 // Use withAuth middleware to prevent access to route
 router.get('/profile', withAuth, async (req, res) => {
