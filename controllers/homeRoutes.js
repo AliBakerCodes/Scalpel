@@ -125,9 +125,10 @@ router.get('/profile', withAuth, async (req, res) => {
     });
 
     const user = userData.get({ plain: true });
-
+    const url=req.path
     res.render('profile', {
       ...user,
+      profilePartial: 'none',
       logged_in: true
     });
   } catch (err) {
