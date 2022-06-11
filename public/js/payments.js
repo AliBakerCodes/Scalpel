@@ -1,39 +1,39 @@
 const newFormHandler = async (event) => {
   event.preventDefault();
 
-  const name = document.querySelector('#project-name').value.trim();
-  const needed_funding = document.querySelector('#project-funding').value.trim();
-  const description = document.querySelector('#project-desc').value.trim();
+  const card_num = document.querySelector('#newCardNumber').value.trim();
+  const exp_date = document.querySelector('newCardExpiry').value.trim();
+  const cvc = document.querySelector('#newCardCVC').value.trim();
 
-  if (name && needed_funding && description) {
+  if (card_num && exp_date && C_V_C) {
     const response = await fetch(`/api/projects`, {
       method: 'POST',
-      body: JSON.stringify({ name, needed_funding, description }),
+      body: JSON.stringify({ card_num, exp_date, C_V_C }),
       headers: {
         'Content-Type': 'application/json',
       },
     });
 
     if (response.ok) {
-      document.location.replace('/profile');
+      document.location.replace('/profile/payments');
     } else {
-      alert('Failed to create project');
+      alert('Failed to create payment');
     }
   }
 };
 
 const delButtonHandler = async (event) => {
-  if (event.target.hasAttribute('data-id')) {
-    const id = event.target.getAttribute('data-id');
+  if (event.target.hasAttribute('data-payment-id')) {
+    const id = event.target.getAttribute('data-payment-id');
 
-    const response = await fetch(`/api/projects/${id}`, {
+    const response = await fetch(`/api/payment/${id}`, {
       method: 'DELETE',
     });
 
     if (response.ok) {
       document.location.replace('/profile');
     } else {
-      alert('Failed to delete project');
+      alert('Failed to delete payment');
     }
   }
 };

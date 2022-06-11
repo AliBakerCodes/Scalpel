@@ -42,6 +42,19 @@ router.get('/payments', withAuth, async (req, res) => {
   }
 });
 
+router.post('/payments', withAuth, async (req, res) => {
+  try {
+    const newPayment = await Payment.create({
+      ...req.body,
+      user_id: req.session.user_id,
+    });
+
+    res.status(200).json(newPayment);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
 router.get('/item/:id', async (req, res) => {
   try {
     const projectData = await Project.findByPk(req.params.id, {
