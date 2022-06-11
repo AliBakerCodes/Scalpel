@@ -16,7 +16,7 @@ router.get('/payments', withAuth, async (req, res) => {
       attributes: { exclude: ['password'] },
       // include: [{ model: Project }],
     });
-    
+
     const paymentData = await Payment.findAll({
       include: [
         {
@@ -30,10 +30,10 @@ router.get('/payments', withAuth, async (req, res) => {
       
     });
     console.log(paymentData)
-    const payments = paymentData.map((category) => category.get({ plain: true }));
+    const payments = paymentData.map((payment) => payment.get({ plain: true }));
     console.log(payments);
     res.render('profile', { 
-      ...payments,
+      payments,
       profilePartial: 'payments-view',
       logged_in: req.session.logged_in 
     });

@@ -14,9 +14,9 @@ Payment.init (
         card_num: {
           type: DataTypes.STRING,
           allowNull: false,
-          validate: {
-            isCreditCard: true,
-          }
+          // validate: {
+          //   isCreditCard: true,
+          // }
         },
         last4: {
           type: DataTypes.STRING,

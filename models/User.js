@@ -51,10 +51,12 @@ User.init(
     is_admin: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
+      defaultValue: true
     },
     active: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
+      defaultValue: true
     },
   },
   {
