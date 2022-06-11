@@ -18,6 +18,10 @@ Payment.init (
             isCreditCard: true,
           }
         },
+        last4: {
+          type: DataTypes.STRING,
+          allowNull: false,
+        },
         exp_date: {
             type: DataTypes.DATEONLY,
             allowNull: false,
