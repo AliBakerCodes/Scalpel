@@ -1,5 +1,5 @@
   <section style="background-color: #eee">
-      <div class="container py-5 col-9 col-lg-9 col-md-9 col-sm-12">
+      <div class="container-fluid py-5 col-9 col-lg-9 col-md-9 col-sm-12">
         <div class="row d-flex justify-content-center">
           <div class="col-md-12 col-lg-10 col-xl-8">
             <div class="card">
@@ -25,12 +25,12 @@
                     <div class="d-flex flex-column ms-3">
                       <span id="cardName" class="h5 mb-1">{{payment.type}}</span>
                       <span id="cardNumber" class="small text-muted"
-                        >XXX XXXX XXXX {{card.last4}}</span
+                        >XXX XXXX XXXX {{payment.last4}}</span
                       >
                     </div>
                   </div>
-                  <button id="deleteCard" type="button" class="btn btn-danger">
-                    delete
+                  <button id="" type="button" data-payment-id={{payment.id}} class="btn btn-danger deleteCard">
+                  Delete
                   </button>
                 </div>
                 {{/each}}

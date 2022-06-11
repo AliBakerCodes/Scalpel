@@ -150,8 +150,8 @@ let i=0;
   for (const address of userAddressData) {
     // console.log(address['user_id']);
     await Payment.create({
-      
       ...payments[i],
+      last4: payments[i].card_num.slice(12),
       user_id: address['user_id'],
     });
     i++;
