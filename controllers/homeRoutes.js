@@ -79,41 +79,65 @@ router.get('/item/:id', async (req, res) => {
       ]
     });
     
-    // Serialize data so the template can read it
     const item = itemData.get({ plain: true });
+    console.log(item)
+
+    const categoryData = await Category.findByPk(item.category_id,{
+      include: [
+        {
+          model: Item,
+          
+        }
+      ],
+    });
+    
+    const categories = categoryData.get({ plain: true });
+      console.log(categories)
+   
+    let categoryItems=[];
+    for (let i=0; i<8; i++){
+      
+      categoryItems[i] = categories[Math.floor(Math.random() * categories.length)];
+      console.log('Pushing')
+    };
+
+    
 
     res.render('item-detail', { 
       item,
+      categoryItems,
       logged_in: req.session.logged_in 
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
-// //get a single category
-// router.get('/category/:id', async (req, res) => {
-//   try {
-//     const categoryData = await Category.findByPk(req.params.id,{
-//       include: [
-//         {
-//           model: Item,
+//get a single category
+router.get('/category/:id', async (req, res) => {
+  try {
+    const categoryData = await Category.findByPk(req.params.id,{
+      include: [
+        {
+          model: Item,
          
-//         }
+        }
       
-//       ],
-//     });
-//     const categories =  categoryData.get({ plain: true });
+      ],
+    });
+    const categories =  categoryData.get({ plain: true });
+    
+    const items=categories.items
 
-
-//     console.log('category', categories)
-//     res.render('category', {
-//       categories,
-//       logged_in: req.session.logged_in 
-//     });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
+    console.log(categories);
+    res.render('category', {
+      categories,
+      items,
+      logged_in: req.session.logged_in 
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 // Use withAuth middleware to prevent access to route
 router.get('/profile', withAuth, async (req, res) => {

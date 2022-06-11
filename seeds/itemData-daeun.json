@@ -38,7 +38,7 @@
     "purchase_price": 200,
     "rental_price":200,
     "buy_price":1500,
-    "image":"04-Jordan-4-Retro-Off-White",
+    "image":"04-Jordan-4-Retro-Off-White.png",
     "is_rented":true,
     "return_date":"06/07/2022",
     "active": true
