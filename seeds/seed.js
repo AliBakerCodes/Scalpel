@@ -1,4 +1,7 @@
 const sequelize = require('../config/connection');
+const { Op } = require("sequelize");
+// const bcrypt = require('bcrypt');
+
 const { User, 
         Category,
         Address,
@@ -63,6 +66,19 @@ const seedDatabase = async () => {
     });
   };
 
+  await Address.update(
+    {
+      type: 'BILL',
+      user_id: '1'
+    },
+    {
+      where: {
+        id: {
+          [Op.or]: [1,2]
+        }
+      }
+  });
+
   const items = await Item.findAll();
   const rentItems = await Item.findAll({
       include: [
@@ -88,41 +104,57 @@ const seedDatabase = async () => {
     });
   };
 
-  let salsCard =[
-    {
-    "card_num": "4041371144484654",
-    "exp_date": "2023-05",
-    "CVC": 384,
-    "type": "visa"
-  }, {
-    "card_num": "4041598200996",
-    "exp_date": "2023-12",
-    "CVC": 822,
-    "type": "visa"
-  },
-  {
-    "card_num": "5100174393680310",
-    "exp_date": "2023-05",
-    "CVC": 400,
-    "type": "mastercard"
-  }, {
-    "card_num": "5010123737667854",
-    "exp_date": "2024-01",
-    "CVC": 855,
-    "type": "mastercard"
-  }
-];
+//   let salsCard =[
+//     {
+//     "card_num": "4041371144484654",
+//     "exp_date": "2023-05",
+//     "CVC": 384,
+//     "type": "visa"
+//   }, {
+//     "card_num": "4041598200996",
+//     "exp_date": "2023-12",
+//     "CVC": 822,
+//     "type": "visa"
+//   },
+//   {
+//     "card_num": "5100174393680310",
+//     "exp_date": "2023-05",
+//     "CVC": 400,
+//     "type": "mastercard"
+//   }, {
+//     "card_num": "5010123737667854",
+//     "exp_date": "2024-01",
+//     "CVC": 855,
+//     "type": "mastercard"
+//   }
+// ];
 
-  await Payment.create({
-    ...salsCard,
-    user_id: 1
-  });
+//   await Payment.create({
+//     ...salsCard,
+//     user_id: 1
+//   });
   
-  for (const payment of payments) {
+const userAddressData = await Address.findAll({
+  where: {
+    type: 'BILL'
+  },
+  raw : true ,
+    nest : true
+});
+
+// const usersWithAddresses = userAddressData.get({ plain: true });;
+
+
+let i=0;
+// console.log (userAddressData);
+  for (const address of userAddressData) {
+    // console.log(address['user_id']);
     await Payment.create({
-      ...payment,
-      user_id: users[Math.floor(Math.random() * users.length)].id,
+      
+      ...payments[i],
+      user_id: address['user_id'],
     });
+    i++;
   };
 
 
