@@ -80,6 +80,11 @@ Item.hasMany(Review, {
   onDelete: 'CASCADE',
 });
 
+User.hasMany(Review, {
+  foreignKey: 'user_id',
+  onDelete: 'CASCADE',
+});
+
 User.hasMany(Rental, {
   foreignKey: 'user_id',
   onDelete: 'CASCADE',
