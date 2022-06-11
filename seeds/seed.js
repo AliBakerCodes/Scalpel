@@ -17,6 +17,7 @@ const addresses = require('./address.json');
 const category = require('./category.json');
 const reviews = require('./review.json');
 const rentals = require('./rentals.json')
+const payments = require('./credit_card.json')
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
@@ -87,6 +88,42 @@ const seedDatabase = async () => {
     });
   };
 
+  let salsCard =[
+    {
+    "card_num": "4041371144484654",
+    "exp_date": "2023-05",
+    "CVC": 384,
+    "type": "visa"
+  }, {
+    "card_num": "4041598200996",
+    "exp_date": "2023-12",
+    "CVC": 822,
+    "type": "visa"
+  },
+  {
+    "card_num": "5100174393680310",
+    "exp_date": "2023-05",
+    "CVC": 400,
+    "type": "mastercard"
+  }, {
+    "card_num": "5010123737667854",
+    "exp_date": "2024-01",
+    "CVC": 855,
+    "type": "mastercard"
+  }
+];
+
+  await Payment.create({
+    ...salsCard,
+    user_id: 1
+  });
+  
+  for (const payment of payments) {
+    await Payment.create({
+      ...payment,
+      user_id: users[Math.floor(Math.random() * users.length)].id,
+    });
+  };
 
 
   process.exit(0);
