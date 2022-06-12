@@ -80,7 +80,10 @@ router.get('/item/:id', async (req, res) => {
     });
     
     const item = itemData.get({ plain: true });
-    console.log(item)
+   
+    const reviews=item.reviews;
+
+    console.log(reviews);
 
     const categoryData = await Category.findByPk(item.category_id,{
       include: [
@@ -99,14 +102,12 @@ router.get('/item/:id', async (req, res) => {
     for (let i=0; i<8; i++){
       
       categoryItem[i] = categoryItems[Math.floor(Math.random() * categoryItems.length)];
-      console.log('Pushing')
     };
-    console.log('here',categoryItems);
-    
-
+   
     res.render('item-detail', { 
       item,
       categoryItem,
+      reviews,
       logged_in: req.session.logged_in 
     });
   } catch (err) {
