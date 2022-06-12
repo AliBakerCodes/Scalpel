@@ -105,7 +105,7 @@ Category.hasMany(Item),
     foreignKey: 'category_id',
   };
 
-Cart.belongsTo(User{
+Cart.belongsTo(User, {
   foreignKey: 'user_id'
 });
 
