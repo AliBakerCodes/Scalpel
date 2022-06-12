@@ -12,11 +12,19 @@ Cart.init (
           autoIncrement: true,
         },
         item_id: {
-            type: DataTypes.Integer,
+            type: DataTypes.INTEGER,
             allowNull: false,
           },
         qty: {
-          type: DataTypes.Integer,
+          type: DataTypes.INTEGER,
+          allowNull: false,
+        },
+        cart_id: {
+          type: DataTypes.INTEGER,
+          allowNull: false,
+        },
+        is_active: {
+          type: DataTypes.BOOLEAN,
           allowNull: false,
         },
         is_rental: {
