@@ -1,0 +1,65 @@
+<h2 class="text-center">My Cart</h2>
+<section>
+    <div class="container">
+        {{#each carts as |item|}}
+        <div class="row ">
+            <hr>
+            <div class="col-md-3 align-self-center">
+                <a href=""><img src="/images/{{item.image}}" class="thumbnail" alt="..."></a>
+            </div>
+            <hr>
+            <div class="col-md-2 align-self-center">
+                <a href=""><h5>{{item.name}}</h5></a>
+            </div>
+            {{#if is_rental}}
+            <div class="col-md-2 align-self-center">
+                <h5>{{item.rental_price}}</h5>
+            </div>
+            {{else}}
+            <div class="col-md-2 align-self-center">
+                <h5>{{item.buy_price}}</h5>
+            </div>
+            {{/if}}
+            {{#if is_rental}}
+            <div class="col-md-2 align-self-center">
+                <h5>Rental</h5>
+            </div>
+            {{else}}
+            <div class="col-md-2 align-self-center">
+                <h5>Buy</h5>
+            </div>
+            {{/if}}
+            <div class="col-md-2 align-self-center">
+                <h5>Quantity:{{item.qty}} </h5>
+            </div>
+            <div class="col-md-1 align-self-center">
+                <div class="col-sm-100">
+                    <button type="submit" class="btn">❌</button>
+                </div>
+            </div>
+        </div>
+        <hr>
+     {{/each}}
+    </div>
+<br>
+    <div class="container">
+        <div class="row">
+            <div class="card col-md-12">
+                <div class="card-body">
+                    <div>
+                        <p>Subtotal: </p>
+                        <p>Tax:</p>
+                        <p>Shipping:</p>
+                        <h4><strong>Total:</strong></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center pt-3">
+        <div class="col-sm-100">
+        <button type="submit" class="btn btn-primary ">Submit</button>
+        <button type="submit" class="btn btn-secondary ">Continue Shopping</button>
+        </div>
+    </div>
+</section>
