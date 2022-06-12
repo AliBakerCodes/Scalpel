@@ -7,6 +7,7 @@ const OrderHeader = require('./OrderHeader');
 const Payment = require('./Payment');
 const Rental = require('./Rental');
 const Review = require('./Review');
+const Cart = require('./Cart')
 
 User.hasMany(Item, {
   foreignKey: 'user_id',
@@ -103,6 +104,12 @@ Category.hasMany(Item),
   {
     foreignKey: 'category_id',
   };
+
+Cart.belongsTo(User{
+  foreignKey: 'user_id'
+});
+
+User.hasMany(Cart)
 
 module.exports = {
   User,
