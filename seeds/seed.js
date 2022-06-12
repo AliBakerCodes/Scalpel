@@ -157,6 +157,9 @@ let i=0;
     i++;
   };
 
+  // await Review.findAll({
+
+  // })
 
   process.exit(0);
 };
