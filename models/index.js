@@ -109,7 +109,7 @@ Cart.belongsTo(User{
   foreignKey: 'user_id'
 });
 
-User.hasMany(Cart)
+User.hasOne(Cart)
 
 module.exports = {
   User,
