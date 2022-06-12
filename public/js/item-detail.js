@@ -1,14 +1,22 @@
-$.fn.stars = function() {
-    return $(this).each(function() {
-        const rating = $(this).data("rating");
-        const numStars = $(this).data("numStars");
-        const fullStar = '<i class="fas fa-star"></i>'.repeat(Math.floor(rating));
-        const halfStar = (rating%1!== 0) ? '<i class="fas fa-star-half-alt"></i>': '';
-        const noStar = '<i class="far fa-star"></i>'.repeat(Math.floor(numStars-rating));
-        $(this).html(`${fullStar}${halfStar}${noStar}`);
-    });
+function changeNumber(){
+    var elements= document.querySelectorAll('.rating_bar');
+    
+    for(i=0; elements.length; i++){
+    var rating=elements[i].innerHTML;
+    
+    if(rating==1){
+        elements[i].innerHTML="⭐☆☆☆☆"
+    }else if(rating==2){
+        elements[i].innerHTML="⭐⭐☆☆☆"
+    }else if (rating==3){
+        elements[i].innerHTML="⭐⭐⭐☆☆"
+    } else if(rating==4){
+        elements[i].innerHTML="⭐⭐⭐⭐☆"
+    } else {
+        elements[i].innerHTML="⭐⭐⭐⭐⭐"
+    }
+    };
+  
 }
-$(function() {
-    $('span.stars').stars();
-});
+changeNumber();
 

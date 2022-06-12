@@ -7,7 +7,7 @@
             <br>
             <div>
                 <p>Rental Price : ${{item.rental_price}}</p>
-                <p>Rental Period: Per Day</p>
+                {{!-- <p>Rental Period: Per Day</p> --}}
                 <p>Buy Price: ${{item.buy_price}}</p>
             </div>
             <div>
@@ -21,7 +21,7 @@
         <div class="col-md-8 align-self-center pt-5">
             <div class="row justify-content-center ">
                 <h3 style="letter-spacing: 1px;">{{item.name}}</h3>
-                <p>rate: <span class="stars" data-rating="{{item.rating}}" data-num-stars="5" ></span></p>
+                <p>rating: <span class="itemRating"></span></p>
             </div>
             <br>
             <div class="jumbotron" style="background: transparent;">
@@ -37,34 +37,14 @@
 <div class="container">
     <h4>Reviews</h4>
     <div class="row">
-        <div class="card col-md-3">
+        {{#each reviews as |reviews|}}
+        <div class="card col-12">
             <div class="card-body">
-            <p>User name:</p>
-            <p>Rate: <span class="stars" data-rating="4.5" data-num-stars="5" ></span></p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p>Rating: <span class="rating_bar">{{reviews.rating}}</span></p>
+            <p>{{reviews.body }}</p>
             </div>
         </div>
-        <div class="card col-md-3">
-            <div class="card-body ">
-                <p>User name:</p>
-                <p>Rate:</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                </div>
-        </div>
-        <div class="card col-md-3">
-            <div class="card-body ">
-                <p>User name:</p>
-                <p>Rate:</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                </div>
-        </div>
-        <div class="card col-md-3">
-            <div class="card-body">
-                <p>User name:</p>
-                <p>Rate:</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                </div>
-        </div>
+        {{/each}}
     </div>
 </div>
 
@@ -94,5 +74,7 @@
         </div>
     </div>
 </div>
-     
-<script src="./js/item-detail.js"></script>
+
+<script src="/js/item-detail.js"></script>
+
+
