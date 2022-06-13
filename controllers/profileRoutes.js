@@ -7,7 +7,8 @@ const { User,
   OrderHeader,
   Payment,
   Rental,
-  Review} = require('../models');
+  Review,
+  Cart} = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/payments', withAuth, async (req, res) => {
