@@ -24,7 +24,7 @@
     "purchase_price": 1400,
     "buy_price":1000,
     "rental_price": 35,
-    "image": "hpoman.jpg",
+    "image": "hpomen.jpg",
     "active": true
   },
   {
@@ -33,7 +33,7 @@
     "purchase_price": 1400,
     "buy_price":1200,
     "rental_price": 35,
-    "image": "hpoman.jpg",
+    "image": "hpomen.jpg",
     "active": true
   },
   {

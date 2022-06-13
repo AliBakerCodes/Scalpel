@@ -66,6 +66,14 @@ OrderDetail.belongsTo(OrderHeader, {
   onDelete: 'CASCADE',
 });
 
+OrderDetail.hasMany(Item, {
+  foreignKey: 'item_id'
+})
+
+Item.hasMany(OrderDetail, {
+  foreignKey: 'item_id'
+})
+
 User.hasMany(Payment, {
   foreignKey: 'user_id',
   onDelete: 'CASCADE',

@@ -23,13 +23,13 @@ Payment.init (
           allowNull: false,
         },
         exp_date: {
-            type: DataTypes.DATEONLY,
+            type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 isDate: true,
             }
         },
-        CVC: {
+        cvc: {
             type: DataTypes.INTEGER,
             allowNull: false,
         },

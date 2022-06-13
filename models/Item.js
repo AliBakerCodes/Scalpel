@@ -43,12 +43,16 @@ Item.init (
             type: DataTypes.STRING,
             allowNull: false,
         },
+        is_rentable: {
+            type: DataTypes.BOOLEAN,
+            allowNull: true,
+        },
         is_rented: {
             type: DataTypes.BOOLEAN,
             allowNull: true,
         },
         return_date: {
-            type: DataTypes.DATEONLY,
+            type: DataTypes.STRING,
             allowNull: true,
         },
         active: {

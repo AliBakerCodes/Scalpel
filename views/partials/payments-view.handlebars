@@ -13,27 +13,35 @@
                 </div>
                 <h4 class="mt-5">Payment details</h4>
                 <div
-                  class="mt-4 d-flex justify-content-between align-items-center"
-                >
+                  class="mt-4 d-flex align-items-center"
+                ><ul>
                 {{#each payments as |payment|}}
-                  <div class="d-flex flex-row align-items-center">
+                <div class="row">
+                  <div class="d-flex align-items-center">
                     <img
                       src="/images/cardimage.png"
                       class="rounded"
                       width="70"
                     />
-                    <div class="d-flex flex-column ms-3">
+                    <div class="d-flex justify-content-between flex-column ms-3">
                       <span id="cardName" class="h5 mb-1">{{payment.type}}</span>
                       <span id="cardNumber" class="small text-muted"
                         >XXX XXXX XXXX {{payment.last4}}</span
                       >
                     </div>
-                  </div>
+                  <div>
                   <button id="" type="button" data-payment-id={{payment.id}} class="btn btn-danger deleteCard">
                   Delete
                   </button>
+                  </div>
+                  </div>
+                  
+                  </div>
+                  
+                  {{/each}}
+                  </ul>
                 </div>
-                {{/each}}
+                
                 <h6 class="mt-4 mb-3 text-primary text-uppercase">
                   ADD PAYMENT METHOD
                 </h6>
@@ -128,4 +136,4 @@
         </div>
       </div>
     </section>
-    <script src="/js/paymenets.js"></script>
+    <script src="/js/payments.js"></script>
