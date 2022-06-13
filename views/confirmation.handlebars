@@ -1,0 +1,24 @@
+   <div class="d-flex flex-column align-self-center">
+
+            <div class="align-self-center">
+                <h1>Thank you! Your Order has been Placed.</h1>
+            </div>
+            <div class="align-self-center">
+                <h3>Please check your email for order confirmation</h3>
+            </div>
+            <div class="align-self-center">
+                <p>Shipping Address: {{ship_to_addr_id}}</p>
+            </div>
+            <div class="align-self-center">
+                <p>Billing Address:{{bill_to_addr_id}}</p>
+            </div>
+            <div class="align-self-center">
+                <p>Shipping status: {{status}}</p>
+            </div>
+            {{#if ship_date}}
+            <div class="align-self-center">
+                <p>Your order was shipped on {{ship_date}}</p>
+            </div>
+            {{/if}}
+
+        </div>
