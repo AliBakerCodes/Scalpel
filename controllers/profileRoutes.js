@@ -108,7 +108,8 @@ router.get('/items', withAuth, async (req, res) => {
       ],
       where:
       {
-        user_id: req.session.user_id
+        user_id: req.session.user_id,
+        active: true
       }
       
     });
@@ -124,6 +125,26 @@ router.get('/items', withAuth, async (req, res) => {
   } catch (err) {
     console.log(err)
     res.status(500).json(err);
+  }
+});
+
+router.delete('/items/:id', withAuth, async (req, res) => {
+  try {
+    const itemData = await Item.update({
+      active: false
+    },
+    {
+      where: 
+        { 
+          id: req.params.id,
+          user_id: req.session.user_id
+        },
+    });
+    console.log('Delete Item:', itemData);
+    res.status(200).json(itemData);
+  } catch (err) {
+    console.log(err)
+    res.status(400).json(err);
   }
 });
 

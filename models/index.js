@@ -53,8 +53,12 @@ OrderHeader.belongsTo(User, {
 // });
 
 Payment.hasMany(OrderHeader, {
-  foreignKey: 'orderheader_id',
+  foreignKey: 'payment_id',
 });
+
+// OrderHeader.hasOne(Payment, {
+//   foreignKey: 'payment_id'
+// })
 
 OrderHeader.hasMany(OrderDetail, {
   foreignKey: 'id',
