@@ -29,6 +29,7 @@ router.get('/payments', withAuth, async (req, res) => {
       }
       
     });
+    console.log(req.session.user_id)
     console.log(paymentData)
     const payments = paymentData.map((payment) => payment.get({ plain: true }));
     console.log(payments);
@@ -55,7 +56,78 @@ router.post('/payments', withAuth, async (req, res) => {
   }
 });
 
-router.get('/item/:id', async (req, res) => {
+router.delete('/payments/:id', withAuth, async (req, res) => {
+  try {
+    console.log('anything')
+    const paymentData = await Payment.destroy({
+      where: {
+        id: req.params.id,
+        user_id: req.session.user_id,
+      },
+    });
+    console.log(paymentData)
+    if (!paymentData) {
+      res.status(404).json({ message: 'No payment found with this id!' });
+      return;
+    }
+    
+    res.status(200).json(paymentData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
+router.get('/items', withAuth, async (req, res) => {
+  try {
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
+    });
+
+    const itemData = await Item.findAll({
+      include: [
+        {
+          model: Category,
+        }
+      ],
+      include: [
+        {
+          model: Rental,
+        }
+      ],
+      include: [
+        {
+          model: OrderDetail,
+          include: [
+            {
+              model: OrderHeader,
+            }
+          ],
+        }
+      ],
+      where:
+      {
+        user_id: req.session.user_id
+      }
+      
+    });
+    console.log(req.session.user_id)
+    console.log(itemData)
+    const items = itemData.map((item) => item.get({ plain: true }));
+    console.log(items);
+    res.render('profile', { 
+      items,
+      profilePartial: 'manage-items',
+      logged_in: req.session.logged_in 
+    });
+  } catch (err) {
+    console.log(err)
+    res.status(500).json(err);
+  }
+});
+
+
+router.get('/items/:id', async (req, res) => {
   try {
     const projectData = await Project.findByPk(req.params.id, {
       include: [

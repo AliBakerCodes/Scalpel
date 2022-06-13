@@ -6,6 +6,7 @@
     "rental_price":500,
     "buy_price":6500,
     "image":"01-Air-Jordan-Grafteful.png",
+    "is_rentable":true,
     "is_rented":true,
     "return_date":"06/07/2022",
     "active": true
@@ -29,6 +30,7 @@
     "buy_price":600,
     "image":"03-Adidas-Yeezy-Boost-350-V2.png",
     "is_rented":true,
+    "is_rentable":true,
     "return_date":"06/07/2022",
     "active": true
   },
@@ -51,6 +53,7 @@
     "buy_price":375,
     "image":"05-Nike-Air-Max-1-Travis-Scott.png",
     "is_rented":true,
+    "is_rentable":true,
     "return_date":"06/07/2022",
     "active": true
   },
@@ -73,6 +76,7 @@
     "buy_price":6000,
     "image":"07-Louis-Vuitton-Dons-Kanye.png",
     "is_rented":true,
+    "is_rentable":true,
     "return_date":"06/07/2022",
     "active": true
   },
@@ -95,6 +99,7 @@
     "buy_price": 3500,
     "image":"09-Jordan-1-Retro-Chicago.png",
     "is_rented":true,
+    "is_rentable":true,
     "return_date":"06/07/2022",
     "active": true
   },
@@ -106,6 +111,7 @@
     "buy_price":7050,
     "image":"10-Nike-Air-Yeezy-2-Pure-Platinum.png",
     "is_rented":true,
+    "is_rentable":true,
     "return_date":"06/07/2022",
     "active": true
   },
@@ -117,6 +123,7 @@
     "buy_price":3000,
     "image":"11-Nike-Air-Presto-Off-White.png",
     "is_rented":true,
+    "is_rentable":true,
     "return_date":"06/07/2022",
     "active": true
   },
@@ -128,6 +135,7 @@
     "buy_price":2000,
     "image":"12-Nike-SB-Dunk-Low-Travis-Scott.png",
     "is_rented":true,
+    "is_rentable":true,
     "return_date":"06/07/2022",
     "active": true
   },
@@ -139,6 +147,7 @@
     "buy_price":3900,
     "image":"13-Nike-Air-Max-1-Paris-Bespoke.png",
     "is_rented":true,
+    "is_rentable":true,
     "return_date":"06/07/2022",
     "active": true
   },
@@ -150,6 +159,7 @@
     "buy_price":2800,
     "image":"14-Nike-Kobe-Aston-Martin-Pack.png",
     "is_rented":true,
+    "is_rentable":true,
     "return_date":"06/07/2022",
     "active": true
   },
@@ -161,6 +171,7 @@
     "buy_price":3000,
     "image":"15-Nike-Air-Yeezy-Zen-Grey.png",
     "is_rented":true,
+    "is_rentable":true,
     "return_date":"06/07/2022",
     "active": true
   },
@@ -172,6 +183,7 @@
     "buy_price":5600,
     "image":"16-Nike-Dunk-SB-Low-Supreme-Black-Cement.png",
     "is_rented":true,
+    "is_rentable":true,
     "return_date":"06/07/2022",
     "active": true 
   },
@@ -183,6 +195,7 @@
     "buy_price":2600,
     "image":"17-Nike-SB-Blazer-Supreme-White.png",
     "is_rented":true,
+    "is_rentable":true,
     "return_date":"06/07/2022",
     "active": true
   },
@@ -194,6 +207,7 @@
     "buy_price":1300,
     "image":"18-Dior-And-Shawn-B27-Low.png",
     "is_rented":true,
+    "is_rentable":true,
     "return_date":"06/07/2022",
     "active": true
   },
@@ -205,6 +219,7 @@
     "buy_price":850,
     "image":"19-Adidas-Forum-Low-Bad-Bunny.png",
     "is_rented":true,
+    "is_rentable":true,
     "return_date":"06/07/2022",
     "active": true
   },
@@ -216,6 +231,7 @@
     "buy_price":1000,
     "image":"20-Louis-Vuitton-Sport-Supreme-White-Monogram.png",
     "is_rented":true,
+    "is_rentable":true,
     "return_date":"06/07/2022",
     "active": true
   },
@@ -227,6 +243,7 @@
     "buy_price":1500,
     "image":"21-Balenciaga-Triple-S-Gucci-Monogram.png",
     "is_rented":true,
+    "is_rentable":true,
     "return_date":"06/07/2022",
     "active": true 
   },
@@ -238,6 +255,7 @@
     "buy_price":5000,
     "image":"22-Jordan-14-Retro-OVO.png",
     "is_rented":true,
+    "is_rentable":true,
     "return_date":"06/07/2022",
     "active": true
   },
@@ -249,6 +267,7 @@
     "buy_price":2500,
     "image":"23-Jordan-1-Retro-High-Trphy-Room.png",
     "is_rented":true,
+    "is_rentable":true,
     "return_date":"06/07/2022",
     "active": true
   },
@@ -260,6 +279,7 @@
     "buy_price":340,
     "image":"24-Jordan-1-Retro-High-Hyper-Crimson.png",
     "is_rented":true,
+    "is_rentable":true,
     "return_date":"06/07/2022",
     "active": true
   },
@@ -271,6 +291,7 @@
     "buy_price":260,
     "image":"25-Adidas-Yeezy-Boost-350-V2-Bone.png",
     "is_rented":true,
+    "is_rentable":true,
     "return_date":"06/07/2022",
     "active": true
   }

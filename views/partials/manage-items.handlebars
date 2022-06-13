@@ -1,0 +1,57 @@
+<link rel="stylesheet" href="/css/profile.css">
+                <h2>My Items</h2>
+                {{#each items as |item|}}
+                <div class="row mb-5">
+                    <hr>
+                    <div class="col-md-4 col-sm-12 align-self-center">
+                        <a href="/upload-image" id="item-id"><img src="/images/{{image}}" class="thumbnail" alt="..."></a>
+                        <p>Rating: {{rating}}</p>
+                    </div>
+                    <div class="col-md-2 col-sm-12 align-self-center">
+                        <h5>Item</h5>
+                        <a href="/item/{{id}}"><p>{{name}}</p></a>
+                    </div>
+                    <div class="col-md-2 col-sm-12 align-self-center">
+                        <h5>Item Description</h5>
+                        <p>{{description}}</p>
+                    </div>
+                    <div class="col-md-2 col-sm-12 align-self-center">
+                        <h5>Purchase Price</h5>
+                        <p>${{purchase_price}}</p>
+                    </div>
+                    <div class="col-md-2 col-sm-12 align-self-center">
+                        <h5>Buy Price</h5>
+                        <p>${{buy_price}}</p>
+                    </div>
+                    <div class="col-md-2 col-sm-12 align-self-center">
+                        <h5>Rentable Item</h5>
+                        {{#if is_rentable}}
+                        ✅
+                        {{else}}
+                        ❌
+                        {{/if}}
+                    </div>
+                    <div class="col-md-2 col-sm-12 align-self-center">
+                        <h5>Rental Price</h5>
+                        {{#if is_rentable}}
+                        <p>${{rental_price}}
+                        {{else}}
+                        N/A
+                        {{/if}}
+                    </div>
+                    <div class="col-md-2 col-sm-12 align-self-center">
+                        <h5>Status</h5>
+                        {{#if return_date}}
+                        <p>Out for Rental. <br>
+                        Return Date: {{return_date}}</p>
+                        {{else}}
+                        Available
+                        {{/if}}
+                    </div>
+                    <div>
+                        <button id="" type="button" data-item-id={{id}} class="btn btn-danger deleteCard">
+                            Delete
+                        </button>
+                    </div>
+                </div>
+                {{/each}}
