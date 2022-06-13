@@ -56,4 +56,4 @@ deleteBtn.addEventListener('click', deleteAddress);
 
 document
   .querySelector('.address-form')
-  .addEventListener('click', newAddressHandler);
+  .addEventListener('submit', newAddressHandler);
