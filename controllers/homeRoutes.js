@@ -160,7 +160,7 @@ router.get('/item/:id/review', async (req, res) => {
     });
 
     const item = itemData.get({ plain: true });
-
+    
     res.render('review', {
       item,
       logged_in: req.session.logged_in,
@@ -190,6 +190,20 @@ router.get('/cart', async (req, res) => {
     console.log(cartData, cart);
   } catch (err) {
     res.status(500).json(err);
+  }
+});
+
+router.post('/item/:id/review', async (req, res) => {
+  try {
+    const reviewData = await Review.create(req.body);
+    console.log(reviewData + "REVIEWDATAHERE");
+    req.session.save(() => {
+     
+      res.status(200).json(reviewData);
+    });
+    console.log(reviewData);
+  } catch (err) {
+    res.status(400).json(err);
   }
 });
 
