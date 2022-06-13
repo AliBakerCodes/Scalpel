@@ -20,7 +20,8 @@ const deleteAddress = async (event) => {
     event.preventDefault();
   
     const address = document.querySelector('#newAddress').value.trim();
-    const state = document.querySelector('#selectedCity').value.trim();
+    const city = document.querySelector('#selectedCity').value.trim();
+    const state = document.querySelector('#selectedState').value.trim();
     const zip = document.querySelector('#newAddressZip').value.trim();
     const email = document.querySelector('#newAddressEmail').value.trim();
     const type = document.querySelector('#shippingAddress').value.trim();
