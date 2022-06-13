@@ -56,9 +56,7 @@ height: 100vh;
 .nav-item{
   margin: 10px;
 }
-.dropdown{
-margin-left: .2vw;
-}
+
 .dropdown-toggle{
 width: 14vw;
 }
@@ -126,9 +124,11 @@ width: 14vw;
 
 .featured-items{
 text-align: center;
-font-size: 40px;
+font-size: 50px;
 }
-
+.category-title{
+  color: goldenrod;
+}
 
 @media (max-width: 800px) {
   .aboutbody {
@@ -178,6 +178,7 @@ font-size: 40px;
 
 div:hover {
   animation-play-state: running;
+  
 }
 /* mobile views */
 .mobile{
@@ -222,13 +223,14 @@ div:hover {
       width: 90%;
       font-size: 20px;
   }
-  .abouthead{
-    height: 0%;
+  .aboutinfo{
+   font-size: 20px;
   }
+ 
   .header-text{
       font-size: 30px;
   }
-  #scalpel-btn{
+  .scalpal-img{
       height:80px ;
       width: 70px;
   }
