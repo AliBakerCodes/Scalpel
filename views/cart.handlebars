@@ -2,10 +2,10 @@
 <section>
     <div class="container">
         {{#each carts as |item|}}
-        <div class="row ">
+        <div class="row cart-item">
             <hr>
             <div class="col-md-3 align-self-center">
-                <a href=""><img src="/images/{{item.image}}" class="thumbnail" alt="..."></a>
+                <a href="/item/{{item.id}}"><img src="/images/{{item.image}}" class="thumbnail" alt="..."></a>
             </div>
             <hr>
             <div class="col-md-2 align-self-center">
@@ -34,7 +34,7 @@
             </div>
             <div class="col-md-1 align-self-center">
                 <div class="col-sm-100">
-                    <button type="submit" class="btn">❌</button>
+                    <button type="submit" item-id="{{id}}" class="btn delete-btn">❌</button>
                 </div>
             </div>
         </div>
@@ -63,3 +63,4 @@
         </div>
     </div>
 </section>
+<script src="/js/cart.js"></script>

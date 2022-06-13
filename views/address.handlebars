@@ -1,0 +1,109 @@
+<div class="container py-5">
+      <div class="row d-flex justify-content-center align-items-center">
+        <div class="col">
+          <div class="card my-4 shadow-3">
+            <div class="row g-0">
+                {{#each addresses as |address|}}
+              <div class="col-xl-6 d-xl-block bg-image address-block" >
+                <h2 class="mb-4 text-uppercase m-2">Delivery Addresses</h2>
+                <div class="card m-2">
+                  <div class="card-body">
+                    <h4 id="addressType" class="float-end m-4">{{address.type}}</h4>
+                    <h5 id="addressName" class="card-title">{{address.user.first_name}} {{address.user.last_name}}</h5>
+                    <h6>{{address.user.email}}</h6>
+                    <p id="address" class="card-text">
+                      {{address.addr1}} <span id="addressZip">{{address.zip}}</span>
+                      <span id="addressState">{{address.state}}</span>
+                    </p>
+                    <button id="addressDelete" address-id="{{id}}"  class="btn btn-danger"
+                      >Delete</button>
+                    >
+                  </div>
+                </div>
+              </div>
+              {{/each}}
+              <div class="col-xl-6">
+                <form class="card-body p-md-5 text-black address-form">
+                  <h3 class="mb-4 text-uppercase">Add a Delivery Address</h3>
+                  <div class="form-outline mb-4">
+                    <input
+                      type="text"
+                      id="newAddress"
+                      class="form-control form-control-lg"
+                    />
+                    <label class="form-label" for="newAddressForm"
+                      >Address</label
+                    >
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6 mb-4">
+                      <select
+                        class="form-select form-select-lg mb-3 w-50"
+                        aria-label=".form-select-lg example"
+                        id="selectedState"
+                      >
+                        <option selected>state</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                      <select
+                        class="form-select form-select-lg mb-3 w-50"
+                        aria-label=".form-select-lg example"
+                        id="selectedCity"
+                      >
+                        <option selected>City</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-outline mb-4">
+                    <input
+                      type="text"
+                      id="newAddressZip"
+                      class="form-control form-control-lg"
+                    />
+                    <label class="form-label" for="newAddressForm">Zip</label>
+                  </div>
+                  <div class="form-outline mb-4">
+                    <input
+                      type="text"
+                      id="newAddressEmail"
+                      class="form-control form-control-lg"
+                    />
+                    <label class="form-label" for="newAddressForm">Email</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="shippingAddress" checked>
+                    <label class="form-check-label" for="flexRadioDefault1">
+                      Shipping
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="billingAddress">
+                    <label class="form-check-label" for="flexRadioDefault2">
+                      Billing
+                    </label>
+                  </div>
+
+                  <div class="d-flex justify-content-end pt-3">
+                    <button
+                      id="newAddressButton"
+                      type="submit"
+                      class="btn btn-primary btn-lg ms-2"
+                    >
+                      Add address
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="/js/address.js"></script>

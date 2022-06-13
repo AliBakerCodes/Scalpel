@@ -1,5 +1,6 @@
 const router = require('express').Router();
-const { User, 
+const {
+  User,
   Category,
   Address,
   Item,
@@ -7,12 +8,13 @@ const { User,
   OrderHeader,
   Payment,
   Rental,
-  Review} = require('../models');
+  Review,
+} = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
-    console.log('It got here')
+    console.log('It got here');
     // Get all projects and JOIN with user data
     const itemData = await Item.findAll({
       include: [
@@ -25,41 +27,42 @@ router.get('/', async (req, res) => {
         },
       ],
     });
-   
+
     const categoryData = await Category.findAll({
       include: [
         {
           model: Item,
-          include: [{
-            model: User,
-            attributes: { exclude: ['password'] },
-          }]
+          include: [
+            {
+              model: User,
+              attributes: { exclude: ['password'] },
+            },
+          ],
         },
       ],
     });
-    const categories = categoryData.map((category) => category.get({ plain: true }));
+    const categories = categoryData.map((category) =>
+      category.get({ plain: true })
+    );
 
     // Serialize data so the template can read it
     const tempItems = itemData.map((items) => items.get({ plain: true }));
     // console.log(tempItems)
-    let items=[];
-    for (let i=0; i<8; i++){
-      
+    let items = [];
+    for (let i = 0; i < 8; i++) {
       items[i] = tempItems[Math.floor(Math.random() * tempItems.length)];
-      console.log('Pushing')
-    };
-    console.log('Items', items)
-    res.render('homepage', { 
+      console.log('Pushing');
+    }
+    console.log('Items', items);
+    res.render('homepage', {
       items,
-      categories, 
-      logged_in: req.session.logged_in 
+      categories,
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
-
-
 
 //get a single item
 router.get('/item/:id', async (req, res) => {
@@ -67,48 +70,47 @@ router.get('/item/:id', async (req, res) => {
     const itemData = await Item.findByPk(req.params.id, {
       include: [
         {
-          model: Category
+          model: Category,
         },
         {
           model: User,
           attributes: { exclude: ['password'] },
         },
         {
-          model: Review
-        }
-      ]
+          model: Review,
+        },
+      ],
     });
-    
+
     const item = itemData.get({ plain: true });
-   
-    const reviews=item.reviews;
+
+    const reviews = item.reviews;
 
     console.log(reviews);
 
-    const categoryData = await Category.findByPk(item.category_id,{
+    const categoryData = await Category.findByPk(item.category_id, {
       include: [
         {
           model: Item,
-          
-        }
+        },
       ],
     });
-    
-    const categories = categoryData.get({ plain: true });
-      
-   const categoryItems=categories.items;
 
-    let categoryItem=[];
-    for (let i=0; i<8; i++){
-      
-      categoryItem[i] = categoryItems[Math.floor(Math.random() * categoryItems.length)];
-    };
-   
-    res.render('item-detail', { 
+    const categories = categoryData.get({ plain: true });
+
+    const categoryItems = categories.items;
+
+    let categoryItem = [];
+    for (let i = 0; i < 8; i++) {
+      categoryItem[i] =
+        categoryItems[Math.floor(Math.random() * categoryItems.length)];
+    }
+
+    res.render('item-detail', {
       item,
       categoryItem,
       reviews,
-      logged_in: req.session.logged_in 
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -117,24 +119,22 @@ router.get('/item/:id', async (req, res) => {
 //get a single category
 router.get('/category/:id', async (req, res) => {
   try {
-    const categoryData = await Category.findByPk(req.params.id,{
+    const categoryData = await Category.findByPk(req.params.id, {
       include: [
         {
           model: Item,
-         
-        }
-      
+        },
       ],
     });
-    const categories =  categoryData.get({ plain: true });
-    
-    const items=categories.items
+    const categories = categoryData.get({ plain: true });
+
+    const items = categories.items;
 
     console.log(categories);
     res.render('category', {
       categories,
       items,
-      logged_in: req.session.logged_in 
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -147,24 +147,47 @@ router.get('/item/:id/review', async (req, res) => {
     const itemData = await Item.findByPk(req.params.id, {
       include: [
         {
-          model: Category
+          model: Category,
         },
         {
           model: User,
           attributes: { exclude: ['password'] },
         },
         {
-          model: Review
-        }
-      ]
+          model: Review,
+        },
+      ],
     });
-    
+
     const item = itemData.get({ plain: true });
 
     res.render('review', {
       item,
-      logged_in: req.session.logged_in 
+      logged_in: req.session.logged_in,
     });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/cart', async (req, res) => {
+  try {
+    const cartData = await Cart.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: { exclude: ['password'] },
+        },
+      ],
+    });
+
+    const cart = cartData.get({ plain: true });
+
+    res.render('cart', {
+      cart,
+      logged_in: req.session.logged_in,
+    });
+    console.log(cartData, cart);
   } catch (err) {
     res.status(500).json(err);
   }
@@ -180,11 +203,11 @@ router.get('/profile', withAuth, async (req, res) => {
     });
 
     const user = userData.get({ plain: true });
-    const url=req.path
+    const url = req.path;
     res.render('profile', {
       ...user,
       profilePartial: 'none',
-      logged_in: true
+      logged_in: true,
     });
   } catch (err) {
     res.status(500).json(err);
