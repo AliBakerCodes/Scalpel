@@ -25,15 +25,19 @@ Item.init (
         },
         purchase_price: {
             type: DataTypes.INTEGER,
-            allowNull: false,
+            allowNull: true,
         },
         rental_price: {
             type: DataTypes.INTEGER,
-            allowNull: false,
+            allowNull: true,
         },
         buy_price: {
             type: DataTypes.INTEGER,
-            allowNull: false,
+            allowNull: true,
+        },
+        deposit:{
+            type: DataTypes.INTEGER,
+            allowNull: true,
         },
         thumbnail: {
             type: DataTypes.STRING,
