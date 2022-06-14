@@ -20,12 +20,12 @@
        
         <div class="col-md-8 align-self-center pt-5">
             <div class="row justify-content-center ">
-                <h3 style="letter-spacing: 1px;">{{item.name}}</h3>
+                <h2 style="letter-spacing: 1px;">{{item.name}}</h2>
                 <p>rating: <span class="itemRating"></span></p>
             </div>
             <br>
             <div class="jumbotron" style="background: transparent;">
-                <p>
+                <p style="font-size: 20px;">
                 {{item.description}}
                 </p>
             </div>
@@ -49,7 +49,7 @@
 </div>
 
 <hr>
-<h4 class="row justify-content-center"> Related Items</h4>
+<h3 class="row justify-content-center"> Related Items</h3>
 
 <br>
 
@@ -60,11 +60,12 @@
             <a class="link-style" href="/item/{{item.id}}">
                 <div class="item mb-4 item-border" >
                     <div class="card border-0 shadow" style="height:370px">
-                        <img src="/images/{{item.image}}" alt="" class="card-img-top img-carousel item-image" width="369" height="200">
+                        <img src="/images/{{item.image}}" alt="" class="card-img-top img-carousel item-image" style="width: 350px;height:250px;">
                         <div class="card-body">
                             <div class="card-title text-center">
                                 <h4 id="carouselitem-name" class="item-name">{{item.name}}</h4>
-                                <h5 id="carouselitem-price" class="item-price">{{item.rental_price}}/Per Day</h5>
+                                <h5 id="carouselitem-price" class="item-price">${{item.rental_price}}/Per Day</h5>
+                                   <h6 id="carouselitem-buyprice"  class="item-price">Buy now for ${{item.buy_price}}</h6>
                             </div>
                         </div>
                     </div>

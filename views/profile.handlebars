@@ -1,12 +1,13 @@
 <div class="row">
             <div class="col-3 col-lg-3 col-md-3 col-sm-12 float-start me-auto">
-            <img src="http://picsum.photos/id/1025/150/150" alt="User Profile Pic" class="rounded-circle mb-3">
                 <div class="border-end bg-white" id="sidebar-wrapper">
-                    <div class="sidebar-heading border-bottom bg-light">{{first_name}} {{last_name}}
-                        <br>
-                        Active Since: {{createdAt}}
-                        <br>
-                       {{email}} </div>
+                    <div class="sidebar-heading border-bottom bg-light">
+                        <img src="http://picsum.photos/id/1025/150/150" alt="User Profile Pic" class="rounded-circle m-3 float-start" style="width:100x ;height:100px">
+                        <h4>{{first_name}} {{last_name}}</h4>
+                        
+                    <h6> {{email}}</h6>
+                        <p>Active Since: {{createdAt}}</p>
+                       </div>
                     <div class="list-group list-group-flush">
                         <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/profile/items">Manage Items</a>
                         <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/profile/rentals">Manage Rentals</a>
