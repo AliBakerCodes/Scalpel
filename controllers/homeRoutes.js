@@ -196,6 +196,31 @@ router.post('/item/:id/review', async (req, res) => {
      
       res.status(200).json(reviewData);
     });
+    const reviewItems = await Review.findAll({
+      attributes: {
+        include: [
+          [sequelize.fn('AVG', sequelize.col('rating')), 'n_rating']
+        ]
+      },
+      group: 'item_id',
+        raw : true, 
+        nest : true
+      });
+    
+        console.log(reviewItems);
+        for(let i=0; i<reviewItems.length; i++){
+    
+          console.log(reviewItems[i].item_id, reviewItems[i].n_rating)
+          await Item.update(
+          {
+            rating: reviewItems[i].n_rating
+          },
+          {
+            where: {
+              id: reviewItems[i].item_id
+            }
+        });
+      };
   } catch (err) {
     res.status(400).json(err);
   }

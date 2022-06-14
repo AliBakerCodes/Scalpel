@@ -94,14 +94,6 @@ const seedDatabase = async () => {
   });
 
   const items = await Item.findAll();
-  const rentItems = await Item.findAll({
-      include: [
-        {
-          model: User,
-        }
-      ]
-    });
-
       const userItemData = await Item.findAll({
       where: {
         is_rentable: true,
@@ -194,7 +186,33 @@ let z=0
    await Review.update({item_id: 5,},{where: {id: 17}});
    await Review.update({item_id: 6,},{where: {id: 18}});
 
-  
+
+ const reviewItems = await Review.findAll({
+  attributes: {
+    include: [
+      [sequelize.fn('AVG', sequelize.col('rating')), 'n_rating']
+    ]
+  },
+  group: 'item_id',
+    raw : true, 
+    nest : true
+  });
+
+    console.log(reviewItems);
+    for(let i=0; i<reviewItems.length; i++){
+
+      console.log(reviewItems[i].item_id, reviewItems[i].n_rating)
+      await Item.update(
+      {
+        rating: reviewItems[i].n_rating
+      },
+      {
+        where: {
+          id: reviewItems[i].item_id
+        }
+    });
+  };
+
 const userAddressData = await Address.findAll({
   where: {
     type: 'BILL'
