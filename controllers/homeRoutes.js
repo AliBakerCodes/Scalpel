@@ -11,6 +11,8 @@ const {
   Review,
 } = require('../models');
 const withAuth = require('../utils/auth');
+const Op=require('sequelize').Op;
+
 
 router.get('/', async (req, res) => {
   try {
@@ -53,7 +55,7 @@ router.get('/', async (req, res) => {
       items[i] = tempItems[Math.floor(Math.random() * tempItems.length)];
       console.log('Pushing');
     }
-    console.log('Items', items);
+    
     res.render('homepage', {
       items,
       categories,
@@ -77,16 +79,22 @@ router.get('/item/:id', async (req, res) => {
           attributes: { exclude: ['password'] },
         },
         {
-          model: Review,
+          model: Review
         },
       ],
     });
 
     const item = itemData.get({ plain: true });
-
+    
     const reviews = item.reviews;
+    
+    const allCategoryData = await Category.findAll({
+      include:{model:Item}
+    });
 
-    console.log(reviews);
+    const categories = allCategoryData.map((category) =>
+      category.get({ plain: true })
+    );
 
     const categoryData = await Category.findByPk(item.category_id, {
       include: [
@@ -95,10 +103,9 @@ router.get('/item/:id', async (req, res) => {
         },
       ],
     });
-
-    const categories = categoryData.get({ plain: true });
-
-    const categoryItems = categories.items;
+   
+    const categorySelected = categoryData.get({ plain: true });
+    const categoryItems = categorySelected.items;
 
     let categoryItem = [];
     for (let i = 0; i < 8; i++) {
@@ -106,8 +113,10 @@ router.get('/item/:id', async (req, res) => {
         categoryItems[Math.floor(Math.random() * categoryItems.length)];
     }
 
+    
     res.render('item-detail', {
       item,
+      categories,
       categoryItem,
       reviews,
       logged_in: req.session.logged_in,
@@ -116,9 +125,18 @@ router.get('/item/:id', async (req, res) => {
     res.status(500).json(err);
   }
 });
+
 //get a single category
 router.get('/category/:id', async (req, res) => {
   try {
+    const allCategoryData = await Category.findAll({
+      include:{model:Item}
+    });
+
+    const categories = allCategoryData.map((category) =>
+      category.get({ plain: true })
+    );
+
     const categoryData = await Category.findByPk(req.params.id, {
       include: [
         {
@@ -126,13 +144,14 @@ router.get('/category/:id', async (req, res) => {
         },
       ],
     });
-    const categories = categoryData.get({ plain: true });
+    const categorySelected = categoryData.get({ plain: true });
 
-    const items = categories.items;
+    const items = categorySelected.items;
 
-    console.log(categories);
+
     res.render('category', {
       categories,
+      categorySelected,
       items,
       logged_in: req.session.logged_in,
     });
@@ -170,6 +189,50 @@ router.get('/item/:id/review', async (req, res) => {
   }
 });
 
+router.post('/item/:id/review', async (req, res) => {
+  try {
+    const reviewData = await Review.create(req.body);
+    req.session.save(() => {
+     
+      res.status(200).json(reviewData);
+    });
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+router.get('/search', async (req, res) => {
+  try {
+    const {term} = req.query;
+    const itemData = await Item.findAll({
+      where:{name:{[Op.like]:'%'+term+'%'}}
+    });
+   
+    const items = itemData.map((item) =>
+      item.get({ plain: true })
+    );
+
+    const allCategoryData = await Category.findAll({
+      include:{model:Item}
+    });
+
+    const categories = allCategoryData.map((category) =>
+      category.get({ plain: true })
+    );
+    // res.status(200).json(itemData)
+    console.log(items)
+    res.render('search', {
+      items,
+      term,
+      categories,
+      logged_in: req.session.logged_in,
+    });
+  }
+   catch (err) {
+    res.status(400).json(err);
+  }
+});
+
 router.get('/cart', async (req, res) => {
   try {
     const cartData = await Cart.findByPk(req.params.id, {
@@ -187,25 +250,13 @@ router.get('/cart', async (req, res) => {
       cart,
       logged_in: req.session.logged_in,
     });
-    console.log(cartData, cart);
+    // console.log(cartData, cart);
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-router.post('/item/:id/review', async (req, res) => {
-  try {
-    const reviewData = await Review.create(req.body);
-    console.log(reviewData + "REVIEWDATAHERE");
-    req.session.save(() => {
-     
-      res.status(200).json(reviewData);
-    });
-    console.log(reviewData);
-  } catch (err) {
-    res.status(400).json(err);
-  }
-});
+
 
 // Use withAuth middleware to prevent access to route
 router.get('/profile', withAuth, async (req, res) => {
