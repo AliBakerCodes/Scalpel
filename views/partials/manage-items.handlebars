@@ -49,9 +49,41 @@
                         {{/if}}
                     </div>
                     <div>
-                        <button id="" type="button" data-item-id={{id}} class="btn btn-danger deleteCard">
+                        <button type="button" data-item-id={{id}} class="btn btn-danger deleteItem">
                             Delete
                         </button>
                     </div>
                 </div>
                 {{/each}}
+                <div class="row">
+                    <div class="container-fluid col-12 col-lg-12 col-sm-12 col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                Add Item
+                            </div>
+                            <div class="card-body">
+                                <form>
+                                    <div class="mb-3">
+                                        <label for="itemName" class="form-label">Item name</label>
+                                        <input type="text" class="form-control" id="itemName" placeholder="My Awesome Item">
+                                        </div>
+                                        <div class="mb-3">
+                                        <label for="itemDescription" class="form-label">Item Description</label>
+                                        <textarea class="form-control" id="itemDescription" rows="3"></textarea>
+                                        </div>
+                                        <div class="mb-3">
+                                        <label for="purchasePrice" class="form-label">Purchase Price</label>
+                                        <input class="form-control" id="purchasePrice" rows="3"></input>
+                                        <label for="purchasePrice" class="form-label">Rental Price</label>
+                                        <input class="form-control" id="purchasePrice" rows="3"></input> / Day
+                                        </div>
+                                        <label for="purchasePrice" class="form-label">Sell Price</label>
+                                        <input class="form-control" id="purchasePrice" rows="3"></input> / Day
+                                        </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <script src="/js/manageItems.js"></script>

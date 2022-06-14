@@ -1,46 +1,12 @@
 [
   {
-    "name":"DJ Khaled x Jordan 3 Grateful",
-    "description": "This Air Jordan 3 Retro is known as the Grateful edition. Made in collaboration with DJ Khaled, they were made to commemorate the release of the Jordan Brand ambassador's Grateful album. They come in a university red, black and cement grey colorway. Sporting a red-based leather upper with white and black accents and elephant print detailing in its usual places.",
-    "purchase_price": 5000,
-    "rental_price":500,
-    "buy_price":6500,
-    "image":"01-Air-Jordan-Grafteful.png",
-    "is_rentable":true,
-    "is_rented":true,
-    "return_date":"06/07/2022",
-    "active": true
-  },
-  {
-    "name":"Jordan 1 Retro High University Blue",
-    "description": "Style: 308268-111, Color:Muslin",
-    "purchase_price": 60,
-    "rental_price":150,
-    "buy_price":11000,
-    "image":"02-Jordan-1-Retro-High.png",
-    "is_rented":true,
-    "return_date":"06/07/2022",
-    "active": true
-  },
-  {
-    "name":"Adidas Yeezy Boost 350 V2- Black Red",
-    "description": "The adidas Yeezy 350 V2 Black Red features familiar style cues that made the silhouette popular today. The upper consists of black Primeknit material for breathability. A black ribbed midsole encases an entire BOOST cushioning system for added comfort. Lastly, signature “SPLY-350” is knitted along the lateral side of each pair.",
-    "purchase_price": 220,
-    "rental_price":70,
-    "buy_price":600,
-    "image":"03-Adidas-Yeezy-Boost-350-V2.png",
-    "is_rented":true,
-    "is_rentable":true,
-    "return_date":"06/07/2022",
-    "active": true
-  },
-  {
     "name":"Jordan 4 Retro Off-White",
     "description": "Jordan Brand and Virgil Abloh teamed up once again to release the third silhouette in their collaborative history with the women's Jordan 4 Retro Off-White Sail (W), now available on StockX. After teasing the release of the Off-White 4 with samples in his MCA exhibit and presenting them in his Off-White FW2020 Women’s Show, Virgil Abloh finally delivered what might be the most anticipated release of 2020. The Air Jordan 4 Sail features full-grain leather uppers with hits of mesh and translucent materials on the toebox and heel of the shoe. From there, hits of light blue on the tongue’s Jumpman and the outsole’s Nike Swoosh provide contrast to the sail colored sneaker. These women's sneakers released in July of 2020 and retailed for $200 USD.",
     "purchase_price": 200,
     "rental_price":200,
     "buy_price":1500,
     "image":"04-Jordan-4-Retro-Off-White.png",
+    "is_rentable":true,
     "is_rented":true,
     "return_date":"06/07/2022",
     "active": true
@@ -64,8 +30,42 @@
     "rental_price":50,
     "buy_price":1000,
     "image":"06-Adidas-Yeezy-Boost-350-Oxford-Tan.png",
+    "is_rentable":true,
     "is_rented":true,
     "return_date":"06/07/2022",
+    "active": true
+  },
+  {
+    "name":"DJ Khaled x Jordan 3 Grateful",
+    "description": "This Air Jordan 3 Retro is known as the Grateful edition. Made in collaboration with DJ Khaled, they were made to commemorate the release of the Jordan Brand ambassador's Grateful album. They come in a university red, black and cement grey colorway. Sporting a red-based leather upper with white and black accents and elephant print detailing in its usual places.",
+    "purchase_price": 5000,
+    "rental_price":500,
+    "buy_price":6500,
+    "image":"01-Air-Jordan-Grafteful.png",
+    "is_rentable":true,
+    "is_rented":false,
+    "active": true
+  },
+  {
+    "name":"Jordan 1 Retro High University Blue",
+    "description": "Style: 308268-111, Color:Muslin",
+    "purchase_price": 60,
+    "rental_price":150,
+    "buy_price":11000,
+    "image":"02-Jordan-1-Retro-High.png",
+    "is_rentable":false,
+    "is_rented":false,
+    "active": true
+  },
+  {
+    "name":"Adidas Yeezy Boost 350 V2- Black Red",
+    "description": "The adidas Yeezy 350 V2 Black Red features familiar style cues that made the silhouette popular today. The upper consists of black Primeknit material for breathability. A black ribbed midsole encases an entire BOOST cushioning system for added comfort. Lastly, signature “SPLY-350” is knitted along the lateral side of each pair.",
+    "purchase_price": 220,
+    "rental_price":70,
+    "buy_price":600,
+    "image":"03-Adidas-Yeezy-Boost-350-V2.png",
+    "is_rented":false,
+    "is_rentable":false,
     "active": true
   },
   {
@@ -87,6 +87,7 @@
     "rental_price":120,
     "buy_price":1500,
     "image":"08-Balenciaga-Adidas-Triple-S.png",
+    "is_rentable":true,
     "is_rented":true,
     "return_date":"06/07/2022",
     "active": true

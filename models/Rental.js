@@ -12,11 +12,11 @@ Rental.init (
           autoIncrement: true,
         },
         start_date: {
-          type: DataTypes.DATEONLY,
+          type: DataTypes.STRING,
           allowNull: false,
         },
         return_date: {
-            type: DataTypes.DATEONLY,
+            type: DataTypes.STRING,
             allowNull: false,
           },
         rented_to_user_id: {

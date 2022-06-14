@@ -53,8 +53,12 @@ OrderHeader.belongsTo(User, {
 // });
 
 Payment.hasMany(OrderHeader, {
-  foreignKey: 'orderheader_id',
+  foreignKey: 'payment_id',
 });
+
+// OrderHeader.hasOne(Payment, {
+//   foreignKey: 'payment_id'
+// })
 
 OrderHeader.hasMany(OrderDetail, {
   foreignKey: 'id',
@@ -94,6 +98,10 @@ User.hasMany(Review, {
   onDelete: 'CASCADE',
 });
 
+Review.belongsTo(Item, {
+  foreignKey: 'item_id'
+})
+
 User.hasMany(Rental, {
   foreignKey: 'user_id',
   onDelete: 'CASCADE',
@@ -103,6 +111,19 @@ Rental.belongsTo(User, {
   foreignKey: 'user_id',
   onDelete: 'CASCADE',
 });
+
+Rental.hasMany(User, {
+  foreignKey: 'item_id',
+  onDelete: 'CASCADE',
+});
+
+Rental.hasMany(Item, {
+  foreignKey: 'item_id'
+})
+
+Item.hasMany(Rental, {
+  foreignKey:'item_id'
+})
 
 Item.belongsTo(Category, {
   foreignKey: 'category_id',
