@@ -28,9 +28,9 @@ font-size:60px;
 .btn-circle.btn-xl {
   width: 80px;
   height: 80px;
-  padding: 13px 18px;
+  padding: 23px 12px;
   border-radius: 60px;
-  font-size: 15px;
+  font-size: 18px;
   text-align: center;
   margin-right: 2vw;
 }
@@ -118,9 +118,7 @@ width: 14vw;
   margin: 5px;
   padding: 5px;
 }
-.item-image{
 
-}
 
 .featured-items{
 text-align: center;

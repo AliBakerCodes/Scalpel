@@ -37,7 +37,7 @@
           </div>
           {{#if logged_in}}
           <div>
-            <a href='/profile' id="profile-btn" class="btn btn-secondary btn-circle btn-xl">Profile</a>
+            <a href='/profile'  id="profile-btn" class="btn btn-secondary btn-circle btn-xl">Profile</a>
             <button id="logout" class="btn btn-secondary loginbtn no-button">Log out</button>
           </div>
           {{else}}
@@ -71,7 +71,7 @@
                             Categories
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                            {{#each categories  as |category|}}
+                            {{#each categories as |category|}}
                             <li><a class="dropdown-item" href="/category/{{category.name}}">{{category.name}}</a></li>
                             {{/each}}
                         </ul>
