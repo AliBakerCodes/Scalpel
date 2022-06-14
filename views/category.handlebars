@@ -1,14 +1,14 @@
 <div class="row">
     <div class="container">
-        <h2>Category: {{categorySelected.name}}</h2>
+        <h1 class="text-center">{{categorySelected.name}}</h1>
         <div class="row">
              {{#each items as |item|}}
             <div class="card col-md-4 border-light">
                 <div class="card-body">
-                    <a href='/item/{{id}}'><img class="card-img-top" src="/images/{{image}}" alt="Card image cap"/></a>
+                    <a href='/item/{{id}}'><img class="card-img-top" src="/images/{{image}}" alt="Card image cap" style="height:225px;width:350px"/></a>
                     <h5 class="card-title text-center pt-3">{{name}}</h5>
-                    <p>Price: ${{rental_price}}</p>
-                    <p>Rate:</p>
+                    <p>Rent for: ${{rental_price}} a day</p>
+                    <p>Buy now for: ${{buy_price}}</p>
                 </div>
             </div>
             {{/each}}
