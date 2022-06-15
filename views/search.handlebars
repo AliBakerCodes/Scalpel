@@ -1,14 +1,17 @@
 <div class="row">
     <div class="container">
-        <h2> Searched: {{term}}</h2>
+        <h3> Searched: {{term}}</h3>
+        <p style="color: red">{{errorMessage}}</p>
         <div class="row">
              {{#each items as |item|}}
             <div class="card col-md-4 border-light">
                 <div class="card-body">
                     <a href='/item/{{item.id}}'><img class="card-img-top" src="/images/{{item.image}}" alt="{{item.name}}"/></a>
                     <h5 class="card-title text-center pt-3">{{item.name}}</h5>
-                    <p>Price: ${{item.rental_price}}</p>
-                    <p>Rate:</p>
+                    <p>Rate:<span class="rating_bar">{{item.rating}}</span></p>
+                    <p>Rent for: ${{item.rental_price}} a day</p>
+                    <p>Buy now for: ${{item.buy_price}}</p>
+                    
                 </div>
             </div>
             {{/each}}
@@ -16,3 +19,4 @@
     </div>
 </div>
 
+<script src="/js/rating.js"></script>
