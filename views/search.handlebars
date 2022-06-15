@@ -1,6 +1,7 @@
 <div class="row">
     <div class="container">
-        <h2> Searched: {{term}}</h2>
+        <h3> Searched: {{term}}</h3>
+        <p style="color: red">{{errorMessage}}</p>
         <div class="row">
              {{#each items as |item|}}
             <div class="card col-md-4 border-light">
