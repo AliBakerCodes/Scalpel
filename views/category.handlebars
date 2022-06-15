@@ -7,6 +7,7 @@
                 <div class="card-body">
                     <a href='/item/{{id}}'><img class="card-img-top" src="/images/{{image}}" alt="Card image cap" style="height:225px;width:350px"/></a>
                     <h5 class="card-title text-center pt-3">{{name}}</h5>
+                    <p>Rating: <span class="rating_bar">{{reviews.rating}}</span></p>
                     <p>Rent for: ${{rental_price}} a day</p>
                     <p>Buy now for: ${{buy_price}}</p>
                 </div>
@@ -16,3 +17,4 @@
     </div>
 </div>
 
+<script src="/js/rating.js"></script>
