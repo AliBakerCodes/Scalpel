@@ -45,6 +45,7 @@ router.get('/', async (req, res) => {
         },
       ],
     });
+
     const categories = categoryData.map((category) =>
       category.get({ plain: true })
     );
@@ -55,16 +56,11 @@ router.get('/', async (req, res) => {
     for (let i = 0; i < 8; i++) {
       items[i] = tempItems[Math.floor(Math.random() * tempItems.length)];
     }
-    
-    const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ['password'] },
-    });
-    const user = userData.get({ plain: true });
+   
 
     res.render('homepage', {
       items,
       categories,
-      ...user,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
@@ -81,19 +77,15 @@ router.get('/item/:id', async (req, res) => {
           model: Category,
         },
         {
-          model: User,
-          attributes: { exclude: ['password'] },
-        },
-        {
-          model: Review
-        },
+          model: Review,
+          include:[{model: User}]
+        }
       ],
     });
 
     const item = itemData.get({ plain: true });
     
     const reviews = item.reviews;
-    
     const allCategoryData = await Category.findAll({
       include:{model:Item}
     });
@@ -117,13 +109,8 @@ router.get('/item/:id', async (req, res) => {
     for (let i = 0; i < 8; i++) {
       categoryItem.push(categoryItems[i]);
     }
-    const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ['password'] },
-    });
-    const user = userData.get({ plain: true });
     
     res.render('item-detail', {
-      ...user,
       item,
       categories,
       categoryItem,
@@ -157,13 +144,8 @@ router.get('/category/:id', async (req, res) => {
 
     const items = categorySelected.items;
 
-    const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ['password'] },
-    });
-    const user = userData.get({ plain: true });
-
+  
     res.render('category', {
-      ...user,
       categories,
       categorySelected,
       items,
@@ -195,13 +177,8 @@ router.get('/item/:id/review', async (req, res) => {
     const item = itemData.get({ plain: true });
     
 
-    const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ['password'] },
-    });
-    const user = userData.get({ plain: true });
-
+   
     res.render('review', {
-      ...user,
       item,
       logged_in: req.session.logged_in,
     });
@@ -280,13 +257,8 @@ router.get('/search', async (req, res) => {
     } else{
     
 
-    const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ['password'] },
-    });
-    const user = userData.get({ plain: true });
-
     res.render('search', {
-      ...user,
+      
       items,
       term,
       categories,
