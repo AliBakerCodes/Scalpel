@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const { redirect } = require('statuses');
 const {
   User,
   Category,
@@ -8,7 +9,8 @@ const {
   OrderHeader,
   Payment,
   Rental,
-  Review,
+  Cart,
+  Review
 } = require('../models');
 const withAuth = require('../utils/auth');
 const Op=require('sequelize').Op;
@@ -106,11 +108,10 @@ router.get('/item/:id', async (req, res) => {
    
     const categorySelected = categoryData.get({ plain: true });
     const categoryItems = categorySelected.items;
-
+    console.log(categoryItems)
     let categoryItem = [];
     for (let i = 0; i < 8; i++) {
-      categoryItem[i] =
-        categoryItems[Math.floor(Math.random() * categoryItems.length)];
+      categoryItem.push(categoryItems[i]);
     }
 
     
@@ -227,17 +228,86 @@ router.post('/item/:id/review', async (req, res) => {
 });
 
 
-router.get('/search', async (req, res) => {
-  try {
-    const {term} = req.query;
-    const itemData = await Item.findAll({
-      where:{name:{[Op.like]:'%'+term+'%'}}
-    });
+// router.get('/search', async (req, res) => {
+//   try {
+//     const {term} = req.query;
+//     const itemData = await Item.findAll({
+//       where:{name:{[Op.like]:'%'+term+'%'}}
+//     });
    
-    const items = itemData.map((item) =>
-      item.get({ plain: true })
-    );
+//     const items = itemData.map((item) =>
+//       item.get({ plain: true })
+//     );
   
+//     const allCategoryData = await Category.findAll({
+//       include:{model:Item}
+//     });
+
+//     const categories = allCategoryData.map((category) =>
+//       category.get({ plain: true })
+
+
+//     if(items.length===0) { 
+//       const errorMessage='No result found. Try again.';
+//       res.render('search',{
+//         errorMessage,
+//         categories,
+//         term,
+//         logged_in:req.session.logged_in
+//       });
+//       return;
+      
+//     } else{
+
+//     res.render('search', {
+//       items,
+//       term,
+//       categories,
+//       logged_in: req.session.logged_in,
+//     });
+//   }
+//   }
+//    catch (err) {
+//     res.status(400).json(err);
+//   }
+// });
+
+router.post('/cart', async(req,res) =>{
+  try{ 
+  
+   const cartData= await Cart.create ({
+    item_id: req.body.item_id,
+    qty: req.body.qty,
+    user_id:req.session.user_id,
+    is_rental:req.body.is_rental
+    });  
+
+    res.status(200).json(cartData)
+    } catch(err){
+       res.status(400).json(err)
+      }
+})
+router.get('/cart', async (req, res) => {
+  try{
+    const cartData = await Cart.findAll({
+      where:{user_id: req.session.user_id},
+      include: [
+        {
+          model: User,
+          attributes: { exclude: ['password'] },
+        },
+        {
+          model: Item
+        }
+
+        ],
+    });
+    
+    const cart = cartData.map((cart) =>
+      cart.get({ plain: true })
+    );
+    console.log(cart)
+
     const allCategoryData = await Category.findAll({
       include:{model:Item}
     });
@@ -245,57 +315,16 @@ router.get('/search', async (req, res) => {
     const categories = allCategoryData.map((category) =>
       category.get({ plain: true })
     );  
-    console.log(itemData)
-
-    if(items.length===0) { 
-      const errorMessage='No result found. Try again.';
-      res.render('search',{
-        errorMessage,
-        categories,
-        term,
-        logged_in:req.session.logged_in
-  
-      });
-      return;
-      // document.getElementById('message').innerHTML += 'No item found. Try again.';
-    } else{
-
-    console.log(items)
-    res.render('search', {
-      items,
-      term,
-      categories,
-      logged_in: req.session.logged_in,
-    });
-  }
-  }
-   catch (err) {
-    res.status(400).json(err);
-  }
-});
-
-router.get('/cart', async (req, res) => {
-  try {
-    const cartData = await Cart.findByPk(req.params.id, {
-      include: [
-        {
-          model: User,
-          attributes: { exclude: ['password'] },
-        },
-      ],
-    });
-
-    const cart = cartData.get({ plain: true });
 
     res.render('cart', {
       cart,
+      categories,
       logged_in: req.session.logged_in,
     });
-    // console.log(cartData, cart);
   } catch (err) {
-    res.status(500).json(err);
+    res.status(400).json(err);
   }
-});
+})
 
 
 

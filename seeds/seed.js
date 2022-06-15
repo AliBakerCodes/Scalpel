@@ -325,6 +325,8 @@ for(let i=0; i<shipAddress.length; i++){
 
   console.log(shipAddress[0].user_id)
   process.exit(0);
+
+ 
 };
 
 
