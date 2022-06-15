@@ -4,10 +4,10 @@
           <div class="card my-4 shadow-3">
             <div class="row g-0">
                
-              <div class="col-xl-6 d-xl-block bg-image " >
+              <div class="col-xl-6 d-xl-block bg-image address-block" >
                 <h2 class="mb-4 text-uppercase m-2">Delivery Addresses</h2>
                  {{#each addresses as |address|}}
-                <div class="card m-2 address-block">
+                <div class="card m-2 ">
                   <div class="card-body">
                     <h4 id="addressType" class="float-end m-4">{{address.type}}</h4>
                     <h5 id="addressName" class="card-title">{{address.user.first_name}} {{address.user.last_name}}</h5>
