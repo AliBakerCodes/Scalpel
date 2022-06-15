@@ -201,6 +201,7 @@ router.post('/item/:id/review', async (req, res) => {
   }
 });
 
+
 router.get('/search', async (req, res) => {
   try {
     const {term} = req.query;
@@ -211,15 +212,29 @@ router.get('/search', async (req, res) => {
     const items = itemData.map((item) =>
       item.get({ plain: true })
     );
-
+  
     const allCategoryData = await Category.findAll({
       include:{model:Item}
     });
 
     const categories = allCategoryData.map((category) =>
       category.get({ plain: true })
-    );
-    // res.status(200).json(itemData)
+    );  
+    console.log(itemData)
+
+    if(items.length===0) { 
+      const errorMessage='No result found. Try again.';
+      res.render('search',{
+        errorMessage,
+        categories,
+        term,
+        logged_in:req.session.logged_in
+  
+      });
+      return;
+      // document.getElementById('message').innerHTML += 'No item found. Try again.';
+    } else{
+
     console.log(items)
     res.render('search', {
       items,
@@ -227,6 +242,7 @@ router.get('/search', async (req, res) => {
       categories,
       logged_in: req.session.logged_in,
     });
+  }
   }
    catch (err) {
     res.status(400).json(err);
