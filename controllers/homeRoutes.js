@@ -51,11 +51,9 @@ router.get('/', async (req, res) => {
 
     // Serialize data so the template can read it
     const tempItems = itemData.map((items) => items.get({ plain: true }));
-    // console.log(tempItems)
     let items = [];
     for (let i = 0; i < 8; i++) {
       items[i] = tempItems[Math.floor(Math.random() * tempItems.length)];
-      console.log('Pushing');
     }
     
     res.render('homepage', {
@@ -108,7 +106,7 @@ router.get('/item/:id', async (req, res) => {
    
     const categorySelected = categoryData.get({ plain: true });
     const categoryItems = categorySelected.items;
-    console.log(categoryItems)
+
     let categoryItem = [];
     for (let i = 0; i < 8; i++) {
       categoryItem.push(categoryItems[i]);
@@ -228,51 +226,51 @@ router.post('/item/:id/review', async (req, res) => {
 });
 
 
-// router.get('/search', async (req, res) => {
-//   try {
-//     const {term} = req.query;
-//     const itemData = await Item.findAll({
-//       where:{name:{[Op.like]:'%'+term+'%'}}
-//     });
+router.get('/search', async (req, res) => {
+  try {
+    const {term} = req.query;
+    const itemData = await Item.findAll({
+      where:{name:{[Op.like]:'%'+term+'%'}}
+    });
    
-//     const items = itemData.map((item) =>
-//       item.get({ plain: true })
-//     );
+    const items = itemData.map((item) =>
+      item.get({ plain: true })
+    );
   
-//     const allCategoryData = await Category.findAll({
-//       include:{model:Item}
-//     });
+    const allCategoryData = await Category.findAll({
+      include:{model:Item}
+    });
 
-//     const categories = allCategoryData.map((category) =>
-//       category.get({ plain: true })
+    const categories = allCategoryData.map((category) =>
+      category.get({ plain: true }));
 
 
-//     if(items.length===0) { 
-//       const errorMessage='No result found. Try again.';
-//       res.render('search',{
-//         errorMessage,
-//         categories,
-//         term,
-//         logged_in:req.session.logged_in
-//       });
-//       return;
+    if(items.length===0) { 
+      const errorMessage='No result found. Try again.';
+      res.render('search',{
+        errorMessage,
+        categories,
+        term,
+        logged_in:req.session.logged_in
+      });
+      return;
       
-//     } else{
+    } else{
 
-//     res.render('search', {
-//       items,
-//       term,
-//       categories,
-//       logged_in: req.session.logged_in,
-//     });
-//   }
-//   }
-//    catch (err) {
-//     res.status(400).json(err);
-//   }
-// });
+    res.render('search', {
+      items,
+      term,
+      categories,
+      logged_in: req.session.logged_in,
+    });
+  }
+  }
+   catch (err) {
+    res.status(400).json(err);
+  }
+});
 
-router.post('/cart', async(req,res) =>{
+router.post('/cart', withAuth, async(req,res) =>{
   try{ 
   
    const cartData= await Cart.create ({
@@ -287,7 +285,7 @@ router.post('/cart', async(req,res) =>{
        res.status(400).json(err)
       }
 })
-router.get('/cart', async (req, res) => {
+router.get('/cart', withAuth, async (req, res) => {
   try{
     const cartData = await Cart.findAll({
       where:{user_id: req.session.user_id},
@@ -339,8 +337,19 @@ router.get('/profile', withAuth, async (req, res) => {
 
     const user = userData.get({ plain: true });
     const url = req.path;
+
+
+    const allCategoryData = await Category.findAll({
+      include:{model:Item}
+    });
+
+    const categories = allCategoryData.map((category) =>
+      category.get({ plain: true }));
+
+
     res.render('profile', {
       ...user,
+      categories,
       profilePartial: 'none',
       logged_in: true,
     });
@@ -349,14 +358,22 @@ router.get('/profile', withAuth, async (req, res) => {
   }
 });
 
-router.get('/login', (req, res) => {
+router.get('/login', async (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
     res.redirect('/profile');
     return;
   }
+  const allCategoryData = await Category.findAll({
+    include:{model:Item}
+  });
 
-  res.render('login');
+  const categories = allCategoryData.map((category) =>
+    category.get({ plain: true }));
+
+  res.render('login', {
+  categories
+  });
 });
 
 module.exports = router;
