@@ -11,8 +11,8 @@
                 <p>Buy Price: ${{item.buy_price}}</p>
             </div>
             <div>
-                <button type="submit" class="btn btn-danger">Rent Now</button>
-                <button type="submit" class="btn btn-danger">Buy Now</button>
+                <button type="click" id="rentBtn" data-attr="{{item.id}}" class="btn btn-danger">Rent Now</button>
+                <button type="click" id="buyBtn" data-attr="{{item.id}}" class="btn btn-danger">Buy Now</button>
             </div>
 
         </div>
@@ -78,5 +78,5 @@
 
 
 <script src="/js/rating.js"></script>
-
+<script src="/js/item-detail.js"></script>
 

@@ -139,6 +139,8 @@ Cart.belongsTo(User, {
   foreignKey: 'user_id'
 });
 
+
+
 Rental.hasMany(OrderDetail, {
 foreignKey:'rental_id'
 });
@@ -147,7 +149,10 @@ OrderDetail.hasMany(Rental)
 
 User.hasOne(Cart)
 
-
+Cart.belongsTo(Item),
+  {
+    foreignKey:'item_id'
+  }
 
 module.exports = {
   User,
@@ -159,4 +164,5 @@ module.exports = {
   Payment,
   Rental,
   Review,
+  Cart
 };

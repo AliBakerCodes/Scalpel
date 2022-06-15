@@ -19,13 +19,10 @@ Cart.init (
           type: DataTypes.INTEGER,
           allowNull: false,
         },
-        cart_id: {
-          type: DataTypes.INTEGER,
-          allowNull: false,
-        },
+       
         is_active: {
           type: DataTypes.BOOLEAN,
-          allowNull: false,
+          allowNull: true,
         },
         is_rental: {
             type: DataTypes.BOOLEAN,

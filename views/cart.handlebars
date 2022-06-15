@@ -1,36 +1,41 @@
+{{#if logged_in}}
+<div class="row pt-4" >
 <h2 class="text-center">My Cart</h2>
 <section>
-    <div class="container">
-        {{#each carts as |item|}}
+    <div class="container pt-3">
+        {{#each cart as |cart|}}
         <div class="row cart-item">
-            <hr>
-            <div class="col-md-3 align-self-center">
-                <a href="/item/{{item.id}}"><img src="/images/{{item.image}}" class="thumbnail" alt="..."></a>
-            </div>
-            <hr>
-            <div class="col-md-2 align-self-center">
-                <a href=""><h5>{{item.name}}</h5></a>
-            </div>
+            
             {{#if is_rental}}
             <div class="col-md-2 align-self-center">
-                <h5>{{item.rental_price}}</h5>
+                <a href="/item/{{cart.item.id}}"><img src="/images/{{cart.item.image}}" class="thumbnail mw-100"  alt="{{cart.item.name}}"/></a>
+            </div>
+            <div class="col-md-3 align-self-center" >
+                <a href="/item/{{cart.item.id}}" class="text-decoration-none text-color-black"><small>{{cart.item.name}}</small></a>
+            </div>
+            <div class="col-md-2 align-self-center">
+                <p>${{cart.item.rental_price}}.00/day</p>
+            </div> 
+            <div class="col-md-2 align-self-center">
+                <p>Rental</p>
             </div>
             {{else}}
             <div class="col-md-2 align-self-center">
-                <h5>{{item.buy_price}}</h5>
+                <a href="/item/{{cart.item.id}}"><img src="/images/{{cart.item.image}}" class="thumbnail mw-100"  alt="{{cart.item.name}}"/></a>
+            </div>
+            <div class="col-md-3 align-self-center" >
+                <a href="/item/{{cart.item.id}}" class="text-decoration-none text-color-black"><small>{{cart.item.name}}</small></a>
+            </div>
+            <div class="col-md-2 align-self-center">
+                <p>${{cart.item.buy_price}}.00</p>
+            </div> 
+            <div class="col-md-2 align-self-center">
+                <p>Buy</p>
             </div>
             {{/if}}
-            {{#if is_rental}}
+            
             <div class="col-md-2 align-self-center">
-                <h5>Rental</h5>
-            </div>
-            {{else}}
-            <div class="col-md-2 align-self-center">
-                <h5>Buy</h5>
-            </div>
-            {{/if}}
-            <div class="col-md-2 align-self-center">
-                <h5>Quantity:{{item.qty}} </h5>
+                <p>Quantity:{{cart.qty}} </p>
             </div>
             <div class="col-md-1 align-self-center">
                 <div class="col-sm-100">
@@ -58,9 +63,18 @@
     </div>
     <div class="row justify-content-center pt-3">
         <div class="col-sm-100">
-        <button type="submit" class="btn btn-primary ">Submit</button>
-        <button type="submit" class="btn btn-secondary ">Continue Shopping</button>
+        <a href='/checkout'><button type="submit" class="btn btn-primary">Submit</button></a>
+        <a href='/'><button type="submit" class="btn btn-secondary ">Continue Shopping</button></a>
         </div>
     </div>
 </section>
+</div>
+
+{{else}}
+<div class="row">
+<h3>Please log in to your account to add items to the cart.</h3>
+</div>
+{{/if}}
+
 <script src="/js/cart.js"></script>
+<link href="/css/cart.css"></link>
