@@ -9,16 +9,16 @@
                 <div class="row justify-content-between mb-3">
                     <div class="col-auto"> <h6 class="color-1 mb-0 change-color">Receipt</h6> </div>
                 </div>
-                {{#each orderheaders as |order| }}
+                {{#each orders as |order| }}
                 <div class="row mt-4">
                     <div class="col">
                         <div class="card card-2">
                             <div class="card-body">
                                 <div class="media">
-                                    <div class="sq align-self-center "> <a id="historyItemPage" href="/profile"><img id="historyImg" class="img-fluid  my-auto align-self-center mr-2 mr-md-4 pl-0 p-0 m-0" src="/public/images/rtx3070.jpg" width="135" height="135" /></div></a>
+                                    <div class="sq align-self-center "> <a id="historyItemPage" href="/profile"><img id="historyImg" class="img-fluid  my-auto align-self-center mr-2 mr-md-4 pl-0 p-0 m-0" src="/images/{{order.order_details.item.image}}" width="135" height="135" /></div></a>
                                     <div class="media-body my-auto text-right">
                                         <div class="row  my-auto flex-column flex-md-row">
-                                            <div id="historyItem" class="col my-auto"> <h6 class="mb-0">{{order.item.name}}</h6>  </div>
+                                            <div id="historyItem" class="col my-auto"> <h6 class="mb-0">{{order.order_details}}</h6>  </div>
                                             {{#if order.orderdetail.is_rental}}
                                             <div class="col-auto my-auto"> <small>Purchase Type:</small></div>
                                             <div id="historyPurchaseType" class="col my-auto"> <small>Rental</small></div>
@@ -48,3 +48,4 @@
             </div>
         </div>
     </div>
+    <script src="/js/history.js"></script>
