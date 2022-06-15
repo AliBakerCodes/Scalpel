@@ -244,8 +244,7 @@ router.get('/search', async (req, res) => {
 
     const categories = allCategoryData.map((category) =>
       category.get({ plain: true })
-    );  
-    console.log(itemData)
+
 
     if(items.length===0) { 
       const errorMessage='No result found. Try again.';
@@ -259,7 +258,6 @@ router.get('/search', async (req, res) => {
       
     } else{
 
-    console.log(items)
     res.render('search', {
       items,
       term,

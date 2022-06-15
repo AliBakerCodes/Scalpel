@@ -14,7 +14,7 @@ const newPaymentHandler = async (event) => {
         'Content-Type': 'application/json',
       },
     });
-
+    
     if (response.ok) {
       document.location.replace('/profile/payments');
     } else {
