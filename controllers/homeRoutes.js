@@ -254,10 +254,9 @@ router.get('/search', async (req, res) => {
         categories,
         term,
         logged_in:req.session.logged_in
-  
       });
       return;
-      // document.getElementById('message').innerHTML += 'No item found. Try again.';
+      
     } else{
 
     console.log(items)
