@@ -15,6 +15,7 @@
                 <div
                   class="mt-4 d-flex align-items-center"
                 ><ul>
+                  <div class="deleteCard">
                 {{#each payments as |payment|}}
                 <div class="row">
                   <div class="d-flex align-items-center">
@@ -30,13 +31,14 @@
                       >
                     </div>
                   <div>
-                  <button id="" type="button" data-payment-id={{payment.id}} class="btn btn-danger deleteCard ms-5">
+                  <button id="" type="button" data-payment-id={{payment.id}} class="btn btn-danger ms-5">
                   Delete
                   </button>
                   </div>
                   </div>
                   </div>
                   {{/each}}
+                  </div>
                   </ul>
                 </div>
                 <h6 class="mt-4 mb-3 text-danger text-uppercase">

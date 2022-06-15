@@ -228,49 +228,49 @@ router.post('/item/:id/review', async (req, res) => {
 });
 
 
-router.get('/search', async (req, res) => {
-  try {
-    const {term} = req.query;
-    const itemData = await Item.findAll({
-      where:{name:{[Op.like]:'%'+term+'%'}}
-    });
+// router.get('/search', async (req, res) => {
+//   try {
+//     const {term} = req.query;
+//     const itemData = await Item.findAll({
+//       where:{name:{[Op.like]:'%'+term+'%'}}
+//     });
    
-    const items = itemData.map((item) =>
-      item.get({ plain: true })
-    );
+//     const items = itemData.map((item) =>
+//       item.get({ plain: true })
+//     );
   
-    const allCategoryData = await Category.findAll({
-      include:{model:Item}
-    });
+//     const allCategoryData = await Category.findAll({
+//       include:{model:Item}
+//     });
 
-    const categories = allCategoryData.map((category) =>
-      category.get({ plain: true })
+//     const categories = allCategoryData.map((category) =>
+//       category.get({ plain: true })
 
 
-    if(items.length===0) { 
-      const errorMessage='No result found. Try again.';
-      res.render('search',{
-        errorMessage,
-        categories,
-        term,
-        logged_in:req.session.logged_in
-      });
-      return;
+//     if(items.length===0) { 
+//       const errorMessage='No result found. Try again.';
+//       res.render('search',{
+//         errorMessage,
+//         categories,
+//         term,
+//         logged_in:req.session.logged_in
+//       });
+//       return;
       
-    } else{
+//     } else{
 
-    res.render('search', {
-      items,
-      term,
-      categories,
-      logged_in: req.session.logged_in,
-    });
-  }
-  }
-   catch (err) {
-    res.status(400).json(err);
-  }
-});
+//     res.render('search', {
+//       items,
+//       term,
+//       categories,
+//       logged_in: req.session.logged_in,
+//     });
+//   }
+//   }
+//    catch (err) {
+//     res.status(400).json(err);
+//   }
+// });
 
 router.post('/cart', async(req,res) =>{
   try{ 
