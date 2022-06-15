@@ -93,6 +93,39 @@ const seedDatabase = async () => {
       }
   });
 
+  await Address.update(
+    {
+      type: 'SHIP',
+      user_id: '1'
+    },
+    {
+      where: {
+        id: {
+          [Op.or]: [3,4]
+        }
+      }
+  });
+
+  const userAddressData = await Address.findAll({
+    where: {
+      type: 'BILL'
+    },
+    raw : true ,
+      nest : true
+  });
+  
+  let i=0;
+  // console.log (userAddressData);
+    for (const address of userAddressData) {
+      // console.log(address['user_id']);
+      await Payment.create({
+        ...payments[i],
+        last4: payments[i].card_num.slice(12),
+        user_id: address['user_id'],
+      });
+      i++;
+    };
+
   const items = await Item.findAll();
       const userItemData = await Item.findAll({
       where: {
@@ -109,7 +142,7 @@ let z=0
         start_date: rentals[z].start_date,
         return_date: rentals[z].return_date,
         user_id: userItemData[z].user_id,
-        rented_to_user_id: users[Math.floor(Math.random() * users.length)].id,
+        rented_to_user_id: userAddressData[Math.floor(Math.random() * userAddressData.length)].user_id,
         item_id: userItemData[z].id,
       });
       z++
@@ -143,7 +176,7 @@ let z=0
     });
 
     const rentedItems = await Rental.findAll({ raw : true, nest : true})
-    console.log(rentedItems);
+    // console.log(rentedItems);
     for(let i=0; i<rentedItems.length; i++){
 
       console.log(rentedItems[i].return_date)
@@ -162,7 +195,7 @@ let z=0
     await Review.create({
       ...review,
       user_id: users[Math.floor(Math.random() * users.length)].id,
-      item_id: items[Math.floor(Math.random() * users.length)].id
+      item_id: items[Math.floor(Math.random() * items.length)].id
     });
   };
 
@@ -198,10 +231,10 @@ let z=0
     nest : true
   });
 
-    console.log(reviewItems);
+    // console.log(reviewItems);
     for(let i=0; i<reviewItems.length; i++){
 
-      console.log(reviewItems[i].item_id, reviewItems[i].n_rating)
+      // console.log(reviewItems[i].item_id, reviewItems[i].n_rating)
       await Item.update(
       {
         rating: reviewItems[i].n_rating
@@ -213,34 +246,86 @@ let z=0
     });
   };
 
-const userAddressData = await Address.findAll({
-  where: {
-    type: 'BILL'
-  },
-  raw : true ,
-    nest : true
-});
-
-// const usersWithAddresses = userAddressData.get({ plain: true });;
 
 
-let i=0;
-// console.log (userAddressData);
-  for (const address of userAddressData) {
-    // console.log(address['user_id']);
-    await Payment.create({
-      ...payments[i],
-      last4: payments[i].card_num.slice(12),
-      user_id: address['user_id'],
+  
+  for(let i=0; i<rentedItems.length; i++){
+
+    // console.log(rentedItems[i].return_date)
+    await OrderDetail.create(
+    {
+      item_id: rentedItems[i].item_id,
+      rental_id: rentedItems[i].id,
+      is_rental:true,
+      qty:1,
+      ship_date:rentedItems[i].start_date,
     });
-    i++;
-  };
+};
 
-  // await Review.findAll({
+// const orderData = await OrderDetail.findAll({
+//   include: [{ model: Item,
+//     include: [{model: Rental}]
+//   }],
+//   raw : true, 
+//     nest : true
+// });
 
-  // })
-// console.log(userItemData)
+const orderRental = await Rental.findAll({
+  include: [{model: User,
+            include:[{model: Payment}, {model: Address,
+            where:
+          {
+            type: 'BILL'
+          }}] }],
+  group: 'rented_to_user_id',
+    raw : true, 
+    nest : true
+  });
+
+
+
+ for(let i=0; i<orderRental.length; i++){
+
+  // console.log(orderRental[i])
+  await OrderHeader.create(
+  {
+    user_id: orderRental[i].user_id,
+    payment_ID: orderRental[i]['user']['payments'].id,
+    status:'SHIPPED',
+    bill_to_addr_id:orderRental[i]['user']['addresses'].id,
+    ship_date: orderRental[i].start_date,
+  });
+};
+
+const shipAddress = await OrderHeader.findAll({
+  include: [{model: User,
+    include:[{model: Address,
+    where:
+  {
+    type: 'SHIP'
+  }}]}],
+  raw : true, 
+    nest : true
+})
+
+for(let i=0; i<shipAddress.length; i++){
+
+  // console.log(orderRental[i])
+  await OrderHeader.update(
+  {
+    ship_to_addr_id: shipAddress[i]['user']['addresses'].id,
+  },
+  {
+  where: {
+    user_id: shipAddress[i].user_id
+  }
+} );
+};
+
+
+  console.log(shipAddress[0].user_id)
   process.exit(0);
 };
+
 
 seedDatabase();
