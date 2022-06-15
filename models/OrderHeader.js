@@ -13,11 +13,11 @@ OrderHeader.init (
         },
         ship_to_addr_id: {
           type: DataTypes.STRING,
-          allowNull: false,
+          allowNull: true,
         },
         bill_to_addr_id: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
         },
         ship_date: {
             type: DataTypes.DATEONLY,

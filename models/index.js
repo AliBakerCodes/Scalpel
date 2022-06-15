@@ -70,13 +70,14 @@ OrderDetail.belongsTo(OrderHeader, {
   onDelete: 'CASCADE',
 });
 
-OrderDetail.hasMany(Item, {
+OrderDetail.belongsTo(Item, {
   foreignKey: 'item_id'
 })
 
 Item.hasMany(OrderDetail, {
   foreignKey: 'item_id'
 })
+
 
 User.hasMany(Payment, {
   foreignKey: 'user_id',
@@ -138,7 +139,15 @@ Cart.belongsTo(User, {
   foreignKey: 'user_id'
 });
 
+Rental.hasMany(OrderDetail, {
+foreignKey:'rental_id'
+});
+
+OrderDetail.hasMany(Rental)
+
 User.hasOne(Cart)
+
+
 
 module.exports = {
   User,

@@ -23,6 +23,11 @@ OrderDetail.init (
             type: DataTypes.DATEONLY,
             allowNull: false,
         },
+        // item_id: {
+        //     type: DataTypes.INTEGER,
+        //     references: {model: 'Item',
+        // key: 'id'}
+        // }
 
     },
     {
