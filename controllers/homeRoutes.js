@@ -245,7 +245,7 @@ router.get('/search', async (req, res) => {
       category.get({ plain: true })
     );
     // res.status(200).json(itemData)
-    console.log(items)
+    // console.log(items)
     res.render('search', {
       items,
       term,

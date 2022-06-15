@@ -1,5 +1,6 @@
 const router = require('express').Router();
-const { User, 
+const {
+  User,
   Category,
   Address,
   Item,
@@ -8,7 +9,8 @@ const { User,
   Payment,
   Rental,
   Review,
-  Cart} = require('../models');
+  Cart,
+} = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/payments', withAuth, async (req, res) => {
@@ -22,22 +24,20 @@ router.get('/payments', withAuth, async (req, res) => {
       include: [
         {
           model: Address,
-        }
+        },
       ],
-      where:
-      {
-        user_id: req.session.user_id
-      }
-      
+      where: {
+        user_id: req.session.user_id,
+      },
     });
-    console.log(req.session.user_id)
-    console.log(paymentData)
+    console.log(req.session.user_id);
+    console.log(paymentData);
     const payments = paymentData.map((payment) => payment.get({ plain: true }));
     console.log(payments);
-    res.render('profile', { 
+    res.render('profile', {
       payments,
       profilePartial: 'payments-view',
-      logged_in: req.session.logged_in 
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -59,25 +59,84 @@ router.post('/payments', withAuth, async (req, res) => {
 
 router.delete('/payments/:id', withAuth, async (req, res) => {
   try {
-    console.log('anything')
+    console.log('anything');
     const paymentData = await Payment.destroy({
       where: {
         id: req.params.id,
         user_id: req.session.user_id,
       },
     });
-    console.log(paymentData)
+    console.log(paymentData);
     if (!paymentData) {
       res.status(404).json({ message: 'No payment found with this id!' });
       return;
     }
-    
+
     res.status(200).json(paymentData);
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
+router.get('/addresses', withAuth, async (req, res) => {
+  try {
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
+    });
+
+    const addressData = await Address.findAll({
+      where: {
+        user_id: req.session.user_id,
+      },
+    });
+    console.log(req.session.user_id);
+    console.log(addressData);
+    const addresses = addressData.map((address) =>
+      address.get({ plain: true })
+    );
+    console.log(addresses);
+    res.render('profile', {
+      addresses,
+      profilePartial: 'address',
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.delete('/addresses/:id', withAuth, async (req, res) => {
+  try {
+    const addressData = await Address.destroy({
+      where: {
+        id: req.params.id,
+        user_id: req.session.user_id,
+      },
+    });
+    console.log(addressData);
+    if (!addressData) {
+      res.status(404).json({ message: 'No address found with this id!' });
+      return;
+    }
+    res.status(200).json(addressData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.post('/addresses', withAuth, async (req, res) => {
+  try {
+    const newAddress = await Address.create({
+      ...req.body,
+      user_id: req.session.user_id,
+    });
+    console.log(req.body)
+    console.log(newAddress);
+    res.status(200).json(newAddress);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
 
 router.get('/items', withAuth, async (req, res) => {
   try {
@@ -89,12 +148,12 @@ router.get('/items', withAuth, async (req, res) => {
       include: [
         {
           model: Category,
-        }
+        },
       ],
       include: [
         {
           model: Rental,
-        }
+        },
       ],
       include: [
         {
@@ -102,52 +161,50 @@ router.get('/items', withAuth, async (req, res) => {
           include: [
             {
               model: OrderHeader,
-            }
+            },
           ],
-        }
+        },
       ],
-      where:
-      {
+      where: {
         user_id: req.session.user_id,
-        active: true
-      }
-      
+        active: true,
+      },
     });
-    console.log(req.session.user_id)
-    console.log(itemData)
+    console.log(req.session.user_id);
+    console.log(itemData);
     const items = itemData.map((item) => item.get({ plain: true }));
     console.log(items);
-    res.render('profile', { 
+    res.render('profile', {
       items,
       profilePartial: 'manage-items',
-      logged_in: req.session.logged_in 
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
-    console.log(err)
+    console.log(err);
     res.status(500).json(err);
   }
 });
 
 router.delete('/items/:id', withAuth, async (req, res) => {
   try {
-    const itemData = await Item.update({
-      active: false
-    },
-    {
-      where: 
-        { 
+    const itemData = await Item.update(
+      {
+        active: false,
+      },
+      {
+        where: {
           id: req.params.id,
-          user_id: req.session.user_id
+          user_id: req.session.user_id,
         },
-    });
+      }
+    );
     console.log('Delete Item:', itemData);
     res.status(200).json(itemData);
   } catch (err) {
-    console.log(err)
+    console.log(err);
     res.status(400).json(err);
   }
 });
-
 
 router.get('/items/:id', async (req, res) => {
   try {
@@ -164,7 +221,7 @@ router.get('/items/:id', async (req, res) => {
 
     res.render('project', {
       ...project,
-      logged_in: req.session.logged_in
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -181,11 +238,11 @@ router.get('/profile', withAuth, async (req, res) => {
     });
 
     const user = userData.get({ plain: true });
-    const url=req.path
+    const url = req.path;
     res.render('profile', {
       ...user,
       profilePartial: 'none',
-      logged_in: true
+      logged_in: true,
     });
   } catch (err) {
     res.status(500).json(err);
