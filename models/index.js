@@ -149,10 +149,10 @@ OrderDetail.hasMany(Rental)
 
 User.hasOne(Cart)
 
-Cart.belongsTo(Item),
+Cart.belongsTo(Item,
   {
     foreignKey:'item_id'
-  }
+  });
 
 module.exports = {
   User,
