@@ -1,26 +1,27 @@
+<link rel="stylesheet" href="/css/checkout.css">
 <h2 class="text-center">Checkout</h2>
 <form class="form checkout-form">
     <div class="container">
-        {{#each items as |item|}}
+        {{#each cart as |cart|}}
         <div class="row checkout-item">
             <hr>
-            <div class="col-md-3 align-self-center">
-                <a href=""><img src="http://placehold.jp/150x150.png" class="thumbnail" alt="..."></a>
+            <div class="col-md-3 me-3 align-self-center">
+                <a href=""><img src="/images/{{cart.item.image}}" class="thumbnail" alt="{{cart.item.name}}"></a>
             </div>
             <div class="col-md-3 align-self-center">
-                <a href=""><h5>{{item.name}}</h5></a>
+                <a href="/item/{{cart.item_id}}"><h5>{{cart.item.name}}</h5></a>
             </div>
             {{#if is_rental}}
-            <div class="col-md-3 align-self-center">
-                <h5>{{item.rental_price}}</h5>
+            <div class="col-md-1 align-self-center">
+                <h5>{{cart.item.rental_price}}</h5>
             </div>
             {{else}}
-            <div class="col-md-3 align-self-center">
-                <h5>{{item.buy_price}}</h5>
+            <div class="col-md-1 align-self-center">
+                <h5>${{cart.item.buy_price}}</h5>
             </div>
             {{/if}}
             <div class="col-md-2 align-self-center">
-                <h5>Quantity: {{item.qty}}</h5>
+                <h5>Quantity: {{cart.qty}}</h5>
             </div>
             <div class="col-md-1 align-self-center">
                 <div class="col-sm-100">
@@ -29,7 +30,7 @@
             </div>
         </div>
         <hr>
-
+        {{/each}}
     </div>
 <br>
     <div class="container">
@@ -38,42 +39,37 @@
                 <div class="card-body">
                     {{!-- need to figure out how to get subtotal/tax/total --}}
                     <div>
-                        <p>Subtotal: {{item.subtotal}}</p>
-                        <p>Tax: {{item.tax}}</p>
-                        <h4><strong>Total:{{item.total}}</strong></h4>
+                        <p>Subtotal: ${{subtotal}}</p>
+                        <p>Tax: ${{tax}}</p>
+                        <p>Shipping: ${{shipping}}</p>
+                        <h4><strong>Total: ${{total}}</strong></h4>
                     </div>
                     <br>
                     <div>
                         <h3>Payment </h3>
                         <div class="list-group">
                             {{#each payments as |payment|}}
-                            <label class="list-group-item border-light">
-                            <input class="form-check-input me-1" type="checkbox" value="" id="savedCard">
-                            {{user.card_num}}
-                            </label>
+                            <div class="row">
+                                <div class="d-flex align-items-center">
+                                    <img
+                                    src="/images/cardimage.png"
+                                    class="rounded"
+                                    width="70"
+                                    />
+                                    <div class="d-flex justify-content-between flex-column ms-3">
+                                    <span id="cardName" class="h5 mb-1">{{payment.type}}</span>
+                                    <span id="cardNumber" class="small text-muted"
+                                        >XXX XXXX XXXX {{payment.last4}}</span
+                                    >
+                                </div>
+                                <div class="d-flex justify-content-between flex-column ms-3">
+                                    <input class="form-check-input payment-radio" type="radio" name="payment-radio" data-payment-id="{{payment.id}}">
+                                </div>
+                            </div>
+                        </div>
                             {{/each}}
-                            <div class="card-body">          
-                                <div class="form-outline mb-3">
-                                <input type="text" id="formControlLgXM8" class="form-control"
-                                    placeholder="1234 5678 1234 5678" />
-                                <label class="form-label" for="formControlLgXM8">Card Number</label>
-                                </div>
-                
-                                <div class="row mb-3">
-                                <div class="col-6">
-                                    <div class="form-outline">
-                                    <input type="password" id="formControlLgExpk8" class="form-control"
-                                        placeholder="MM/YYYY" />
-                                    <label class="form-label" for="formControlLgExpk8">Expire</label>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="form-outline">
-                                    <input type="password" id="formControlLgcvv8" class="form-control" placeholder="Cvv" />
-                                    <label class="form-label" for="formControlLgcvv8">Cvv</label>
-                                    </div>
-                                </div>
-                                </div>
+                           <div class="d-flex justify-content-between flex-column ms-3">
+                                <a href="/proflie/payments">Manage Payment Methods</a>   
                             </div>
                         </div>
                     </div>
@@ -83,93 +79,72 @@
             <div class="card col-md-6">
                 <div class="card-body">
                     <h4>Shipping Address</h4>
-                    <p id="address">{{address.addr1}}</p>
-                    <p id="city">{{address.city}}</p>
-                    <p id="state">{{address.state}}</p>
-                    <p id="zip">{{address.zip}}</p>
-                
+                    {{#if shipAddresses}}
+                    {{#each shipAddresses as |address|}}
+                        <div class="card m-2 ">
+                            <div class="card-body">
+                                <h4 id="addressType" class="float-end m-4">{{address.type}}</h4>
+                                <h5 id="addressName" class="card-title">{{address.user.first_name}} {{address.user.last_name}}</h5>
+                                <h6>{{address.user.email}}</h6>
+                                <p id="address" class="card-text">
+                                {{address.addr1}} <span id="addressZip">{{address.zip}}</span>
+                                <span id="addressState">{{address.state}}</span>
+                                </p>
+                                <div class="d-flex justify-content-between flex-column ms-3">
+                                    <input class="form-check-input ship-address-radio" type="radio" name="ship-address-radio" data-ship-id="{{address.id}}">
+                                </div>
+                            </div>
+                        </div>
+                    {{/each}}
+                    {{else}}
+                    <strong>Please Add a Shipping Address</strong>
+                    {{/if}}
                     <br>
-                    <p>Billing Address (if different)</p>
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                    <hr>
+                    <h4>Billing Address</h4>
+                    {{#if shipAddresses}}
+                    <div class="card m-2 ">
+                            <div class="card-body">
+                                <p>Same as Billing</p>
+                                <div class="d-flex justify-content-between flex-column ms-3">
+                                    <input class="form-check-input bill-address-radio" type="radio" name="bill-address-radio" data-bill-id="0">
+                                </div>
+                            </div>
                     </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                          <input type="text" class="form-control" id="inputCity" placeholder="City">
+                    {{/if}}
+                    {{#if billAddresses}}
+                    {{#each billAddresses as |address|}}
+                        <div class="card m-2 ">
+                            <div class="card-body">
+                                <h4 id="addressType" class="float-end m-4">{{address.type}}</h4>
+                                <h5 id="addressName" class="card-title">{{address.user.first_name}} {{address.user.last_name}}</h5>
+                                <h6>{{address.user.email}}</h6>
+                                <p id="address" class="card-text">
+                                {{address.addr1}} <span id="addressZip">{{address.zip}}</span>
+                                <span id="addressState">{{address.state}}</span>
+                                </p>
+                                <div class="d-flex justify-content-between flex-column ms-3">
+                                    <input class="form-check-input bill-address-radio" type="radio" name="bill-address-radio" data-bill-id="{{address.id}}">
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group col-md-3">
-                          <select id="inputState" class="form-control">
-                              <option selected>State</option>
-                              <option value="AL">Alabama</option>
-                              <option value="AK">Alaska</option>
-                              <option value="AZ">Arizona</option>
-                              <option value="AR">Arkansas</option>
-                              <option value="CA">California</option>
-                              <option value="CO">Colorado</option>
-                              <option value="CT">Connecticut</option>
-                              <option value="DE">Delaware</option>
-                              <option value="DC">District Of Columbia</option>
-                              <option value="FL">Florida</option>
-                              <option value="GA">Georgia</option>
-                              <option value="HI">Hawaii</option>
-                              <option value="ID">Idaho</option>
-                              <option value="IL">Illinois</option>
-                              <option value="IN">Indiana</option>
-                              <option value="IA">Iowa</option>
-                              <option value="KS">Kansas</option>
-                              <option value="KY">Kentucky</option>
-                              <option value="LA">Louisiana</option>
-                              <option value="ME">Maine</option>
-                              <option value="MD">Maryland</option>
-                              <option value="MA">Massachusetts</option>
-                              <option value="MI">Michigan</option>
-                              <option value="MN">Minnesota</option>
-                              <option value="MS">Mississippi</option>
-                              <option value="MO">Missouri</option>
-                              <option value="MT">Montana</option>
-                              <option value="NE">Nebraska</option>
-                              <option value="NV">Nevada</option>
-                              <option value="NH">New Hampshire</option>
-                              <option value="NJ">New Jersey</option>
-                              <option value="NM">New Mexico</option>
-                              <option value="NY">New York</option>
-                              <option value="NC">North Carolina</option>
-                              <option value="ND">North Dakota</option>
-                              <option value="OH">Ohio</option>
-                              <option value="OK">Oklahoma</option>
-                              <option value="OR">Oregon</option>
-                              <option value="PA">Pennsylvania</option>
-                              <option value="RI">Rhode Island</option>
-                              <option value="SC">South Carolina</option>
-                              <option value="SD">South Dakota</option>
-                              <option value="TN">Tennessee</option>
-                              <option value="TX">Texas</option>
-                              <option value="UT">Utah</option>
-                              <option value="VT">Vermont</option>
-                              <option value="VA">Virginia</option>
-                              <option value="WA">Washington</option>
-                              <option value="WV">West Virginia</option>
-                              <option value="WI">Wisconsin</option>
-                              <option value="WY">Wyoming</option>
-                          </select>
-                        </div>
-                        <div class="form-group col-md-3">
-                            <input type="text" class="form-control" id="inputZip" placeholder="Zip">
-                        </div>
+                    {{/each}}
+                    {{else}}
+                    <strong>Please Add a Billing Address</strong>
+                    {{/if}}
+                    <div class="d-flex justify-content-between flex-column ms-3">
+                        <a href="/proflie/addresses">Manage Addresses</a>   
                     </div>
                 </div>
             </div>
         </div>
-
-    </div>
-
-    <div class="row justify-content-center pt-3">
+<div class="row justify-content-center pt-3 self-align-center">
         <div class="col-sm-100">
-        <button type="submit" class="btn btn-primary ">Submit</button>
+        <button type="submit" class="btn btn-primary ">Place Order</button>
         </div>
     </div>
+    </div>
+
+    
 </form>
 <script src="/js/checkout.js"></script>

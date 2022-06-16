@@ -1,15 +1,5 @@
 [
   {
-    "first_name": "Sal",
-    "last_name": "Barker",
-    "email": "sal@hotmail.com",
-    "password": "password12345",
-    "is_admin": true,
-    "phone":"6788231111",
-    "birth_date":"10/19/1970",
-    "active": true
-  },
-  {
     "first_name": "Lernantino",
     "last_name": "Barker",
     "email": "lernantino@gmail.com",

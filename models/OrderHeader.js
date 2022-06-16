@@ -20,12 +20,28 @@ OrderHeader.init (
             allowNull: true,
         },
         ship_date: {
-            type: DataTypes.DATEONLY,
+            type: DataTypes.STRING,
             allowNull: false,
         },
         status: {
             type: DataTypes.STRING,
             allowNull: false,
+        },
+        subtotal: {
+            type: DataTypes.INTEGER,
+            allowNull:true,
+        },
+        tax: {
+            type: DataTypes.INTEGER,
+            allowNull:true,
+        },
+        shipping: {
+            type: DataTypes.INTEGER,
+            allowNull:true,
+        },
+        total: {
+            type: DataTypes.INTEGER,
+            allowNull:true,
         },
     },
     {
