@@ -46,6 +46,7 @@
      {{/each}}
     </div>
     <br>
+    {{#if cart}}
     <div class="container">
         <div class="row">
             <div class="card col-md-12">
@@ -66,6 +67,16 @@
         <a href='/'><button type="submit" class="btn btn-secondary ">Continue Shopping</button></a>
         </div>
     </div>
+    {{else}}
+    <div class="row justify-content-center pt-3">
+        <div class="col-sm-100 text-center">
+        <h4>You have no items in your cart. Get to Shopping!</h4>
+        <br>
+        <br>
+        <a href='/'><button type="submit" class="btn btn-secondary ">Continue Shopping</button></a>
+        </div>
+    </div>
+    {{/if}}
 </section>
 </div>
 <script src="/js/cart.js"></script>
