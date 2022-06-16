@@ -19,6 +19,7 @@ router.get('/payments', withAuth, async (req, res) => {
       attributes: { exclude: ['password'] },
       // include: [{ model: Project }],
     });
+    const user = userData.get({ plain: true });
 
     const paymentData = await Payment.findAll({
       include: [
@@ -30,11 +31,22 @@ router.get('/payments', withAuth, async (req, res) => {
         user_id: req.session.user_id,
       },
     });
+
+    
+    const allCategoryData = await Category.findAll({
+      include:{model:Item}
+    });
+
+    const categories = allCategoryData.map((category) =>
+      category.get({ plain: true }));
+
     console.log(req.session.user_id);
     console.log(paymentData);
     const payments = paymentData.map((payment) => payment.get({ plain: true }));
     console.log(payments);
     res.render('profile', {
+      ...user,
+      categories,
       payments,
       profilePartial: 'payments-view',
       logged_in: req.session.logged_in,
@@ -83,7 +95,7 @@ router.get('/addresses', withAuth, async (req, res) => {
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
     });
-
+    const user = userData.get({ plain: true });
     const addressData = await Address.findAll({
       where: {
         user_id: req.session.user_id,
@@ -95,8 +107,18 @@ router.get('/addresses', withAuth, async (req, res) => {
       address.get({ plain: true })
     );
     console.log(addresses);
+
+    const allCategoryData = await Category.findAll({
+      include:{model:Item}
+    });
+
+    const categories = allCategoryData.map((category) =>
+      category.get({ plain: true }));
+
     res.render('profile', {
+      ...user,
       addresses,
+      categories,
       profilePartial: 'address',
       logged_in: req.session.logged_in,
     });
@@ -143,6 +165,7 @@ router.get('/items', withAuth, async (req, res) => {
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
     });
+    const user = userData.get({ plain: true });
 
     const itemData = await Item.findAll({
       include: [
@@ -170,12 +193,22 @@ router.get('/items', withAuth, async (req, res) => {
         active: true,
       },
     });
+
+    const allCategoryData = await Category.findAll({
+      include:{model:Item}
+    });
+
+    const categories = allCategoryData.map((category) =>
+      category.get({ plain: true }));
+
     console.log(req.session.user_id);
     console.log(itemData);
     const items = itemData.map((item) => item.get({ plain: true }));
     console.log(items);
     res.render('profile', {
+      ...user,
       items,
+      categories,
       profilePartial: 'manage-items',
       logged_in: req.session.logged_in,
     });
@@ -223,46 +256,32 @@ router.get('/history', withAuth, async (req, res) => {
     // console.log(orderData)
     const orders = orderData.map((order) => order.get({ plain: true }));
     // console.log(_.get(orders, ['orders','0','order_details','item']));
-    console.log(orders)
-    res.render('profile', { 
-      orders,
-      profilePartial: 'orderhistory-view',
-      logged_in: req.session.logged_in 
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+    console.log(orders);
 
-// Use withAuth middleware to prevent access to route
-router.get('/profile', withAuth, async (req, res) => {
-  try {
-    // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
       // include: [{ model: Project }],
     });
 
     const user = userData.get({ plain: true });
-    const url = req.path;
-    res.render('profile', {
+
+    const allCategoryData = await Category.findAll({
+      include:{model:Item}
+    });
+
+    const categories = allCategoryData.map((category) =>
+      category.get({ plain: true }));
+
+    res.render('profile', { 
       ...user,
-      profilePartial: 'none',
-      logged_in: true,
+      orders,
+      categories,
+      profilePartial: 'orderhistory-view',
+      logged_in: req.session.logged_in 
     });
   } catch (err) {
     res.status(500).json(err);
   }
-});
-
-router.get('/login', (req, res) => {
-  // If the user is already logged in, redirect the request to another route
-  if (req.session.logged_in) {
-    res.redirect('/profile');
-    return;
-  }
-
-  res.render('login');
 });
 
 module.exports = router;

@@ -154,6 +154,10 @@ Cart.belongsTo(Item,
     foreignKey:'item_id'
   });
 
+Review.belongsTo(User, {
+  foreignKey:'user_id'
+})
+
 module.exports = {
   User,
   Category,

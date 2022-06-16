@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { intersectionWith } = require('lodash');
+const nodemailer = require('nodemailer');
 const { redirect } = require('statuses');
 const {
   User,
@@ -46,19 +46,19 @@ router.get('/', async (req, res) => {
         },
       ],
     });
+
     const categories = categoryData.map((category) =>
       category.get({ plain: true })
     );
 
     // Serialize data so the template can read it
     const tempItems = itemData.map((items) => items.get({ plain: true }));
-    // console.log(tempItems)
     let items = [];
     for (let i = 0; i < 8; i++) {
       items[i] = tempItems[Math.floor(Math.random() * tempItems.length)];
-      console.log('Pushing');
     }
-    
+   
+
     res.render('homepage', {
       items,
       categories,
@@ -78,19 +78,15 @@ router.get('/item/:id', async (req, res) => {
           model: Category,
         },
         {
-          model: User,
-          attributes: { exclude: ['password'] },
-        },
-        {
-          model: Review
-        },
+          model: Review,
+          include:[{model: User}]
+        }
       ],
     });
 
     const item = itemData.get({ plain: true });
     
     const reviews = item.reviews;
-    
     const allCategoryData = await Category.findAll({
       include:{model:Item}
     });
@@ -109,12 +105,11 @@ router.get('/item/:id', async (req, res) => {
    
     const categorySelected = categoryData.get({ plain: true });
     const categoryItems = categorySelected.items;
-    console.log(categoryItems)
+
     let categoryItem = [];
     for (let i = 0; i < 8; i++) {
       categoryItem.push(categoryItems[i]);
     }
-
     
     res.render('item-detail', {
       item,
@@ -150,7 +145,7 @@ router.get('/category/:id', async (req, res) => {
 
     const items = categorySelected.items;
 
-
+  
     res.render('category', {
       categories,
       categorySelected,
@@ -182,6 +177,8 @@ router.get('/item/:id/review', async (req, res) => {
 
     const item = itemData.get({ plain: true });
     
+
+   
     res.render('review', {
       item,
       logged_in: req.session.logged_in,
@@ -229,51 +226,53 @@ router.post('/item/:id/review', async (req, res) => {
 });
 
 
-// router.get('/search', async (req, res) => {
-//   try {
-//     const {term} = req.query;
-//     const itemData = await Item.findAll({
-//       where:{name:{[Op.like]:'%'+term+'%'}}
-//     });
+router.get('/search', async (req, res) => {
+  try {
+    const {term} = req.query;
+    const itemData = await Item.findAll({
+      where:{name:{[Op.like]:'%'+term+'%'}}
+    });
    
-//     const items = itemData.map((item) =>
-//       item.get({ plain: true })
-//     );
+    const items = itemData.map((item) =>
+      item.get({ plain: true })
+    );
   
-//     const allCategoryData = await Category.findAll({
-//       include:{model:Item}
-//     });
+    const allCategoryData = await Category.findAll({
+      include:{model:Item}
+    });
 
-//     const categories = allCategoryData.map((category) =>
-//       category.get({ plain: true })
+    const categories = allCategoryData.map((category) =>
+      category.get({ plain: true }));
 
 
-//     if(items.length===0) { 
-//       const errorMessage='No result found. Try again.';
-//       res.render('search',{
-//         errorMessage,
-//         categories,
-//         term,
-//         logged_in:req.session.logged_in
-//       });
-//       return;
+    if(items.length===0) { 
+      const errorMessage='No result found. Try again.';
+      res.render('search',{
+        errorMessage,
+        categories,
+        term,
+        logged_in:req.session.logged_in
+      });
+      return;
       
-//     } else{
+    } else{
+    
 
-//     res.render('search', {
-//       items,
-//       term,
-//       categories,
-//       logged_in: req.session.logged_in,
-//     });
-//   }
-//   }
-//    catch (err) {
-//     res.status(400).json(err);
-//   }
-// });
+    res.render('search', {
+      
+      items,
+      term,
+      categories,
+      logged_in: req.session.logged_in,
+    });
+  }
+  }
+   catch (err) {
+    res.status(400).json(err);
+  }
+});
 
-router.post('/cart', async(req,res) =>{
+router.post('/cart', withAuth, async(req,res) =>{
   try{ 
   
    const cartData= await Cart.create ({
@@ -288,7 +287,27 @@ router.post('/cart', async(req,res) =>{
     } catch(err){
        res.status(400).json(err)
       }
-})
+
+});
+
+
+router.delete('/cart/:id', async(req, res) => {
+  // delete one product by its `id` value
+  try {
+    const cartData = await Cart.destroy({
+      where: { item_id: req.body.id }
+    });
+    
+    res.status(200).json(cartData);
+    
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+
+
 router.get('/cart', withAuth, async (req, res) => {
   try{
     const cartData = await Cart.findAll({
@@ -436,6 +455,38 @@ router.get('/checkout', withAuth, async (req, res) => {
   }
 })
 
+router.post('/orderconfirmation', (req, res) => {
+  const email = req.body.email
+  const ordernumber = req.body.order_number
+  const shippingaddress = req.body.ship_to_addr_id
+  const shipdate = req.body.ship_date
+  
+  let transporter = nodemailer.createTransport({
+      service: 'hotmail',
+      auth: {
+          user: "scalpelrentorbuy@outlook.com",
+          pass: "scalpelisthebest!"
+      
+      }
+  })
+
+  const mailOptions = {
+      from: 'scalpelrentorbuy@outlook.com',
+      to: email,
+      subject: 'Portfolio',
+      text: "Your order is confirmed! Your oder number is: " + ordernumber + ". Shipping Address: " + shippingaddress + ". Estimated ship date: " + shipdate + "."
+  }
+  console.log(email)
+  transporter.sendMail(mailOptions, (err, result) => {
+      if (err){
+      console.log(err)
+          res.json('Opps error occured')
+      } else{
+          res.json('Email sent!');
+      }
+  })
+})
+
 // Use withAuth middleware to prevent access to route
 router.get('/profile', withAuth, async (req, res) => {
   try {
@@ -447,8 +498,19 @@ router.get('/profile', withAuth, async (req, res) => {
 
     const user = userData.get({ plain: true });
     const url = req.path;
+
+
+    const allCategoryData = await Category.findAll({
+      include:{model:Item}
+    });
+
+    const categories = allCategoryData.map((category) =>
+      category.get({ plain: true }));
+
+
     res.render('profile', {
       ...user,
+      categories,
       profilePartial: 'none',
       logged_in: true,
     });
@@ -457,14 +519,22 @@ router.get('/profile', withAuth, async (req, res) => {
   }
 });
 
-router.get('/login', (req, res) => {
+router.get('/login', async (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
     res.redirect('/profile');
     return;
   }
+  const allCategoryData = await Category.findAll({
+    include:{model:Item}
+  });
 
-  res.render('login');
+  const categories = allCategoryData.map((category) =>
+    category.get({ plain: true }));
+
+  res.render('login', {
+  categories
+  });
 });
 
 module.exports = router;

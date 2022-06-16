@@ -1,4 +1,3 @@
-{{#if logged_in}}
 <div class="row pt-4" >
 <h2 class="text-center">My Cart</h2>
 <section>
@@ -39,14 +38,14 @@
             </div>
             <div class="col-md-1 align-self-center">
                 <div class="col-sm-100">
-                    <button type="submit" item-id="{{id}}" class="btn delete-btn">❌</button>
+                    <button type="submit" item-id="{{cart.item.id}}" class="btn delete-btn">❌</button>
                 </div>
             </div>
         </div>
         <hr>
      {{/each}}
     </div>
-<br>
+    <br>
     <div class="container">
         <div class="row">
             <div class="card col-md-12">
@@ -62,7 +61,7 @@
         </div>
     </div>
     <div class="row justify-content-center pt-3">
-        <div class="col-sm-100">
+        <div class="col-sm-100 text-center">
         <a href='/checkout'><button type="submit" class="btn btn-primary">Submit</button></a>
         <a href='/'><button type="submit" class="btn btn-secondary ">Continue Shopping</button></a>
         </div>
@@ -70,11 +69,5 @@
 </section>
 </div>
 
-{{else}}
-<div class="row">
-<h3>Please log in to your account to add items to the cart.</h3>
-</div>
-{{/if}}
 
 <script src="/js/cart.js"></script>
-<link href="/css/cart.css"></link>
