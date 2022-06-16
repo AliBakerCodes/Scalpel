@@ -57,7 +57,6 @@ router.get('/', async (req, res) => {
     for (let i = 0; i < 8; i++) {
       items[i] = tempItems[Math.floor(Math.random() * tempItems.length)];
     }
-
     res.render('homepage', {
       items,
       categories,
@@ -446,37 +445,38 @@ router.get('/checkout', withAuth, async (req, res) => {
   }
 });
 
-
 router.get('/confirmation', withAuth, async (req, res) => {
-  try{
-    const orderHeaderData= await OrderHeader.findAll({
-      where:{user_id: req.session.user_id},
+  try {
+    const orderHeaderData = await OrderHeader.findAll({
+      where: { user_id: req.session.user_id },
       order: [['created_at']],
-      limit:1
-    })
-    const orderHeader = orderHeaderData.map((item) => item.get({ plain: true }));
-    console.log(orderHeader[0].ship_to_addr_id)
+      limit: 1,
+    });
+    const orderHeader = orderHeaderData.map((item) =>
+      item.get({ plain: true })
+    );
+    console.log(orderHeader[0].ship_to_addr_id);
     const shipAddressData = await Address.findAll({
       where: {
-        id: orderHeader[0].ship_to_addr_id
-      }
+        id: orderHeader[0].ship_to_addr_id,
+      },
     });
     const billAddressData = await Address.findAll({
       where: {
-        id: orderHeader[0].bill_to_addr_id
-      }
-    });
-
-    const shipAddress = shipAddressData.map((item) => item.get({ plain: true }));
-    const billAddress = billAddressData.map((item) => item.get({ plain: true }));
-
-    let transporter = nodemailer.createTransport({
-      service: 'hotmail',
-      auth: {
-        user: 'scalpelrentorbuy@outlook.com',
-        pass: 'scalpelisthebest!',
+        id: orderHeader[0].bill_to_addr_id,
       },
     });
+
+//     const shipAddress = shipAddressData.map((item) => item.get({ plain: true }));
+//     const billAddress = billAddressData.map((item) => item.get({ plain: true }));
+
+//     let transporter = nodemailer.createTransport({
+//       service: 'hotmail',
+//       auth: {
+//         user: 'scalpelrentorbuy@outlook.com',
+//         pass: 'scalpelisthebest!',
+//       },
+//     });
     // const mailOptions = {
     //   from: 'scalpelrentorbuy@outlook.com',
     //   to: 'alibakerconsulting@gmail.com',
@@ -489,17 +489,17 @@ router.get('/confirmation', withAuth, async (req, res) => {
     //     moment().format('MM/DD/YYYY') +
     //     '.',
     // };
-    console.log(mailOptions);
-    transporter.sendMail(mailOptions, (err, result) => {
-      if (err) {
-        console.log(err);
-        res.json('Opps error occured');
-      } else {
-        res.json('Email sent!');
-      }
-    })
+//     console.log(mailOptions);
+//     transporter.sendMail(mailOptions, (err, result) => {
+//       if (err) {
+//         console.log(err);
+//         res.json('Opps error occured');
+//       } else {
+//         res.json('Email sent!');
+//       }
+//     })
 
-    console.log(shipAddress)
+//     console.log(shipAddress)
   res.render('confirmation', {
       orderHeader: orderHeader[0],
       billAddress,
@@ -507,17 +507,16 @@ router.get('/confirmation', withAuth, async (req, res) => {
       logged_in: req.session.logged_in,
     });
   } catch (err) {
-    console.log(err)
+    console.log(err);
     res.status(400).json(err);
   }
 });
 
-
 router.post('/orderconfirmation', withAuth, (req, res) => {
-  const email = req.body.email
-  const ordernumber = req.body.order_number
-  const shippingaddress = req.body.ship_to_addr_id
-  const shipdate = req.body.ship_date
+  const email = req.body.email;
+  const ordernumber = req.body.order_number;
+  const shippingaddress = req.body.ship_to_addr_id;
+  const shipdate = req.body.ship_date;
   let transporter = nodemailer.createTransport({
     service: 'hotmail',
     auth: {
