@@ -4,14 +4,17 @@
         <p style="color: red">{{errorMessage}}</p>
         <div class="row">
              {{#each items as |item|}}
-            <div class="card col-md-4 border-light">
-                <div class="card-body">
-                    <a href='/item/{{item.id}}'><img class="card-img-top" src="/images/{{item.image}}" alt="{{item.name}}"/></a>
+             <div class="container item-card col-lg-3 col-md-4 col-sm-6 ">
+            <div class="card  border-light">
+                    <div class="itemImaCard">
+                    <a href='/item/{{item.id}}'><img class="card-img-top item-img" src="/images/{{item.image}}" alt="{{item.name}}"/></a>
+                    </div>
+                    <div class="card-body align-self-end" stle="height:140px">
                     <h5 class="card-title text-center pt-3">{{item.name}}</h5>
                     <p>Rate:<span class="rating_bar">{{item.rating}}</span></p>
                     <p>Rent for: ${{item.rental_price}} a day</p>
                     <p>Buy now for: ${{item.buy_price}}</p>
-                    
+                    </div>
                 </div>
             </div>
             {{/each}}

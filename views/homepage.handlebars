@@ -1,15 +1,17 @@
 
            <div class="row">
-                <h2 class="featured-items self-align-center my-3">Featured Items:</h2>
+                <h3 class="featured-items self-align-center my-3 ">Featured Items:</h3>
                 <div class="col-12 m-auto ">
                     <div class="owl-carousel owl-theme">
                       {{#each items as |item|}}
                       <a class="link-style" href="/item/{{item.id}}">
-                          <div class="item mb-4 item-border" >
-                              <div class="card border-0 shadow" style="height:370px">
-                                  <img src="./images/{{item.image}}" alt="" class="card-img-top img-carousel item-image" style="width: 350px;height:250px;">
-                                  <div class="card-body">
-                                      <div class="card-title text-center">
+                          <div class="item mb-4 item-border rounded " >
+                              <div class="card border-0 shadow carousel-card">
+                                  <div class="itemImaCard">
+                                  <img src="./images/{{item.image}}" alt="{{item.name}}" class="card-img-top img-carousel " >
+                                 </div>
+                                  <div class="card-body rounded-bottom" style="background-color:black">
+                                      <div class="card-title text-center text-light">
                                           <h4 id="carouselitem-name" class="item-name">{{item.name}}</h4>
                                           <h5 id="carouselitem-price" class="item-price">${{item.rental_price}}/Per Day</h5>
                                            <h6 id="carouselitem-buyprice"  class="item-price">Buy now for ${{item.buy_price}}</h6>
@@ -22,24 +24,29 @@
                     </div>
                 </div>
             </div>
+            <br>
             <div class="row aboutbody">
                 <div class="col-12">
                     <p class="abouthead">Rent or Buy, it's your choice!</p>
                     <span class="aboutinfo ">Scalpel allows you to rent high priority items so you don't have to spend your hard earned money on something you might not need long term! We cover all items ranging from gaming PC's to the newest Air Jordans! If you love the product; buy it from us! We offer our customers the option to buy used items that we rent out so customers can not only try out the item first, but also buy it at a discounted price! </span>
                 </div>
             </div>
+            <br>
         {{#each categories as |category|}}
         <div class="row">
                 <h2 class="category-title">{{name}}:</h2>
                 <div class="col-12 m-auto ">
                     <div class="owl-carousel owl-theme">
                       {{#each items as |item|}}
+                      <div class="pt-3">
                       <a href="/item/{{item.id}}">
                           <div class="item mb-4 item-border">
-                              <div class="card border-0 shadow" style="height:370px">
-                                  <img src="./images/{{item.image}}" alt="" class="card-img-top img-carousel item-image" style="width: 350px;height:250px;">
-                                  <div class="card-body ">
-                                      <div class="card-title text-center">
+                              <div class="card border-0 shadow carousel-card" >
+                                  <div class="itemImaCard">
+                                  <img src="./images/{{item.image}}" alt="{{item.name}}" class="card-img-top img-carousel" >
+                                  </div>
+                                  <div class="card-body rounded-bottom" style="background-color: rgba(168,9,9,0.993);">
+                                      <div class="card-title text-center text-light">
                                           <h4 id="carouselitem-name" class="item-name">{{item.name}}</h4>
                                           <h5 id="carouselitem-price"  class="item-price">${{item.rental_price}}/Per Day</h5>
                                           <h6 id="carouselitem-buyprice"  class="item-price">Buy now for ${{item.buy_price}}</h6>
@@ -47,8 +54,10 @@
                                   </div>
                               </div>
                           </div>
-                      </a>
+                        </a>
+                        </div>
                       {{/each}}
+                      
                     </div>
                 </div>
             </div>

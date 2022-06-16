@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-        <div class="col-md-4 pt-5 text-center">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 pt-5 text-center align-self-center">
             <div>
                 <img src="/images/{{item.image}}" class="img-responsive" style="width:100%" alt="{{item.name}}">
             </div>
@@ -18,7 +18,7 @@
         </div>
     
        
-        <div class="col-md-8 align-self-center pt-5">
+        <div class="col-lg-6 col-md-6 col-sm-12 calign-self-center pt-5">
             <div class="row justify-content-center ">
                 <h3 style="letter-spacing: 1px;">{{item.name}}</h3>
                 <p>Rating: <span class="rating_bar">{{item.rating}}</span></p>
@@ -55,18 +55,20 @@
 <br>
 
 <div class="row">
-    <div class="col-12 m-auto">
+    <div class="col-12 m-auto" >
         <div class="owl-carousel owl-theme">
             {{#each categoryItem as |item|}}
             <a class="link-style" href="/item/{{item.id}}">
                 <div class="item mb-4 item-border" >
-                    <div class="card border-0 shadow" style="height:370px">
-                        <img src="/images/{{item.image}}" alt="" class="card-img-top img-carousel item-image" style="width: 350px;height:250px;">
-                        <div class="card-body">
-                            <div class="card-title text-center">
-                                <h4 id="carouselitem-name" class="item-name">{{item.name}}</h4>
+                    <div class="card border-0 shadow carousel-card"  >
+                        <div class="itemImaCard">
+                        <img src="/images/{{item.image}}" alt="{{itme.name}}" class="card-img-top img-carousel" >
+                        </div>
+                        <div class="card-body rounded-bottom"style="background-color: rgba(168,9,9,0.993);">
+                            <div class="card-title text-center text-light">
+                                <h4 id="carouselitem-name" class="item-name" >{{item.name}}</h4>
                                 <h5 id="carouselitem-price" class="item-price">${{item.rental_price}}/Per Day</h5>
-                                   <h6 id="carouselitem-buyprice"  class="item-price">Buy now for ${{item.buy_price}}</h6>
+                                <h6 id="carouselitem-buyprice"  class="item-price">Buy now for ${{item.buy_price}}</h6>
                             </div>
                         </div>
                     </div>

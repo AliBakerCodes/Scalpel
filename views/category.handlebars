@@ -3,13 +3,17 @@
         <h1 class="text-center">{{categorySelected.name}}</h1>
         <div class="row">
              {{#each items as |item|}}
-            <div class="card col-md-4 border-light">
-                <div class="card-body">
-                    <a href='/item/{{id}}'><img class="card-img-top" src="/images/{{image}}" alt="Card image cap" style="height:225px;width:350px"/></a>
-                    <h5 class="card-title text-center pt-3">{{name}}</h5>
-                    <p>Rating: <span class="rating_bar">{{reviews.rating}}</span></p>
-                    <p>Rent for: ${{rental_price}} a day</p>
-                    <p>Buy now for: ${{buy_price}}</p>
+            <div class="container item-card col-lg-3 col-md-4 col-sm-6 ">
+                <div class="card  border-light">
+                    <div class="itemImaCard">
+                        <a href='/item/{{id}}'><img class="card-img-top item-img" src="/images/{{image}}" alt="Card image cap"></a>
+                    </div>
+                    <div class="card-body align-self-end" stle="height:140px">
+                        <h5 class="card-title text-center pt-3">{{name}}</h5>
+                        <p>Rating: <span class="rating_bar">{{reviews.rating}}</span></p>
+                        <p>Rent for: ${{rental_price}} a day</p>
+                        <p>Buy now for: ${{buy_price}}</p>
+                    </div>
                 </div>
             </div>
             {{/each}}
