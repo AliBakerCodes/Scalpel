@@ -279,13 +279,15 @@ router.post('/cart', withAuth, async(req,res) =>{
     item_id: req.body.item_id,
     qty: req.body.qty,
     user_id:req.session.user_id,
-    is_rental:req.body.is_rental
+    is_rental:req.body.is_rental,
+    is_active: true
     });  
 
     res.status(200).json(cartData)
     } catch(err){
        res.status(400).json(err)
       }
+
 });
 
 
@@ -303,6 +305,7 @@ router.delete('/cart/:id', async(req, res) => {
     res.status(500).json(err);
   }
 });
+
 
 
 router.get('/cart', withAuth, async (req, res) => {
@@ -334,14 +337,26 @@ router.get('/cart', withAuth, async (req, res) => {
       category.get({ plain: true })
     );  
 
-
-    const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ['password'] },
-    });
-    const user = userData.get({ plain: true });
-
+    let subtotal=0;
+    for (let i=0; i<cart.length; i++){
+      if(cart[i].is_rental){
+        subtotal=subtotal+(cart[i].item.rental_price*cart[i].rental_days*cart[i].qty)
+      } else {
+        subtotal=subtotal+(cart[i].item.buy_price*cart[i].qty)
+      }
+    };
+    console.log(subtotal)
+    let tax=subtotal*.1
+    let shipping=10
+    let total=subtotal+tax+shipping
+    
+    console.log(total)
+    
     res.render('cart', {
-      ...user,
+      shipping,
+      subtotal,
+      tax,
+      total,
       cart,
       categories,
       logged_in: req.session.logged_in,
@@ -351,40 +366,94 @@ router.get('/cart', withAuth, async (req, res) => {
   }
 })
 
-// router.post('/orderconfirmation', async (req, res) => {
-//   // create reusable transporter object using the default SMTP transport
-//   const {email} = req.body.email
-//   const ordernumber = req.body.order_number
-//   const {shippingaddress} = req.body.ship_to_addr_id
-//   const {shipdate} = req.body.ship_date
-//   const {transporter} = nodemailer.createTransport({
-//     service: 'hotmail',
-//     auth: {
-//       user: 'scalpelrentorbuy@outlook.com', // ethereal user
-//       pass: 'scalpelisthebest!', // ethereal password
-//     },
-//   });
+router.get('/checkout', withAuth, async (req, res) => {
+  try{
+    const cartData = await Cart.findAll({
+      where:{user_id: req.session.user_id},
+      include: [
+        {
+          model: User,
+          attributes: { exclude: ['password'] },
+        },
+        {
+          model: Item
+        }
 
-//   const msg = {
-//     from: 'scalpelrentorbuy@outlook.com', // sender address
-//     to: `${email}`, // list of receivers
-//     subject: 'Your order is confirmed!', // Subject line
-//     text: `Your order is confirmed! Your oder number is: ${ordernumber}. Shipping Address: ${shippingaddress}. Estimated ship date: ${shipdate}`, // plain text body
-//   };
-//   // send mail with defined transport object
-//   await transporter.sendMail(msg);
+        ],
+    });
+    
+    const cart = cartData.map((cart) =>
+      cart.get({ plain: true })
+    );
+    // console.log(cart)
 
-//   console.log('Message sent: %s', info.messageId);
-//   // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
+    const allCategoryData = await Category.findAll({
+      include:{model:Item}
+    });
+    const paymentData = await Payment.findAll({
+      where: {user_id: req.session.user_id}
+    });
 
-//   // Preview only available when sending through an Ethereal account
-//   console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
-//   // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
+    const payments = paymentData.map((payment) =>
+      payment.get({ plain: true })
+    );  
 
-//   res.send('Email Sent!');
-// });
+    const categories = allCategoryData.map((category) =>
+      category.get({ plain: true })
+    );  
+    
+    console.log(payments)
 
+    const shipAddressData = await Address.findAll({
+      where: {
+        user_id: req.session.user_id,
+        type: 'SHIP'
+      },
+    });
 
+    const billAddressData = await Address.findAll({
+      where: {
+        user_id: req.session.user_id,
+        type: 'BILL'
+      },
+    });
+
+    const billAddresses = billAddressData.map((address) =>
+      address.get({ plain: true })
+    );
+
+    const shipAddresses = shipAddressData.map((address) =>
+      address.get({ plain: true })
+    );
+   let subtotal=0;
+    for (let i=0; i<cart.length; i++){
+      if(cart[i].is_rental){
+        subtotal=subtotal+(cart[i].item.rental_price*cart[i].rental_days*cart[i].qty)
+      } else {
+        subtotal=subtotal+(cart[i].item.buy_price*cart[i].qty)
+      }
+    };
+
+    console.log(subtotal);
+    let tax=subtotal*.1;
+    let shipping=10;
+    let total=subtotal+tax+shipping;
+    console.log(total);
+    res.render('checkout', {
+      subtotal,
+      tax,
+      total,
+      cart,
+      categories,
+      payments,
+      shipAddresses,
+      billAddresses,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(400).json(err);
+  }
+})
 
 router.post('/orderconfirmation', (req, res) => {
   const email = req.body.email
@@ -417,51 +486,6 @@ router.post('/orderconfirmation', (req, res) => {
       }
   })
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // Use withAuth middleware to prevent access to route
 router.get('/profile', withAuth, async (req, res) => {

@@ -25,6 +25,23 @@ const payments = require('./credit_card.json')
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
 
+  const createSal= await User.create(
+    {
+      "first_name": "Sal",
+      "last_name": "Barker",
+      "email": "sal@hotmail.com",
+      "password": "password12345",
+      "is_admin": true,
+      "phone":"6788231111",
+      "birth_date":"10/19/1970",
+      "active": true
+    },
+    {
+    individualHooks: true,
+    returning: true,
+    }
+  );
+
   const users = await User.bulkCreate(userData, {
     individualHooks: true,
     returning: true,

@@ -28,6 +28,11 @@ Cart.init (
             type: DataTypes.BOOLEAN,
             allowNull: false,
         },
+        rental_days: {
+          type: DataTypes.INTEGER,
+          allowNull: true,
+          defaultValue:0
+        }
     },
     {
         sequelize,
