@@ -22,14 +22,13 @@ const newAddressHandler = async (event) => {
   const city = document.querySelector('#selectedCity').value.trim();
   const state = document.querySelector('#selectedState').value.trim();
   const zip = document.querySelector('#newAddressZip').value.trim();
-  const email = document.querySelector('#newAddressEmail').value.trim();
   const type = document.querySelector('#shippingAddress').value.trim();
  
   console.log(type);
-  if (addr1 && state && city && zip && email && type) {
+  if (addr1 && state && city && zip && type) {
     const response = await fetch(`/profile/addresses`, {
       method: 'POST',
-      body: JSON.stringify({ addr1, state, city, zip, email, type }),
+      body: JSON.stringify({ addr1, state, city, zip, type }),
       headers: {
         'Content-Type': 'application/json',
       },
