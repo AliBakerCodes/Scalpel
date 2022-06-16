@@ -122,6 +122,8 @@ Rental.hasMany(Item, {
   foreignKey: 'item_id'
 })
 
+Item.belongsTo(Rental);
+
 Item.hasMany(Rental, {
   foreignKey:'item_id'
 })

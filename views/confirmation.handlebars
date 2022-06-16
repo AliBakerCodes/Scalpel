@@ -5,7 +5,16 @@
             </div>
             <div class="align-self-center">
                 <h3>Please check your email for order confirmation</h3>
-                <h4>Order#: {{orderHeader.id}}</h4>
+                <h4 align="center">Order#: {{orderHeader.id}}</h4>
+            </div>
+            {{#if rentals}}
+            <div class="align-self-center">
+                {{#each rentals as |rental|}}
+                Item:{{rental.item.name}}
+                Rental Start: {{rental.start_date}}
+                Rental End: {{rental.start_date}}
+                {{/each}}
+            {{/if}}
             </div>
             <div class="align-self-center">
                 {{#each shipAddress as |ship|}}

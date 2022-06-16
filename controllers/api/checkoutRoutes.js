@@ -75,22 +75,30 @@ router.post('/', withAuth, async (req, res) => {
             start_date: moment().format('MM/DD/YYYY'),
             return_date: moment().add(cart[i].rental_days, 'days').format('MM/DD/YYYY'),
             rented_to_user_id: req.session.user_id,
-            user_id: items[0].user_id
+            user_id: items[0].user_id,
+            item_id: items[0].id,
           });
           // const rental = rentalData.map((rental) => rental.get({ plain: true }));
-          console.log(rentalData)
-      }
-    
-      const orderDetail= await OrderDetail.create({
-        qty: cart[i].qty,
-        is_rental: cart[i].is_rental,
-        ship_date:moment().format('YYYY-MM-DD'),
-        orderheader_id: orderHeaderData.id,
-        item_id: cart[i].item.id,
-        rental_id: rental_id
-      });
-      // console.log(orderDetail);
-    };
+          console.log(rentalData.id)
+          const orderDetail= await OrderDetail.create({
+            qty: cart[i].qty,
+            is_rental: cart[i].is_rental,
+            ship_date:moment().format('YYYY-MM-DD'),
+            orderheader_id: orderHeaderData.id,
+            item_id: cart[i].item.id,
+            rental_id: rentalData.id
+          });
+      } else {
+        const orderDetail= await OrderDetail.create({
+          qty: cart[i].qty,
+          is_rental: cart[i].is_rental,
+          ship_date:moment().format('YYYY-MM-DD'),
+          orderheader_id: orderHeaderData.id,
+          item_id: cart[i].item.id
+        });
+      };
+    }
+
     //Clear the cart
     for (let i=0; i<cart.length; i++){
       await Cart.destroy({
