@@ -90,6 +90,13 @@ router.post('/', withAuth, async (req, res) => {
       console.log(orderDetail);
     };
 
+    //Clear the cart
+    for (let i=0; i<cart.length; i++){
+      await Cart.destroy({
+        where: { id: cart[i].id }
+      });
+    };
+
     res.status(200);
     res.redirect(`/confirmation/${orderHeaderData.id}`)
   } catch (err) {
