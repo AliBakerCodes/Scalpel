@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const nodemailer = require('nodemailer');
+const moment = require('moment');
 const { redirect } = require('statuses');
 const {
   User,
@@ -450,9 +451,38 @@ router.get('/confirmation', withAuth, async (req, res) => {
       }
     });
 
-    
     const shipAddress = shipAddressData.map((item) => item.get({ plain: true }));
     const billAddress = billAddressData.map((item) => item.get({ plain: true }));
+
+    let transporter = nodemailer.createTransport({
+      service: 'hotmail',
+      auth: {
+        user: 'scalpelrentorbuy@outlook.com',
+        pass: 'scalpelisthebest!',
+      },
+    });
+    const mailOptions = {
+      from: 'scalpelrentorbuy@outlook.com',
+      to: 'alibakerconsulting@gmail.com',
+      subject: 'Your order is confirmed!',
+      text:
+        'Thank you for your purchase! Scalpel works day in and day out to get you highly sought-after items! Please feel free to leave a review on the items you have purchased or rented after you have tried them out! Your order number is: ' +
+        orderHeader[0].id +
+        '. Shipping Address: ' +
+        shipAddress[0].addr1 + ' ' + shipAddress[0].city + ',' + shipAddress[0].state + ' ' + shipAddress[0].zip + '. Estimated ship date: ' +
+        moment().format('MM/DD/YYYY') +
+        '.',
+    };
+    console.log(mailOptions);
+    transporter.sendMail(mailOptions, (err, result) => {
+      if (err) {
+        console.log(err);
+        res.json('Opps error occured');
+      } else {
+        res.json('Email sent!');
+      }
+    })
+
     console.log(shipAddress)
   res.render('confirmation', {
       orderHeader: orderHeader[0],
