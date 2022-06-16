@@ -76,8 +76,11 @@ const delButtonHandler = async (event) => {
         },
       });
       console.log(response)
+      if(response.ok){
       window.location.href="/confirmation";
-      // console.log("I hate this thing")
+      } else {
+        console.log(response)
+      }
       return false;
    };
 

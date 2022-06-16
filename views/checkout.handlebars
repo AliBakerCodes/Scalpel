@@ -13,11 +13,14 @@
             </div>
             {{#if is_rental}}
             <div class="col-md-1 align-self-center">
-                <h5>{{cart.item.rental_price}}</h5>
+                <h5>${{cart.item.rental_price}}.00/day</h5>
+            </div>
+            <div class="col-md-1 align-self-center">
+               Days: <input type="number" class="form-control rental-days" data-cart-id="{{cart.id}}" value="{{cart.rental_days}}" />
             </div>
             {{else}}
             <div class="col-md-1 align-self-center">
-                <h5>${{cart.item.buy_price}}</h5>
+                <h5>${{cart.item.buy_price}}.00</h5>
             </div>
             {{/if}}
             <div class="col-md-2 align-self-center">
