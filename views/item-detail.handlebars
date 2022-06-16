@@ -40,7 +40,8 @@
         {{#each reviews as |reviews|}}
         <div class="card col-12">
             <div class="card-body">
-            <p>Rating: <span class="rating_bar">{{reviews.rating}}</span></p>
+            <h5><strong>{{reviews.user.first_name}} {{reviews.user.last_name}}</strong></h5>
+            <p>Rating: <span class="rating_bar">{{reviews.rating}}</span>  </p>
             <p>{{reviews.body }}</p>
             </div>
         </div>
