@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { redirect } = require('statuses');
 const moment = require('moment');
+const nodemailer=require('nodemailer')
 const {
   User,
   Category,
@@ -76,7 +77,7 @@ router.post('/', withAuth, async (req, res) => {
             user_id: items.user_id
           });
           const rental = rentalData.map((rental) => rental.get({ plain: true }));
-          console.log(rental)
+          // console.log(rental)
       }
     
       const orderDetail= await OrderDetail.create({
@@ -87,18 +88,15 @@ router.post('/', withAuth, async (req, res) => {
         item_id: cart[i].item.id,
         rental_id: rental_id
       });
-      console.log(orderDetail);
+      // console.log(orderDetail);
     };
-
     //Clear the cart
     for (let i=0; i<cart.length; i++){
       await Cart.destroy({
         where: { id: cart[i].id }
       });
     };
-
-    res.status(200);
-    res.redirect(`/confirmation/${orderHeaderData.id}`)
+    res.status(200).json('Order Created')
   } catch (err) {
     console.log(err);
     res.status(400).json(err);

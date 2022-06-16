@@ -5,19 +5,29 @@
             </div>
             <div class="align-self-center">
                 <h3>Please check your email for order confirmation</h3>
+                <h4>Order#: {{orderHeader.id}}</h4>
             </div>
             <div class="align-self-center">
-                <p>Shipping Address: {{ship_to_addr_id}}</p>
+                {{#each shipAddress as |ship|}}
+                <p>Shipping Address: 
+                {{ship.addr1}} {{ship.addr2}}
+                {{ship.city}}, {{ship.state}} {{ship.zip}} </p>
+                {{/each}}
             </div>
             <div class="align-self-center">
-                <p>Billing Address:{{bill_to_addr_id}}</p>
+                <p>Billing Address:
+                {{#each billAddress as |bill|}}
+                {{bill.addr1}} {{bill.addr2}}
+                {{bill.city}}, {{bill.state}} {{bill.zip}}
+                {{/each}}
+                </p>
             </div>
             <div class="align-self-center">
-                <p>Shipping status: {{status}}</p>
+                <p>Shipping status: {{orderHeader.status}}</p>
             </div>
             {{#if ship_date}}
             <div class="align-self-center">
-                <p>Your order was shipped on {{ship_date}}</p>
+                <p>Your order was shipped on {{orderHeader.ship_date}}</p>
             </div>
             {{/if}}
 
