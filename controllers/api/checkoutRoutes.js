@@ -69,15 +69,16 @@ router.post('/', withAuth, async (req, res) => {
         id: cart[i].item.id,
       }});
       const items = itemData.map((item) => item.get({ plain: true }));
+      console.log(items[0].user_id)
       if(cart[i].is_rental){
           let rentalData= await Rental.create({
             start_date: moment().format('MM/DD/YYYY'),
-            return_date: moment().format('MM/DD/YYYY').add('days', cart[i].rental_days),
+            return_date: moment().add(cart[i].rental_days, 'days').format('MM/DD/YYYY'),
             rented_to_user_id: req.session.user_id,
-            user_id: items.user_id
+            user_id: items[0].user_id
           });
-          const rental = rentalData.map((rental) => rental.get({ plain: true }));
-          // console.log(rental)
+          // const rental = rentalData.map((rental) => rental.get({ plain: true }));
+          console.log(rentalData)
       }
     
       const orderDetail= await OrderDetail.create({
