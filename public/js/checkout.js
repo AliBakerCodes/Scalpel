@@ -74,10 +74,14 @@ const delButtonHandler = async (event) => {
         headers: {
           'Content-Type': 'application/json',
         },
-      })
+      });
+      console.log(response)
+      window.location.href="/confirmation";
+      // console.log("I hate this thing")
+      return false;
    };
 
-   document.querySelector('.checkout-form').addEventListener('submit', checkoutHandler);
+   document.querySelector('#checkoutSubmit').addEventListener('click', checkoutHandler);
 
    const deleteButton= document.querySelectorAll('.delete-btn')
    console.log(deleteButton)
