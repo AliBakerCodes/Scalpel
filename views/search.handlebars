@@ -1,15 +1,15 @@
-<div class="row">
+<div class="row bg-danger">
     <div class="container">
-        <h3> Searched: {{term}}</h3>
+        <h3 style="color:white" class="ms-2"> Searched: {{term}}</h3>
         <p style="color: red">{{errorMessage}}</p>
         <div class="row">
              {{#each items as |item|}}
              <div class="container item-card col-lg-3 col-md-4 col-sm-6 ">
-            <div class="card  border-light">
+            <div class="card  border-light mt-4">
                     <div class="itemImaCard">
                     <a href='/item/{{item.id}}'><img class="card-img-top item-img" src="/images/{{item.image}}" alt="{{item.name}}"/></a>
                     </div>
-                    <div class="card-body align-self-end" stle="height:140px">
+                    <div class="card-body align-self-center" style="height:250px">
                     <h5 class="card-title text-center pt-3">{{item.name}}</h5>
                     <p>Rate:<span class="rating_bar">{{item.rating}}</span></p>
                     <p>Rent for: ${{item.rental_price}} a day</p>
