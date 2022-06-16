@@ -38,7 +38,7 @@ const delButtonHandler = async (event) => {
       }
     };
     
-    if (bill_to_addr_id==0){
+    if (bill_to_addr_id=='0'){
       bill_to_addr_id=ship_to_addr_id;
     };
 

@@ -90,8 +90,13 @@ router.post('/', withAuth, async (req, res) => {
       });
       // console.log(orderDetail);
     };
+    //Clear the cart
+    for (let i=0; i<cart.length; i++){
+      await Cart.destroy({
+        where: { id: cart[i].id }
+      });
+    };
     res.status(200).json('Order Created')
-
   } catch (err) {
     console.log(err);
     res.status(400).json(err);
