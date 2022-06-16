@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const nodemailer = require('nodemailer');
 const { redirect } = require('statuses');
 const {
   User,
@@ -325,6 +326,116 @@ router.get('/cart', async (req, res) => {
     res.status(400).json(err);
   }
 })
+
+// router.post('/orderconfirmation', async (req, res) => {
+//   // create reusable transporter object using the default SMTP transport
+//   const {email} = req.body.email
+//   const ordernumber = req.body.order_number
+//   const {shippingaddress} = req.body.ship_to_addr_id
+//   const {shipdate} = req.body.ship_date
+//   const {transporter} = nodemailer.createTransport({
+//     service: 'hotmail',
+//     auth: {
+//       user: 'scalpelrentorbuy@outlook.com', // ethereal user
+//       pass: 'scalpelisthebest!', // ethereal password
+//     },
+//   });
+
+//   const msg = {
+//     from: 'scalpelrentorbuy@outlook.com', // sender address
+//     to: `${email}`, // list of receivers
+//     subject: 'Your order is confirmed!', // Subject line
+//     text: `Your order is confirmed! Your oder number is: ${ordernumber}. Shipping Address: ${shippingaddress}. Estimated ship date: ${shipdate}`, // plain text body
+//   };
+//   // send mail with defined transport object
+//   await transporter.sendMail(msg);
+
+//   console.log('Message sent: %s', info.messageId);
+//   // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
+
+//   // Preview only available when sending through an Ethereal account
+//   console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+//   // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
+
+//   res.send('Email Sent!');
+// });
+
+
+
+router.post('/orderconfirmation', (req, res) => {
+  const email = req.body.email
+  const ordernumber = req.body.order_number
+  const shippingaddress = req.body.ship_to_addr_id
+  const shipdate = req.body.ship_date
+  
+  let transporter = nodemailer.createTransport({
+      service: 'hotmail',
+      auth: {
+          user: "scalpelrentorbuy@outlook.com",
+          pass: "scalpelisthebest!"
+      
+      }
+  })
+
+  const mailOptions = {
+      from: 'scalpelrentorbuy@outlook.com',
+      to: email,
+      subject: 'Portfolio',
+      text: "Your order is confirmed! Your oder number is: " + ordernumber + ". Shipping Address: " + shippingaddress + ". Estimated ship date: " + shipdate + "."
+  }
+  console.log(email)
+  transporter.sendMail(mailOptions, (err, result) => {
+      if (err){
+      console.log(err)
+          res.json('Opps error occured')
+      } else{
+          res.json('Email sent!');
+      }
+  })
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
