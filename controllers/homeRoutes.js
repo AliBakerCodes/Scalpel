@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const nodemailer = require('nodemailer');
+const moment = require('moment');
 const { redirect } = require('statuses');
 const {
   User,
@@ -271,6 +272,21 @@ router.post('/cart', withAuth, async (req, res) => {
   }
 });
 
+router.post('/cart/days/:id', withAuth, async (req, res) => {
+  try {
+    const cartData = await Cart.update(req.body, {
+      where: {
+        id: req.params.id,
+      },
+    });
+
+    res.status(200).json(cartData);
+  } catch (err) {
+    console.log(err)
+    res.status(400).json(err);
+  }
+});
+
 router.delete('/cart/:id', withAuth, async (req, res) => {
   // delete one product by its `id` value
   try {
@@ -413,6 +429,7 @@ router.get('/checkout', withAuth, async (req, res) => {
     let total = subtotal + tax + shipping;
     console.log(total);
     res.render('checkout', {
+      shipping,
       subtotal,
       tax,
       total,
@@ -450,14 +467,40 @@ router.get('/confirmation', withAuth, async (req, res) => {
       },
     });
 
-    const shipAddress = shipAddressData.map((item) =>
-      item.get({ plain: true })
-    );
-    const billAddress = billAddressData.map((item) =>
-      item.get({ plain: true })
-    );
-    console.log(shipAddress);
-    res.render('confirmation', {
+//     const shipAddress = shipAddressData.map((item) => item.get({ plain: true }));
+//     const billAddress = billAddressData.map((item) => item.get({ plain: true }));
+
+//     let transporter = nodemailer.createTransport({
+//       service: 'hotmail',
+//       auth: {
+//         user: 'scalpelrentorbuy@outlook.com',
+//         pass: 'scalpelisthebest!',
+//       },
+//     });
+    // const mailOptions = {
+    //   from: 'scalpelrentorbuy@outlook.com',
+    //   to: 'alibakerconsulting@gmail.com',
+    //   subject: 'Your order is confirmed!',
+    //   text:
+    //     'Thank you for your purchase! Scalpel works day in and day out to get you highly sought-after items! Please feel free to leave a review on the items you have purchased or rented after you have tried them out! Your order number is: ' +
+    //     orderHeader[0].id +
+    //     '. Shipping Address: ' +
+    //     shipAddress[0].addr1 + ' ' + shipAddress[0].city + ',' + shipAddress[0].state + ' ' + shipAddress[0].zip + '. Estimated ship date: ' +
+    //     moment().format('MM/DD/YYYY') +
+    //     '.',
+    // };
+//     console.log(mailOptions);
+//     transporter.sendMail(mailOptions, (err, result) => {
+//       if (err) {
+//         console.log(err);
+//         res.json('Opps error occured');
+//       } else {
+//         res.json('Email sent!');
+//       }
+//     })
+
+//     console.log(shipAddress)
+  res.render('confirmation', {
       orderHeader: orderHeader[0],
       billAddress,
       shipAddress,

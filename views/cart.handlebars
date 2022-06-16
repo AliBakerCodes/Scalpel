@@ -12,9 +12,12 @@
             <div class="col-md-3 align-self-center" >
                 <a href="/item/{{cart.item.id}}" class="text-decoration-none text-color-black"><small>{{cart.item.name}}</small></a>
             </div>
-            <div class="col-md-2 align-self-center">
-                <p>${{cart.item.rental_price}}.00/day</p>
-            </div> 
+            <div class="col-md-1 align-self-center">
+                <h5>${{cart.item.rental_price}}/day</h5>
+            </div>
+            <div class="col-md-1 align-self-center">
+               Days: <input type="number" class="form-control rental-days" data-cart-id="{{cart.id}}" value="{{cart.rental_days}}" />
+            </div>
             <div class="col-md-2 align-self-center">
                 <p>Rental</p>
             </div>
@@ -26,7 +29,7 @@
                 <a href="/item/{{cart.item.id}}" class="text-decoration-none text-color-black"><small>{{cart.item.name}}</small></a>
             </div>
             <div class="col-md-2 align-self-center">
-                <p>${{cart.item.buy_price}}.00</p>
+                <h5>${{cart.item.buy_price}}.00</h5>
             </div> 
             <div class="col-md-2 align-self-center">
                 <p>Buy</p>
