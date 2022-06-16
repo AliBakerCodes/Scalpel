@@ -1,23 +1,30 @@
-const deleteCartItem = async (event) => {
-  event.preventDefault();
-  
-    const id = $('.delete-btn').attr('item-id');
+const delButtonHandler = async (event) => {
+  if (event.target.hasAttribute('data-cart-id')) {
+    const id = event.target.getAttribute('data-cart-id');
     console.log(id)
     const response = await fetch(`/cart/${id}`, {
       method: 'DELETE',
-      body:JSON.stringify({id}),
-      headers: { 'Content-Type': 'application/json' },
     });
 
     if (response.ok) {
-
-      window.location.reload();
+      document.location.replace('/cart');
     } else {
-      alert('Failed to delete cart item');
+      alert('Failed to cart item');
     }
-  
+  }
 };
 
+const checkoutHandler = async (event) => {
+  document.location.replace('/checkout');
+}
 document
-.querySelector('.cart-item')
-.addEventListener('submit', deleteCartItem)
+  .querySelector('#checkout')
+  .addEventListener('click', checkoutHandler);
+
+const deleteButton= document.querySelectorAll('.delete-btn')
+console.log(deleteButton)
+if(deleteButton){
+  deleteButton.forEach(button => {
+    button.addEventListener('click', delButtonHandler);
+  })
+}

@@ -291,11 +291,11 @@ router.post('/cart', withAuth, async(req,res) =>{
 });
 
 
-router.delete('/cart/:id', async(req, res) => {
+router.delete('/cart/:id', withAuth, async(req, res) => {
   // delete one product by its `id` value
   try {
     const cartData = await Cart.destroy({
-      where: { item_id: req.body.id }
+      where: { id: req.params.id }
     });
     
     res.status(200).json(cartData);

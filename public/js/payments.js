@@ -43,9 +43,12 @@ document
   .querySelector('#addPaymentMethod')
   .addEventListener('click', newPaymentHandler);
 
-const deleteButton= document.querySelector('.deleteCard')
-if(deleteButton){
-document
-  .querySelector('.deleteCard')
-  .addEventListener('click', delButtonHandler);
-}
+
+  const deleteButton= document.querySelectorAll('.deleteCard')
+  console.log(deleteButton)
+  if(deleteButton){
+    deleteButton.forEach(button => {
+      button.addEventListener('click', delButtonHandler);
+    })
+  };
+

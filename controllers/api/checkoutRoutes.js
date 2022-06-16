@@ -54,6 +54,7 @@ router.post('/', withAuth, async (req, res) => {
       user_id: req.session.user_id,
       ship_date: moment().format('MM/DD/YYYY'),
       status: 'SHIPPED',
+      subtotal: subtotal,
       total: total,
       shipping: shipping,
       tax: tax
@@ -90,7 +91,7 @@ router.post('/', withAuth, async (req, res) => {
     };
 
     res.status(200);
-    res.redirect(`/confirmation${orderHeaderData.id}`)
+    res.redirect(`/confirmation/${orderHeaderData.id}`)
   } catch (err) {
     console.log(err);
     res.status(400).json(err);

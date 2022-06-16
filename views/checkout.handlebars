@@ -25,7 +25,7 @@
             </div>
             <div class="col-md-1 align-self-center">
                 <div class="col-sm-100">
-                    <button type="click" checkout-id ={{id}} class="btn">❌</button>
+                    <button type="click" checkout-id ={{id}} class="btn delete-btn">❌</button>
                 </div>
             </div>
         </div>
@@ -63,13 +63,13 @@
                                     >
                                 </div>
                                 <div class="d-flex justify-content-between flex-column ms-3">
-                                    <input class="form-check-input payment-radio" type="radio" name="payment-radio" data-payment-id="{{payment.id}}">
+                                    <input class="form-check-input payment-radio" type="radio" name="payment-radio" value="{{payment.id}}">
                                 </div>
                             </div>
                         </div>
                             {{/each}}
                            <div class="d-flex justify-content-between flex-column ms-3">
-                                <a href="/proflie/payments">Manage Payment Methods</a>   
+                                <a href="/profile/payments">Manage Payment Methods</a>   
                             </div>
                         </div>
                     </div>
@@ -91,7 +91,7 @@
                                 <span id="addressState">{{address.state}}</span>
                                 </p>
                                 <div class="d-flex justify-content-between flex-column ms-3">
-                                    <input class="form-check-input ship-address-radio" type="radio" name="ship-address-radio" data-ship-id="{{address.id}}">
+                                    <input class="form-check-input ship-address-radio" type="radio" name="ship-address-radio" value="{{address.id}}">
                                 </div>
                             </div>
                         </div>
@@ -107,7 +107,7 @@
                             <div class="card-body">
                                 <p>Same as Billing</p>
                                 <div class="d-flex justify-content-between flex-column ms-3">
-                                    <input class="form-check-input bill-address-radio" type="radio" name="bill-address-radio" data-bill-id="0">
+                                    <input class="form-check-input bill-address-radio" type="radio" name="bill-address-radio" value="0">
                                 </div>
                             </div>
                     </div>
@@ -124,7 +124,7 @@
                                 <span id="addressState">{{address.state}}</span>
                                 </p>
                                 <div class="d-flex justify-content-between flex-column ms-3">
-                                    <input class="form-check-input bill-address-radio" type="radio" name="bill-address-radio" data-bill-id="{{address.id}}">
+                                    <input class="form-check-input bill-address-radio" type="radio" name="bill-address-radio" value="{{address.id}}">
                                 </div>
                             </div>
                         </div>
@@ -133,7 +133,7 @@
                     <strong>Please Add a Billing Address</strong>
                     {{/if}}
                     <div class="d-flex justify-content-between flex-column ms-3">
-                        <a href="/proflie/addresses">Manage Addresses</a>   
+                        <a href="/profile/addresses">Manage Addresses</a>   
                     </div>
                 </div>
             </div>
