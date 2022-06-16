@@ -11,11 +11,10 @@ const {
   Payment,
   Rental,
   Cart,
-  Review
+  Review,
 } = require('../models');
 const withAuth = require('../utils/auth');
-const Op=require('sequelize').Op;
-
+const Op = require('sequelize').Op;
 
 router.get('/', async (req, res) => {
   try {
@@ -57,7 +56,6 @@ router.get('/', async (req, res) => {
     for (let i = 0; i < 8; i++) {
       items[i] = tempItems[Math.floor(Math.random() * tempItems.length)];
     }
-   
 
     res.render('homepage', {
       items,
@@ -79,16 +77,16 @@ router.get('/item/:id', async (req, res) => {
         },
         {
           model: Review,
-          include:[{model: User}]
-        }
+          include: [{ model: User }],
+        },
       ],
     });
 
     const item = itemData.get({ plain: true });
-    
+
     const reviews = item.reviews;
     const allCategoryData = await Category.findAll({
-      include:{model:Item}
+      include: { model: Item },
     });
 
     const categories = allCategoryData.map((category) =>
@@ -102,7 +100,7 @@ router.get('/item/:id', async (req, res) => {
         },
       ],
     });
-   
+
     const categorySelected = categoryData.get({ plain: true });
     const categoryItems = categorySelected.items;
 
@@ -110,7 +108,7 @@ router.get('/item/:id', async (req, res) => {
     for (let i = 0; i < 8; i++) {
       categoryItem.push(categoryItems[i]);
     }
-    
+
     res.render('item-detail', {
       item,
       categories,
@@ -127,7 +125,7 @@ router.get('/item/:id', async (req, res) => {
 router.get('/category/:id', async (req, res) => {
   try {
     const allCategoryData = await Category.findAll({
-      include:{model:Item}
+      include: { model: Item },
     });
 
     const categories = allCategoryData.map((category) =>
@@ -145,7 +143,6 @@ router.get('/category/:id', async (req, res) => {
 
     const items = categorySelected.items;
 
-  
     res.render('category', {
       categories,
       categorySelected,
@@ -176,9 +173,7 @@ router.get('/item/:id/review', async (req, res) => {
     });
 
     const item = itemData.get({ plain: true });
-    
 
-   
     res.render('review', {
       item,
       logged_in: req.session.logged_in,
@@ -192,166 +187,148 @@ router.post('/item/:id/review', async (req, res) => {
   try {
     const reviewData = await Review.create(req.body);
     req.session.save(() => {
-     
       res.status(200).json(reviewData);
     });
     const reviewItems = await Review.findAll({
       attributes: {
-        include: [
-          [sequelize.fn('AVG', sequelize.col('rating')), 'n_rating']
-        ]
+        include: [[sequelize.fn('AVG', sequelize.col('rating')), 'n_rating']],
       },
       group: 'item_id',
-        raw : true, 
-        nest : true
-      });
-    
-        console.log(reviewItems);
-        for(let i=0; i<reviewItems.length; i++){
-    
-          console.log(reviewItems[i].item_id, reviewItems[i].n_rating)
-          await Item.update(
-          {
-            rating: reviewItems[i].n_rating
+      raw: true,
+      nest: true,
+    });
+
+    console.log(reviewItems);
+    for (let i = 0; i < reviewItems.length; i++) {
+      console.log(reviewItems[i].item_id, reviewItems[i].n_rating);
+      await Item.update(
+        {
+          rating: reviewItems[i].n_rating,
+        },
+        {
+          where: {
+            id: reviewItems[i].item_id,
           },
-          {
-            where: {
-              id: reviewItems[i].item_id
-            }
-        });
-      };
+        }
+      );
+    }
   } catch (err) {
     res.status(400).json(err);
   }
 });
 
-
 router.get('/search', async (req, res) => {
   try {
-    const {term} = req.query;
+    const { term } = req.query;
     const itemData = await Item.findAll({
-      where:{name:{[Op.like]:'%'+term+'%'}}
+      where: { name: { [Op.like]: '%' + term + '%' } },
     });
-   
-    const items = itemData.map((item) =>
-      item.get({ plain: true })
-    );
-  
+
+    const items = itemData.map((item) => item.get({ plain: true }));
+
     const allCategoryData = await Category.findAll({
-      include:{model:Item}
+      include: { model: Item },
     });
 
     const categories = allCategoryData.map((category) =>
-      category.get({ plain: true }));
+      category.get({ plain: true })
+    );
 
-
-    if(items.length===0) { 
-      const errorMessage='No result found. Try again.';
-      res.render('search',{
+    if (items.length === 0) {
+      const errorMessage = 'No result found. Try again.';
+      res.render('search', {
         errorMessage,
         categories,
         term,
-        logged_in:req.session.logged_in
+        logged_in: req.session.logged_in,
       });
       return;
-      
-    } else{
-    
-
-    res.render('search', {
-      
-      items,
-      term,
-      categories,
-      logged_in: req.session.logged_in,
-    });
-  }
-  }
-   catch (err) {
+    } else {
+      res.render('search', {
+        items,
+        term,
+        categories,
+        logged_in: req.session.logged_in,
+      });
+    }
+  } catch (err) {
     res.status(400).json(err);
   }
 });
 
-router.post('/cart', withAuth, async(req,res) =>{
-  try{ 
-  
-   const cartData= await Cart.create ({
-    item_id: req.body.item_id,
-    qty: req.body.qty,
-    user_id:req.session.user_id,
-    is_rental:req.body.is_rental,
-    is_active: true
-    });  
+router.post('/cart', withAuth, async (req, res) => {
+  try {
+    const cartData = await Cart.create({
+      item_id: req.body.item_id,
+      qty: req.body.qty,
+      user_id: req.session.user_id,
+      is_rental: req.body.is_rental,
+      is_active: true,
+    });
 
-    res.status(200).json(cartData)
-    } catch(err){
-       res.status(400).json(err)
-      }
-
+    res.status(200).json(cartData);
+  } catch (err) {
+    res.status(400).json(err);
+  }
 });
 
-
-router.delete('/cart/:id', withAuth, async(req, res) => {
+router.delete('/cart/:id', withAuth, async (req, res) => {
   // delete one product by its `id` value
   try {
     const cartData = await Cart.destroy({
-      where: { id: req.params.id }
+      where: { id: req.params.id },
     });
-    
+
     res.status(200).json(cartData);
-    
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
 });
 
-
-
 router.get('/cart', withAuth, async (req, res) => {
-  try{
+  try {
     const cartData = await Cart.findAll({
-      where:{user_id: req.session.user_id},
+      where: { user_id: req.session.user_id },
       include: [
         {
           model: User,
           attributes: { exclude: ['password'] },
         },
         {
-          model: Item
-        }
-
-        ],
+          model: Item,
+        },
+      ],
     });
-    
-    const cart = cartData.map((cart) =>
-      cart.get({ plain: true })
-    );
-    console.log(cart)
+
+    const cart = cartData.map((cart) => cart.get({ plain: true }));
+    console.log(cart);
 
     const allCategoryData = await Category.findAll({
-      include:{model:Item}
+      include: { model: Item },
     });
 
     const categories = allCategoryData.map((category) =>
       category.get({ plain: true })
-    );  
+    );
 
-    let subtotal=0;
-    for (let i=0; i<cart.length; i++){
-      if(cart[i].is_rental){
-        subtotal=subtotal+(cart[i].item.rental_price*cart[i].rental_days*cart[i].qty)
+    let subtotal = 0;
+    for (let i = 0; i < cart.length; i++) {
+      if (cart[i].is_rental) {
+        subtotal =
+          subtotal +
+          cart[i].item.rental_price * cart[i].rental_days * cart[i].qty;
       } else {
-        subtotal=subtotal+(cart[i].item.buy_price*cart[i].qty)
+        subtotal = subtotal + cart[i].item.buy_price * cart[i].qty;
       }
-    };
-    console.log(subtotal)
-    let tax=subtotal*.1
-    let shipping=10
-    let total=subtotal+tax+shipping
-    
-    console.log(total)
-    
+    }
+    console.log(subtotal);
+    let tax = subtotal * 0.1;
+    let shipping = 10;
+    let total = subtotal + tax + shipping;
+
+    console.log(total);
+
     res.render('cart', {
       shipping,
       subtotal,
@@ -364,57 +341,52 @@ router.get('/cart', withAuth, async (req, res) => {
   } catch (err) {
     res.status(400).json(err);
   }
-})
+});
 
 router.get('/checkout', withAuth, async (req, res) => {
-  try{
+  try {
     const cartData = await Cart.findAll({
-      where:{user_id: req.session.user_id},
+      where: { user_id: req.session.user_id },
       include: [
         {
           model: User,
           attributes: { exclude: ['password'] },
         },
         {
-          model: Item
-        }
-
-        ],
+          model: Item,
+        },
+      ],
     });
-    
-    const cart = cartData.map((cart) =>
-      cart.get({ plain: true })
-    );
+
+    const cart = cartData.map((cart) => cart.get({ plain: true }));
     // console.log(cart)
 
     const allCategoryData = await Category.findAll({
-      include:{model:Item}
+      include: { model: Item },
     });
     const paymentData = await Payment.findAll({
-      where: {user_id: req.session.user_id}
+      where: { user_id: req.session.user_id },
     });
 
-    const payments = paymentData.map((payment) =>
-      payment.get({ plain: true })
-    );  
+    const payments = paymentData.map((payment) => payment.get({ plain: true }));
 
     const categories = allCategoryData.map((category) =>
       category.get({ plain: true })
-    );  
-    
-    console.log(payments)
+    );
+
+    console.log(payments);
 
     const shipAddressData = await Address.findAll({
       where: {
         user_id: req.session.user_id,
-        type: 'SHIP'
+        type: 'SHIP',
       },
     });
 
     const billAddressData = await Address.findAll({
       where: {
         user_id: req.session.user_id,
-        type: 'BILL'
+        type: 'BILL',
       },
     });
 
@@ -425,19 +397,21 @@ router.get('/checkout', withAuth, async (req, res) => {
     const shipAddresses = shipAddressData.map((address) =>
       address.get({ plain: true })
     );
-   let subtotal=0;
-    for (let i=0; i<cart.length; i++){
-      if(cart[i].is_rental){
-        subtotal=subtotal+(cart[i].item.rental_price*cart[i].rental_days*cart[i].qty)
+    let subtotal = 0;
+    for (let i = 0; i < cart.length; i++) {
+      if (cart[i].is_rental) {
+        subtotal =
+          subtotal +
+          cart[i].item.rental_price * cart[i].rental_days * cart[i].qty;
       } else {
-        subtotal=subtotal+(cart[i].item.buy_price*cart[i].qty)
+        subtotal = subtotal + cart[i].item.buy_price * cart[i].qty;
       }
-    };
+    }
 
     console.log(subtotal);
-    let tax=subtotal*.1;
-    let shipping=10;
-    let total=subtotal+tax+shipping;
+    let tax = subtotal * 0.1;
+    let shipping = 10;
+    let total = subtotal + tax + shipping;
     console.log(total);
     res.render('checkout', {
       subtotal,
@@ -453,39 +427,43 @@ router.get('/checkout', withAuth, async (req, res) => {
   } catch (err) {
     res.status(400).json(err);
   }
-})
+});
 
 router.post('/orderconfirmation', (req, res) => {
-  const email = req.body.email
-  const ordernumber = req.body.order_number
-  const shippingaddress = req.body.ship_to_addr_id
-  const shipdate = req.body.ship_date
-  
+  const email = req.body.email;
+  const ordernumber = req.body.order_number;
+  const shippingaddress = req.body.ship_to_addr_id;
+  const shipdate = req.body.ship_date;
   let transporter = nodemailer.createTransport({
-      service: 'hotmail',
-      auth: {
-          user: "scalpelrentorbuy@outlook.com",
-          pass: "scalpelisthebest!"
-      
-      }
-  })
-
+    service: 'hotmail',
+    auth: {
+      user: 'scalpelrentorbuy@outlook.com',
+      pass: 'scalpelisthebest!',
+    },
+  });
   const mailOptions = {
-      from: 'scalpelrentorbuy@outlook.com',
-      to: email,
-      subject: 'Portfolio',
-      text: "Your order is confirmed! Your oder number is: " + ordernumber + ". Shipping Address: " + shippingaddress + ". Estimated ship date: " + shipdate + "."
-  }
-  console.log(email)
+    from: 'scalpelrentorbuy@outlook.com',
+    to: email,
+    subject: 'Your order is confirmed!',
+    text:
+      'Thank you for your purchase! Scalpel works day in and day out to get you highly sought-after items! Please feel free to leave a review on the items you have purchased or rented after you have tried them out! Your order number is: ' +
+      ordernumber +
+      '. Shipping Address: ' +
+      shippingaddress +
+      '. Estimated ship date: ' +
+      shipdate +
+      '.',
+  };
+  console.log(email);
   transporter.sendMail(mailOptions, (err, result) => {
-      if (err){
-      console.log(err)
-          res.json('Opps error occured')
-      } else{
-          res.json('Email sent!');
-      }
-  })
-})
+    if (err) {
+      console.log(err);
+      res.json('Opps error occured');
+    } else {
+      res.json('Email sent!');
+    }
+  });
+});
 
 // Use withAuth middleware to prevent access to route
 router.get('/profile', withAuth, async (req, res) => {
@@ -499,14 +477,13 @@ router.get('/profile', withAuth, async (req, res) => {
     const user = userData.get({ plain: true });
     const url = req.path;
 
-
     const allCategoryData = await Category.findAll({
-      include:{model:Item}
+      include: { model: Item },
     });
 
     const categories = allCategoryData.map((category) =>
-      category.get({ plain: true }));
-
+      category.get({ plain: true })
+    );
 
     res.render('profile', {
       ...user,
@@ -526,14 +503,15 @@ router.get('/login', async (req, res) => {
     return;
   }
   const allCategoryData = await Category.findAll({
-    include:{model:Item}
+    include: { model: Item },
   });
 
   const categories = allCategoryData.map((category) =>
-    category.get({ plain: true }));
+    category.get({ plain: true })
+  );
 
   res.render('login', {
-  categories
+    categories,
   });
 });
 
