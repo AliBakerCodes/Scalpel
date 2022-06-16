@@ -243,8 +243,12 @@ div:hover {
   .sidebar-body {
     display: none;
   }
-  .header-text {
-    
+ 
+}
+@media (max-width: 400px) {
+ .header-text {
+   display: flex;
     justify-content: start;
   }
+
 }

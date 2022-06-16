@@ -57,7 +57,6 @@ router.get('/', async (req, res) => {
     for (let i = 0; i < 8; i++) {
       items[i] = tempItems[Math.floor(Math.random() * tempItems.length)];
     }
-
     res.render('homepage', {
       items,
       categories,
@@ -447,7 +446,6 @@ router.get('/checkout', withAuth, async (req, res) => {
   }
 });
 
-
 router.get('/confirmation', withAuth, async (req, res) => {
   try{
     const orderHeaderData= await OrderHeader.findAll({
@@ -473,19 +471,18 @@ router.get('/confirmation', withAuth, async (req, res) => {
     }
 
     const rentals=temprentals2;
-    console.log(rentals)
+    //console.log(rentals)
     const shipAddressData = await Address.findAll({
       where: {
-        id: orderHeader[0].ship_to_addr_id
-      }
+        id: orderHeader[0].ship_to_addr_id,
+      },
     });
     const billAddressData = await Address.findAll({
       where: {
-        id: orderHeader[0].bill_to_addr_id
-      }
+        id: orderHeader[0].bill_to_addr_id,
+      },
     });
 
-  
     const shipAddress = shipAddressData.map((item) => item.get({ plain: true }));
     const billAddress = billAddressData.map((item) => item.get({ plain: true }));
 
@@ -527,17 +524,16 @@ router.get('/confirmation', withAuth, async (req, res) => {
       logged_in: req.session.logged_in,
     });
   } catch (err) {
-    console.log(err)
+    console.log(err);
     res.status(400).json(err);
   }
 });
 
-
 router.post('/orderconfirmation', withAuth, (req, res) => {
-  const email = req.body.email
-  const ordernumber = req.body.order_number
-  const shippingaddress = req.body.ship_to_addr_id
-  const shipdate = req.body.ship_date
+  const email = req.body.email;
+  const ordernumber = req.body.order_number;
+  const shippingaddress = req.body.ship_to_addr_id;
+  const shipdate = req.body.ship_date;
   let transporter = nodemailer.createTransport({
     service: 'hotmail',
     auth: {
